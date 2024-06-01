@@ -1,33 +1,6 @@
-* {
-  font-family: sans-serif;
-}
 nav {
   padding: 0 190px !important;
   height: 80px;
-}
-.boton {
-  background-color: #ffa24c;
-  color: white;
-  padding: 10px 15px;
-  cursor: pointer;
-  border-radius: 15px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: medium;
-  font-weight: 600;
-}
-.boton-outlined {
-  border: 1px solid #ffa24c;
-  color: #ffa24c;
-  padding: 10px 15px;
-  cursor: pointer;
-  border-radius: 15px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: medium;
-  font-weight: 500;
 }
 #carrito-list {
   margin: 0 20px;
@@ -65,7 +38,7 @@ nav {
   width: 100%;
   position: relative;
   background-position: center;
-  background-image: url(imgs/landing_background.png) !important;
+  background-image: url(../imgs/landing_background.png) !important;
   background-attachment: fixed;
   background-size: cover;
 }
@@ -110,14 +83,14 @@ nav {
 .svg-section {
   position: absolute;
   top: -230px;
-  left: 190px;
+  left: 390px;
   z-index: -1;
 }
 
 .svg-section2 {
   position: absolute;
   bottom: -250px;
-  right: 700px;
+  right: 900px;
   z-index: -1;
 }
 .section-title {

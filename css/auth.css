@@ -1,0 +1,59 @@
+#lapices1 {
+  position: absolute;
+  left: 0;
+  rotate: 180deg;
+  height: 100vh;
+}
+#lapices2 {
+  position: absolute;
+  right: 0;
+  height: 100vh;
+}
+#libro {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+}
+#data {
+  width: 1250px;
+  height: 768px;
+  margin: auto;
+  justify-content: space-evenly;
+  display: flex;
+  align-items: center;
+  z-index: 5;
+}
+#login-container {
+  display: flex;
+  align-items: center;
+  vertical-align: middle;
+  height: 80vh;
+}
+#texto-bienvenida {
+  width: 300px;
+  text-align: center;
+  margin: 20px 0;
+}
+#container-bienvenida {
+  text-align: center;
+}
+#cleanInput {
+  display: block;
+  width: 100%;
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+
+  font-size: 16px;
+  margin: 20px 0;
+  outline: none;
+}
+
+#cleanInput:focus {
+  border-color: #888; /* Change border color on focus for better feedback */
+}
+#container-logeo {
+  width: 300px;
+  text-align: center;
+  margin: 20px 0;
+}

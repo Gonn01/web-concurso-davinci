@@ -16,7 +16,7 @@
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="css/login.css" />
+    <link rel="stylesheet" href="css/auth.css" />
     <link rel="stylesheet" href="css/global.css" />
     <script src="script.js"></script>
   </head>
@@ -28,6 +28,19 @@
       <img id="libro" src="imgs/libro.png" alt="" />
       <div id="login-container">
         <section id="data">
+          <div id="container-logeo">
+            <h2>Iniciar sesión</h2>
+            <input
+              type="text"
+              id="cleanInput"
+              placeholder="Nombre de usuario"
+            />
+            <input type="text" id="cleanInput" placeholder="Email" />
+            <input type="text" id="cleanInput" placeholder="Contraseña" />
+            <div class="boton">Registrarse</div>
+            <div>o</div>
+            <div class="boton-outlined">Iniciar sesión</div>
+          </div>
           <div id="container-bienvenida">
             <h2>Bienvenido a Yenny</h2>
             <div id="texto-bienvenida">
@@ -38,18 +51,6 @@
             <div class="boton-outlined">
               <a href="index.html">Ir al inicio</a>
             </div>
-          </div>
-          <div id="container-logeo">
-            <h2>Iniciar sesión</h2>
-            <input
-              type="text"
-              id="cleanInput"
-              placeholder="Nombre de usuario"
-            />
-            <input type="text" id="cleanInput" placeholder="Contraseña" />
-            <div class="boton">Iniciar sesión</div>
-            <div>o</div>
-            <div class="boton-outlined">Registrarse</div>
           </div>
         </section>
       </div>
