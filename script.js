@@ -19,13 +19,123 @@ let itemsCarrito = [
   },
 ];
 
+let categorias = [
+  {
+    title: "Manga",
+    description: "Todos los títulos que necesitas",
+    img1: "imgs/manga1.png",
+    img2: "imgs/manga2.png",
+    img3: "imgs/manga3.png",
+  },
+  {
+    title: "Novelas juveniles",
+    description: "Todos los títulos de novela para adolescentes",
+    img1: "imgs/novelas_juveniles1.png",
+    img2: "imgs/novelas_juveniles2.png",
+    img3: "imgs/novelas_juveniles3.png",
+  },
+  {
+    title: "Bienestar personal",
+    description: "Todos los títulos para bienestar personal",
+    img1: "imgs/bienestar_personal1.png",
+    img2: "imgs/bienestar_personal2.png",
+    img3: "imgs/bienestar_personal3.png",
+  },
+];
+let categoriasLibros = {
+  manga: [
+    {
+      title: "Berserk",
+      img1: "imgs/manga1.png",
+      precio: 8000,
+    },
+    {
+      title: "Vinland Saga",
+      img1: "imgs/manga2.png",
+      precio: 9000,
+    },
+    {
+      title: "Vagabond",
+      img1: "imgs/manga3.png",
+      precio: 8500,
+    },
+  ],
+  novelasJuveniles: [
+    {
+      title: "La mentira perfecta",
+      img1: "imgs/novelas_juveniles1.png",
+      categoria: "Novelas Juveniles",
+      precio: 6000,
+    },
+    {
+      title: "Promesas crueles",
+      img1: "imgs/novelas_juveniles2.png",
+      categoria: "Novelas Juveniles",
+      precio: 5000,
+    },
+    {
+      title: "Destrozando este diario",
+      img1: "imgs/novelas_juveniles3.png",
+      categoria: "Novelas Juveniles",
+      precio: 3500,
+    },
+  ],
+  bienestarPersonal: [
+    {
+      title: "Hábitos para el éxito",
+      img1: "imgs/bienestar_personal1.png",
+      categoria: "Bienesrar personal",
+      precio: 4000,
+    },
+    {
+      title: "La riqueza que el dinero no puede comprar",
+      img1: "imgs/bienestar_personal2.png",
+      categoria: "Bienesrar personal",
+      precio: 5500,
+    },
+    {
+      title: "Desbloquea el proximo nivel",
+      img1: "imgs/bienestar_personal3.png",
+      categoria: "Bienestar personal",
+      precio: 6500,
+    },
+  ],
+};
+
 window.onload = function () {
   localStorage.removeItem("cartItems");
+  // Inicializa el carrito
   initilizeCart();
+  // Genera los items del carrito
+  //! Al cambiar esto de lugar funciona la pag de libros o la del carrito no se xq
   generateProductCards(categoriasLibros);
+  agregarItemsCarrito(itemsCarrito);
   renderCategories();
 };
 
+function agregarItemsCarrito(listaProductos) {
+  const listaCarrito = document.getElementById("lista-items-carrito");
+
+  const itemsHTML = listaProductos
+    .map((producto) => {
+      return `
+      <div class="items-carrito">
+        <img class="img-item-carrito" src="${producto.img1}" alt="" />
+        <div>${producto.nombre}, editorial: ${producto.editorial}</div>
+        <div class="cantidad-item-container">
+          <div class="cantidad-item">-</div>
+          <div class="cantidad-item">${producto.cantidad}</div>
+          <div class="cantidad-item">+</div>
+        </div>
+        <div class="precio-item">${producto.precio}</div>
+        <img class="tacho" src="imgs/tacho.png" alt="" />
+      </div>
+    `;
+    })
+    .join("");
+  console.log(itemsHTML);
+  listaCarrito.innerHTML = itemsHTML;
+}
 function initilizeCart() {
   const initialCart = JSON.stringify(itemsCarrito);
   localStorage.setItem("cartItems", initialCart);
@@ -41,57 +151,6 @@ function initilizeCart() {
 
   let itemEnCarrito = totalQuantity;
   carrito.textContent = itemEnCarrito;
-}
-function generateProductCards(categoriasLibros) {
-  const listContainer = document.querySelector(".list-categoria-container"); // Target the list container element
-
-  // Iterate over each category in categoriasLibros
-  Object.entries(categoriasLibros).forEach(([categoria, librosEnCategoria]) => {
-    // Create a category container element
-    const categoriaContainer = document.createElement("div");
-    categoriaContainer.classList.add("categoria-container");
-
-    // Add category title
-    const categoryTitle = document.createElement("h3");
-    categoryTitle.textContent = categoria;
-    categoriaContainer.appendChild(categoryTitle);
-
-    // Add result count
-    const categoriaResultados = document.createElement("p");
-    categoriaResultados.classList.add("categoria-resultados");
-    categoriaResultados.textContent = librosEnCategoria.length + " resultados";
-    categoriaContainer.appendChild(categoriaResultados);
-
-    // Generate card HTML for libros in the current category
-    const categoryCardsHTML = librosEnCategoria
-      .map(
-        (libro) => `
-      <div class="card" style="width: 18rem">
-        <img src="${libro.img1}" class="card-img-top" alt="${libro.title}" />
-        <div class="card-body">
-          <h5 class="card-title">${libro.title}</h5>
-          <p class="card-text">${libro.precio}</p>
-          <div class="btn btn-primary" onclick="sumarCarrito(${JSON.stringify(
-            libro
-          )})">Comprar</div>
-        </div>
-      </div>
-    `
-      )
-      .join("");
-    // Create a card list container
-    const categoriaCardList = document.createElement("div");
-    categoriaCardList.classList.add("categoria-card-list");
-
-    // Add category cards to the card list
-    categoriaCardList.innerHTML = categoryCardsHTML;
-
-    // Append card list to the category container
-    categoriaContainer.appendChild(categoriaCardList);
-
-    // Append category container to the list container
-    listContainer.appendChild(categoriaContainer);
-  });
 }
 function sumarCarrito(item) {
   const parsedItem = JSON.parse(item); // Parse the JSON string
@@ -198,86 +257,3 @@ function generateProductCards(categoriasLibros) {
     listContainer.appendChild(categoriaContainer);
   });
 }
-
-let categorias = [
-  {
-    title: "Manga",
-    description: "Todos los títulos que necesitas",
-    img1: "imgs/manga1.png",
-    img2: "imgs/manga2.png",
-    img3: "imgs/manga3.png",
-  },
-  {
-    title: "Novelas juveniles",
-    description: "Todos los títulos de novela para adolescentes",
-    img1: "imgs/novelas_juveniles1.png",
-    img2: "imgs/novelas_juveniles2.png",
-    img3: "imgs/novelas_juveniles3.png",
-  },
-  {
-    title: "Bienestar personal",
-    description: "Todos los títulos para bienestar personal",
-    img1: "imgs/bienestar_personal1.png",
-    img2: "imgs/bienestar_personal2.png",
-    img3: "imgs/bienestar_personal3.png",
-  },
-];
-let categoriasLibros = {
-  manga: [
-    {
-      title: "Berserk",
-      img1: "imgs/manga1.png",
-      precio: 8000,
-    },
-    {
-      title: "Vinland Saga",
-      img1: "imgs/manga2.png",
-      precio: 9000,
-    },
-    {
-      title: "Vagabond",
-      img1: "imgs/manga3.png",
-      precio: 8500,
-    },
-  ],
-  novelasJuveniles: [
-    {
-      title: "La mentira perfecta",
-      img1: "imgs/novelas_juveniles1.png",
-      categoria: "Novelas Juveniles",
-      precio: 6000,
-    },
-    {
-      title: "Promesas crueles",
-      img1: "imgs/novelas_juveniles2.png",
-      categoria: "Novelas Juveniles",
-      precio: 5000,
-    },
-    {
-      title: "Destrozando este diario",
-      img1: "imgs/novelas_juveniles3.png",
-      categoria: "Novelas Juveniles",
-      precio: 3500,
-    },
-  ],
-  bienestarPersonal: [
-    {
-      title: "Hábitos para el éxito",
-      img1: "imgs/bienestar_personal1.png",
-      categoria: "Bienesrar personal",
-      precio: 4000,
-    },
-    {
-      title: "La riqueza que el dinero no puede comprar",
-      img1: "imgs/bienestar_personal2.png",
-      categoria: "Bienesrar personal",
-      precio: 5500,
-    },
-    {
-      title: "Desbloquea el proximo nivel",
-      img1: "imgs/bienestar_personal3.png",
-      categoria: "Bienestar personal",
-      precio: 6500,
-    },
-  ],
-};

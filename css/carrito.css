@@ -15,6 +15,10 @@ body {
   display: flex;
   justify-content: space-evenly;
 }
+#lista-items-carrito {
+  width: 100%;
+}
+
 .items-carrito {
   display: flex;
   width: 100%;
