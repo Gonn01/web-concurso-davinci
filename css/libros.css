@@ -1,0 +1,15 @@
+.categoria-card-list {
+  display: flex;
+  margin: 20px;
+}
+.card-img-top {
+  width: 150px !important;
+  height: 200px !important;
+}
+.card {
+  width: 150px;
+  margin: 10px;
+}
+.categoria-wrapper {
+  display: flex;
+}

@@ -1,3 +1,6 @@
+* {
+  font-family: sans-serif;
+}
 .boton {
   background-color: #ffa24c;
   color: white;
@@ -21,11 +24,4 @@
   justify-content: center;
   font-size: medium;
   font-weight: 500;
-}
-* {
-  font-family: sans-serif;
-}
-a {
-  text-decoration: none;
-  color: #ffa24c;
 }

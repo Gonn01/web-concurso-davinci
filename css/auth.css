@@ -50,10 +50,37 @@
 }
 
 #cleanInput:focus {
-  border-color: #888; /* Change border color on focus for better feedback */
+  border-color: #888;
 }
 #container-logeo {
   width: 300px;
   text-align: center;
   margin: 20px 0;
+}
+#container-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+#menu-options {
+  display: flex;
+  width: 900px;
+  justify-content: space-around;
+  margin: 20px 0;
+}
+.menu-option {
+  display: flex;
+  flex-direction: column;
+}
+.menu-option-img {
+  width: 150px;
+  height: 150px;
+  margin: 10px auto;
+}
+#menu-title {
+  font-size: 30px;
+  font-weight: bold;
+  margin: 10px 0;
 }

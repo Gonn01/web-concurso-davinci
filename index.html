@@ -18,6 +18,7 @@
     />
     <link rel="stylesheet" href="css/index.css" />
     <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/header.css" />
     <script src="script.js"></script>
   </head>
 
@@ -50,23 +51,15 @@
                 <a class="nav-link" href="login.html">Inicio</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="registro.html">Libros</a>
+                <a class="nav-link" href="libros.html">Libros</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="menu_admin.html">Música</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Peliculas</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Tienda</a>
-              </li>
-              <div class="boton">Envios gratis</div>
+              <div class="boton" onclick="sumarCarrito()">Envios gratis</div>
               <li id="carrito-list">
-                <div class="carrito-container">
-                  <img src="imgs/carrito.png" alt="" />
-                  <div id="carrito-valor"></div>
-                </div>
+                <a href="carrito.html">
+                  <div class="carrito-container">
+                    <img src="imgs/carrito.png" alt="" />
+                    <div id="carrito-valor"></div></div
+                ></a>
               </li>
               <li>
                 <img src="imgs/user.png" alt="" />
@@ -155,7 +148,7 @@
           <div class="adoptar-mascotas-description">
             Por Maria Belén Marinone
           </div>
-          <div class="boton">Contactanos</div>
+          <a class="boton">Contactanos</a>
         </div>
       </section>
       <h2 class="section-title">LAS CATEGORIAS MAS DESTACADAS</h2>
