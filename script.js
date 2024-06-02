@@ -108,9 +108,9 @@ window.onload = function () {
   initilizeCart();
   // Genera los items del carrito
   //! Al cambiar esto de lugar funciona la pag de libros o la del carrito no se xq
-  generateProductCards(categoriasLibros);
   agregarItemsCarrito(itemsCarrito);
   renderCategories();
+  generateProductCards(categoriasLibros);
 };
 
 function agregarItemsCarrito(listaProductos) {
@@ -135,6 +135,48 @@ function agregarItemsCarrito(listaProductos) {
     .join("");
   console.log(itemsHTML);
   listaCarrito.innerHTML = itemsHTML;
+}
+function renderCategories() {
+  categorias.forEach((categoria, index) => {
+    const seccion = document.createElement("section");
+    const titulo = document.createElement("h2");
+    const descripcion = document.createElement("p");
+    const img1 = document.createElement("img");
+    const img2 = document.createElement("img");
+    const img3 = document.createElement("img");
+    seccion.classList.add(
+      index % 2 === 0 ? "categoria-destacada" : "categoria-destacada-reverse"
+    );
+
+    titulo.classList.add("categoria-destacada-title");
+    titulo.textContent = categoria.title;
+
+    descripcion.classList.add("categoria-destacada-description");
+    descripcion.textContent = categoria.description;
+
+    const boton = document.createElement("div");
+    boton.classList.add("boton-outlined");
+    boton.textContent = "Ver más";
+
+    img1.classList.add("categoria-destacada-item");
+    img1.src = categoria.img1;
+    img2.classList.add("categoria-destacada-item");
+    img2.src = categoria.img2;
+    img3.classList.add("categoria-destacada-item");
+    img3.src = categoria.img3;
+
+    const categoriaDescription = document.createElement("div");
+    categoriaDescription.classList.add("categoria-description");
+    categoriaDescription.appendChild(titulo);
+    categoriaDescription.appendChild(descripcion);
+    categoriaDescription.appendChild(boton);
+
+    seccion.appendChild(categoriaDescription);
+    seccion.appendChild(img1);
+    seccion.appendChild(img2);
+    seccion.appendChild(img3);
+    secciones.appendChild(seccion);
+  });
 }
 function initilizeCart() {
   const initialCart = JSON.stringify(itemsCarrito);

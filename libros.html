@@ -31,7 +31,7 @@
           id="header-img-logo"
         />
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Libreria Yenny</a>
+          <a class="navbar-brand" href="index.html">Libreria Yenny</a>
           <button
             class="navbar-toggler"
             type="button"
@@ -47,12 +47,11 @@
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ms-auto">
               <li class="nav-item">
-                <a class="nav-link" href="login.html">Inicio</a>
+                <a class="nav-link" href="index.html">Inicio</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="libros.html">Libros</a>
               </li>
-              <div class="boton" onclick="sumarCarrito()">Envios gratis</div>
               <li id="carrito-list">
                 <a href="carrito.html">
                   <div class="carrito-container">
@@ -61,7 +60,7 @@
                 ></a>
               </li>
               <li>
-                <img src="imgs/user.png" alt="" />
+                <a href="perfil.html"> <img src="imgs/user.png" alt="" /></a>
               </li>
             </ul>
           </div>
@@ -76,7 +75,29 @@
       <div class="list-categoria-container"></div>
     </main>
     <footer>
-      <!-- place footer here -->
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <path
+          fill="#dadada"
+          fill-opacity="1"
+          d="M0,128L80,122.7C160,117,320,107,480,117.3C640,128,800,160,960,149.3C1120,139,1280,85,1360,58.7L1440,32L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"
+        ></path>
+      </svg>
+      <div id="footer-info">
+        <div>
+          <div>© 2024 Yenny. Todos los derechos reservados</div>
+          <div>
+            <a href="">Terminos y condiciones</a> /
+            <a href="">Politica de privacidad</a>
+          </div>
+        </div>
+        <div>Patagones 2463 CABA GRUPO ILHSA S.A.</div>
+        <div>
+          <img class="footer-img" src="imgs/facebook_icon.png" alt="" />
+          <img class="footer-img" src="imgs/instagram_icon.png" alt="" />
+          <img class="footer-img" src="imgs/whatsapp_icon.png" alt="" />
+          <img class="footer-img" src="imgs/youtube_icon.png" alt="" />
+        </div>
+      </div>
     </footer>
     <!-- Bootstrap JavaScript Libraries -->
     <script

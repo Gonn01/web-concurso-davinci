@@ -37,21 +37,6 @@
 #container-bienvenida {
   text-align: center;
 }
-#cleanInput {
-  display: block;
-  width: 100%;
-  padding: 10px 15px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-
-  font-size: 16px;
-  margin: 20px 0;
-  outline: none;
-}
-
-#cleanInput:focus {
-  border-color: #888;
-}
 #container-logeo {
   width: 300px;
   text-align: center;

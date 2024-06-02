@@ -47,3 +47,55 @@ body {
   width: 30px;
   height: 30px;
 }
+#envio-section {
+  padding: 40px;
+  margin: 100px;
+  background-color: #ffffff;
+}
+#envio-title {
+  font-size: 30px;
+  font-weight: bold;
+  margin: 20px;
+}
+#envio-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 200px;
+}
+.envio-data {
+  font-size: 15px;
+  margin: 20px;
+  color: #8a8a8a;
+}
+.envio-data-clickable {
+  font-size: 15px;
+  color: #ffa24c;
+  cursor: pointer;
+  text-decoration: underline;
+}
+#opciones-envio {
+  display: flex;
+  justify-content: space-evenly;
+}
+.envio-opcion {
+  margin: 0 20px;
+  width: 125px;
+  height: 125px;
+  border: 1px solid #8a8a8a;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  font-size: 15px;
+  color: #8a8a8a;
+}
+.envio-opcion:hover {
+  border: 3px solid #ffa24c;
+}
+.envio-opcion-dinero {
+  font-size: 20px;
+  font-weight: bold;
+  color: #000;
+}

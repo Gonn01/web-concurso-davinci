@@ -1,0 +1,58 @@
+body {
+  background-color: #f0f0f0 !important;
+}
+#sections-containers {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 100px;
+}
+.perfil-container {
+  background-color: #fff;
+  display: flex;
+  padding: 20px;
+  border-radius: 15px;
+}
+.domicilio-campos {
+  display: flex;
+  margin-left: 20px;
+}
+.domicilio-campo {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.domicilio-campo:last-child {
+  margin-bottom: 0;
+}
+.domicilio-placeholder {
+  margin-right: 40px;
+}
+#facturas-container {
+  background-color: #fff;
+  width: 120%;
+  padding: 20px;
+  border-radius: 15px;
+}
+#facturas-data-container {
+  border: 1px solid #f0f0f0;
+  padding: 10px;
+  border-radius: 15px;
+  margin: 30px;
+}
+#facturas-section {
+  width: 30vw;
+}
+.facturas-data {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  align-items: center;
+}
+.f-span {
+  margin-left: 10px;
+}
+.perfil-title {
+  font-size: 30px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
