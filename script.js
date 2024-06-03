@@ -1,6 +1,9 @@
+const carritoKey = "itemsCarrito";
+/// Items del carrito
 let itemsCarrito = [];
 
-let categorias = [
+// Categorias destacadas que se muestran en la pagina principal
+let categoriasDestacadas = [
   {
     title: "Manga",
     description: "Todos los títulos que necesitas",
@@ -23,7 +26,9 @@ let categorias = [
     img3: "imgs/bienestar_personal3.png",
   },
 ];
-let categoriasLibros = {
+
+// Inventario de libros que se muestran en la tienda
+let inventarioLibros = {
   manga: [
     {
       title: "Berserk",
@@ -87,114 +92,139 @@ window.onload = function () {
   // Inicializa el carrito
   initilizeCart();
 
-  // Genera los items del carrito (if the element exists)
-  let asd = document.querySelector(".list-categoria-container");
-  if (asd) {
-    generateProductCards(categoriasLibros);
+  // Genera los items del carrito si el elemento existe
+  let existeInventario = document.querySelector(".list-categoria-container");
+  if (existeInventario) {
+    generarInventarioEnLaTienda(inventarioLibros);
   }
 
-  // Render categories (if the element exists)
-  let asd2 = document.getElementById("secciones");
-  if (asd2) {
-    let car = localStorage.getItem("cartItems");
-    renderCategories(car);
+  // Genera las categorias destacadas si el elemento existe
+  let existeCategoriasDestacadas = document.getElementById("secciones");
+  if (existeCategoriasDestacadas) {
+    let itemsCarrito = localStorage.getItem(carritoKey);
+    generarCategoriasDestacadas(itemsCarrito);
   }
 
-  let asd3 = document.getElementById("lista-items-carrito");
-  if (asd3) {
-    let car = localStorage.getItem("cartItems");
-    agregarItemsCarrito(car);
+  // Genera las categorias destacadas si el elemento existe
+  let existeCarrito = document.getElementById("lista-items-carrito");
+  if (existeCarrito) {
+    let itemsCarrito = localStorage.getItem(carritoKey);
+    agregarItemsCarrito(itemsCarrito);
   }
 };
-function initilizeCart() {
-  // Guardo los items de [itemsCarrito] en el local storage
-  // const initialCart = JSON.stringify(itemsCarrito);
-  // localStorage.setItem("cartItems", initialCart);
 
+function initilizeCart() {
   // Obtengo el valor del texto con id carrito-valor
   const carrito = document.getElementById("carrito-valor");
 
   // Traigo los items del local storage
-  const storedItems = localStorage.getItem("cartItems");
+  const itemsCarrito = localStorage.getItem(carritoKey);
 
   // Defino una variable para guardar la cantidad total de items
-  let totalQuantity = 0;
+  let valorCarrito = 0;
 
   // Si hay items guardados en el local storage
-  if (storedItems) {
+  if (itemsCarrito) {
     // Parseo los items guardados
-    const parsedItems = JSON.parse(storedItems);
+    const parsedItems = JSON.parse(itemsCarrito);
 
     // Calculo la cantidad total de items
-    totalQuantity = parsedItems.reduce((sum, item) => sum + item.cantidad, 0);
+    valorCarrito = parsedItems.reduce((sum, item) => sum + item.cantidad, 0);
   }
 
   // Actualizo el texto con la cantidad total de items
-  carrito.textContent = totalQuantity;
+  carrito.textContent = valorCarrito;
 }
-function sumarCarrito(item) {
+function sumarCarrito(itemStringifyed) {
   // Parseo el item a json
-  const parsedItem = JSON.parse(item);
-  let itemsCarritos = JSON.parse(localStorage.getItem("cartItems")) || [];
-  // Me fijo si hay un item con el mismo titulo en el carrito(tendria que ser la id)
-  const existingItem = itemsCarritos.find(
-    (cartItem) => cartItem.title === parsedItem.title
+  const item = JSON.parse(itemStringifyed);
+  // Traigo los items del local storage
+  let itemsCarrito = JSON.parse(localStorage.getItem(carritoKey)) || [];
+
+  // Me fijo si hay un item con el mismo titulo en el carrito
+  //! (tendria que ser la id)
+  const existeElItem = itemsCarrito.find(
+    (cartItem) => cartItem.title === item.title
   );
+
   // Si lo hay, aumento la cantidad
-  if (existingItem) {
-    existingItem.cantidad++;
+  if (existeElItem) {
+    existeElItem.cantidad++;
   } else {
     // Si no lo hay, agrego el item al carrito con cantidad 1
-    parsedItem.cantidad = 1;
-    itemsCarritos.push(parsedItem);
+    item.cantidad = 1;
+    itemsCarrito.push(item);
   }
   // Actualizo el local storage con los nuevos items del carrito
-  const newCart = JSON.stringify(itemsCarritos);
-  localStorage.setItem("cartItems", newCart);
+  const nuevoCarrito = JSON.stringify(itemsCarrito);
+  localStorage.setItem(carritoKey, nuevoCarrito);
 
   // Actualizo el valor del carrito
-  const totalQuantity = itemsCarritos.reduce(
+  const cantidadTotal = itemsCarrito.reduce(
     (sum, item) => sum + item.cantidad,
     0
   );
 
   // Tomo el valor del carrito y lo actualizo
   const carrito = document.getElementById("carrito-valor");
-  carrito.textContent = totalQuantity;
+  carrito.textContent = cantidadTotal;
 }
-function updateCarritoProduct(item, restar) {
-  const parsedItem = JSON.parse(item);
-  let itemsCarritos = JSON.parse(localStorage.getItem("cartItems")) || [];
-  const existingItem = itemsCarritos.find(
-    (cartItem) => cartItem.title === parsedItem.title
+function modificarProductoCarrito(itemStringifyed, restar) {
+  // Parseo el item a json
+  const item = JSON.parse(itemStringifyed);
+
+  // Traigo los items del local storage
+  let itemsCarrito = JSON.parse(localStorage.getItem(carritoKey)) || [];
+
+  // Me fijo si hay un item con el mismo titulo en el carrito
+  const existeElItem = itemsCarrito.find(
+    (cartItem) => cartItem.title === item.title
   );
-  if (existingItem) {
+
+  // Si lo hay
+  if (existeElItem) {
+    // Si se quiere restar y la cantidad es 1, elimino el item
     if (restar) {
-      existingItem.cantidad--;
-      if (existingItem.cantidad === 0) {
-        itemsCarritos = itemsCarritos.filter(
-          (cartItem) => cartItem.title !== parsedItem.title
+      existeElItem.cantidad--;
+      if (existeElItem.cantidad === 0) {
+        itemsCarrito = itemsCarrito.filter(
+          (cartItem) => cartItem.title !== item.title
         );
       }
+      // Si se quiere sumar, aumento la cantidad
     } else {
-      existingItem.cantidad++;
+      existeElItem.cantidad++;
     }
   }
-  const newCart = JSON.stringify(itemsCarritos);
-  localStorage.setItem("cartItems", newCart);
-  agregarItemsCarrito(newCart);
+
+  // Actualizo el local storage con los nuevos items del carrito
+  const nuevoCarrito = JSON.stringify(itemsCarrito);
+  localStorage.setItem(carritoKey, nuevoCarrito);
+
+  // Actualizo el valor del carrito
+  agregarItemsCarrito(nuevoCarrito);
+
+  // Actualizo el valor del carrito(header)
   initilizeCart();
 }
-function deleteFromCarrito(item) {
-  const parsedItem = JSON.parse(item);
-  let itemsCarritos = JSON.parse(localStorage.getItem("cartItems")) || [];
+function deleteFromCarrito(itemStringifyed) {
+  // Parseo el item a json
+  const item = JSON.parse(itemStringifyed);
+
+  // Traigo los items del local storage
+  let itemsCarritos = JSON.parse(localStorage.getItem(carritoKey)) || [];
   // Filtrar los elementos que no coincidan con el item a eliminar
+  // Osea elimino el item del carrito
   itemsCarritos = itemsCarritos.filter(
-    (cartItem) => cartItem.title !== parsedItem.title
+    (cartItem) => cartItem.title !== item.title
   );
-  const newCart = JSON.stringify(itemsCarritos);
-  localStorage.setItem("cartItems", newCart);
-  agregarItemsCarrito(newCart);
+
+  // Actualizo el local storage con los nuevos items del carrito
+  const nuevoCarrito = JSON.stringify(itemsCarritos);
+  localStorage.setItem(carritoKey, nuevoCarrito);
+
+  // Actualizo el valor del carrito
+  agregarItemsCarrito(nuevoCarrito);
 }
 
 function agregarItemsCarrito(listaProductos) {
@@ -226,7 +256,7 @@ function agregarItemsCarrito(listaProductos) {
     divCantidadMenos.classList.add("cantidad-item");
     divCantidadMenos.textContent = "-";
     divCantidadMenos.onclick = () =>
-      updateCarritoProduct(JSON.stringify(producto), true);
+      modificarProductoCarrito(JSON.stringify(producto), true);
 
     let divCantidad = document.createElement("div");
     divCantidad.classList.add("cantidad-item");
@@ -236,7 +266,7 @@ function agregarItemsCarrito(listaProductos) {
     divCantidadMas.classList.add("cantidad-item");
     divCantidadMas.textContent = "+";
     divCantidadMas.onclick = () =>
-      updateCarritoProduct(JSON.stringify(producto), false);
+      modificarProductoCarrito(JSON.stringify(producto), false);
 
     let precioProducto = document.createElement("div");
     precioProducto.classList.add("precio-item");
@@ -263,9 +293,9 @@ function agregarItemsCarrito(listaProductos) {
   });
 }
 
-function renderCategories() {
+function generarCategoriasDestacadas() {
   const secciones = document.getElementById("secciones");
-  categorias.forEach((categoria, index) => {
+  categoriasDestacadas.forEach((categoria, index) => {
     const seccion = document.createElement("section");
     const titulo = document.createElement("h2");
     const descripcion = document.createElement("p");
@@ -307,7 +337,7 @@ function renderCategories() {
   });
 }
 
-function generateProductCards(categoriasLibros) {
+function generarInventarioEnLaTienda(categoriasLibros) {
   const listContainer = document.querySelector(".list-categoria-container");
 
   // Iterate over each category in categoriasLibros
