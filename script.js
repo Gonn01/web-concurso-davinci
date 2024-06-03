@@ -106,15 +106,83 @@ window.onload = function () {
   localStorage.removeItem("cartItems");
   // Inicializa el carrito
   initilizeCart();
-  // Genera los items del carrito
-  //! Al cambiar esto de lugar funciona la pag de libros o la del carrito no se xq
-  agregarItemsCarrito(itemsCarrito);
-  renderCategories();
-  generateProductCards(categoriasLibros);
+
+  // Genera los items del carrito (if the element exists)
+  let asd = document.querySelector(".list-categoria-container");
+  if (asd) {
+    generateProductCards(categoriasLibros);
+  }
+
+  // Render categories (if the element exists)
+  let asd2 = document.getElementById("secciones");
+  if (asd2) {
+    renderCategories(itemsCarrito);
+  }
+
+  let asd3 = document.getElementById("lista-items-carrito");
+  if (asd3) {
+    agregarItemsCarrito(itemsCarrito);
+  }
 };
+function initilizeCart() {
+  // Guardo los items de [itemsCarrito] en el local storage
+  const initialCart = JSON.stringify(itemsCarrito);
+  localStorage.setItem("cartItems", initialCart);
+
+  // Obtengo el valor del texto con id carrito-valor
+  const carrito = document.getElementById("carrito-valor");
+
+  // Traigo los items del local storage
+  const storedItems = localStorage.getItem("cartItems");
+
+  // Defino una variable para guardar la cantidad total de items
+  let totalQuantity = 0;
+
+  // Si hay items guardados en el local storage
+  if (storedItems) {
+    // Parseo los items guardados
+    const parsedItems = JSON.parse(storedItems);
+
+    // Calculo la cantidad total de items
+    totalQuantity = parsedItems.reduce((sum, item) => sum + item.cantidad, 0);
+  }
+
+  // Actualizo el texto con la cantidad total de items
+  carrito.textContent = totalQuantity;
+}
+function sumarCarrito(item) {
+  // Parseo el item a json
+  const parsedItem = JSON.parse(item);
+
+  // Me fijo si hay un item con el mismo titulo en el carrito(tendria que ser la id)
+  const existingItem = itemsCarrito.find(
+    (cartItem) => cartItem.title === parsedItem.title
+  );
+  // Si lo hay, aumento la cantidad
+  if (existingItem) {
+    existingItem.cantidad++;
+  } else {
+    // Si no lo hay, agrego el item al carrito con cantidad 1
+    parsedItem.cantidad = 1;
+    itemsCarrito.push(parsedItem);
+  }
+  // Actualizo el local storage con los nuevos items del carrito
+  const newCart = JSON.stringify(itemsCarrito);
+  localStorage.setItem("cartItems", newCart);
+
+  // Actualizo el valor del carrito
+  const totalQuantity = itemsCarrito.reduce(
+    (sum, item) => sum + item.cantidad,
+    0
+  );
+
+  // Tomo el valor del carrito y lo actualizo
+  const carrito = document.getElementById("carrito-valor");
+  carrito.textContent = totalQuantity;
+}
 
 function agregarItemsCarrito(listaProductos) {
-  const listaCarrito = document.getElementById("lista-items-carrito");
+  let listaCarrito = document.getElementById("lista-items-carrito");
 
   const itemsHTML = listaProductos
     .map((producto) => {
@@ -133,10 +201,10 @@ function agregarItemsCarrito(listaProductos) {
     `;
     })
     .join("");
-  console.log(itemsHTML);
   listaCarrito.innerHTML = itemsHTML;
 }
 function renderCategories() {
+  const secciones = document.getElementById("secciones");
   categorias.forEach((categoria, index) => {
     const seccion = document.createElement("section");
     const titulo = document.createElement("h2");
@@ -177,51 +245,6 @@ function renderCategories() {
     seccion.appendChild(img3);
     secciones.appendChild(seccion);
   });
-}
-function initilizeCart() {
-  const initialCart = JSON.stringify(itemsCarrito);
-  localStorage.setItem("cartItems", initialCart);
-
-  const carrito = document.getElementById("carrito-valor");
-  const storedItems = localStorage.getItem("cartItems");
-
-  let totalQuantity = 0;
-  if (storedItems) {
-    const parsedItems = JSON.parse(storedItems);
-    totalQuantity = parsedItems.reduce((sum, item) => sum + item.cantidad, 0);
-  }
-
-  let itemEnCarrito = totalQuantity;
-  carrito.textContent = itemEnCarrito;
-}
-function sumarCarrito(item) {
-  const parsedItem = JSON.parse(item); // Parse the JSON string
-
-  // Check if item already exists in the cart
-  const existingItem = itemsCarrito.find(
-    (cartItem) => cartItem.title === parsedItem.title
-  );
-
-  if (existingItem) {
-    // Item already exists, increase quantity
-    existingItem.cantidad++;
-  } else {
-    // New item, add it with quantity 1
-    parsedItem.cantidad = 1; // Add the "cantidad" property with value 1
-    itemsCarrito.push(parsedItem);
-  }
-  console.log(itemsCarrito);
-  // Update local storage with the modified cart
-  const initialCart = JSON.stringify(itemsCarrito);
-  localStorage.setItem("cartItems", initialCart);
-
-  // Update total quantity and cart value display
-  const totalQuantity = itemsCarrito.reduce(
-    (sum, item) => sum + item.cantidad,
-    0
-  );
-  const carrito = document.getElementById("carrito-valor");
-  carrito.textContent = totalQuantity;
 }
 
 function generateProductCards(categoriasLibros) {
