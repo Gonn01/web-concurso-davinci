@@ -1,23 +1,4 @@
-let itemsCarrito = [
-  {
-    title: "Berserk1",
-    img1: "imgs/manga1.png",
-    precio: 8000,
-    cantidad: 1,
-  },
-  {
-    title: "Berserk2",
-    img1: "imgs/manga2.png",
-    precio: 8000,
-    cantidad: 1,
-  },
-  {
-    title: "Berserk3",
-    img1: "imgs/manga3.png",
-    precio: 8000,
-    cantidad: 1,
-  },
-];
+let itemsCarrito = [];
 
 let categorias = [
   {
@@ -103,7 +84,6 @@ let categoriasLibros = {
 };
 
 window.onload = function () {
-  localStorage.removeItem("cartItems");
   // Inicializa el carrito
   initilizeCart();
 
@@ -116,18 +96,20 @@ window.onload = function () {
   // Render categories (if the element exists)
   let asd2 = document.getElementById("secciones");
   if (asd2) {
-    renderCategories(itemsCarrito);
+    let car = localStorage.getItem("cartItems");
+    renderCategories(car);
   }
 
   let asd3 = document.getElementById("lista-items-carrito");
   if (asd3) {
-    agregarItemsCarrito(itemsCarrito);
+    let car = localStorage.getItem("cartItems");
+    agregarItemsCarrito(car);
   }
 };
 function initilizeCart() {
   // Guardo los items de [itemsCarrito] en el local storage
-  const initialCart = JSON.stringify(itemsCarrito);
-  localStorage.setItem("cartItems", initialCart);
+  // const initialCart = JSON.stringify(itemsCarrito);
+  // localStorage.setItem("cartItems", initialCart);
 
   // Obtengo el valor del texto con id carrito-valor
   const carrito = document.getElementById("carrito-valor");
@@ -153,9 +135,9 @@ function initilizeCart() {
 function sumarCarrito(item) {
   // Parseo el item a json
   const parsedItem = JSON.parse(item);
-
+  let itemsCarritos = JSON.parse(localStorage.getItem("cartItems")) || [];
   // Me fijo si hay un item con el mismo titulo en el carrito(tendria que ser la id)
-  const existingItem = itemsCarrito.find(
+  const existingItem = itemsCarritos.find(
     (cartItem) => cartItem.title === parsedItem.title
   );
   // Si lo hay, aumento la cantidad
@@ -164,14 +146,14 @@ function sumarCarrito(item) {
   } else {
     // Si no lo hay, agrego el item al carrito con cantidad 1
     parsedItem.cantidad = 1;
-    itemsCarrito.push(parsedItem);
+    itemsCarritos.push(parsedItem);
   }
   // Actualizo el local storage con los nuevos items del carrito
-  const newCart = JSON.stringify(itemsCarrito);
+  const newCart = JSON.stringify(itemsCarritos);
   localStorage.setItem("cartItems", newCart);
 
   // Actualizo el valor del carrito
-  const totalQuantity = itemsCarrito.reduce(
+  const totalQuantity = itemsCarritos.reduce(
     (sum, item) => sum + item.cantidad,
     0
   );
@@ -180,29 +162,107 @@ function sumarCarrito(item) {
   const carrito = document.getElementById("carrito-valor");
   carrito.textContent = totalQuantity;
 }
+function updateCarritoProduct(item, restar) {
+  const parsedItem = JSON.parse(item);
+  let itemsCarritos = JSON.parse(localStorage.getItem("cartItems")) || [];
+  const existingItem = itemsCarritos.find(
+    (cartItem) => cartItem.title === parsedItem.title
+  );
+  if (existingItem) {
+    if (restar) {
+      existingItem.cantidad--;
+      if (existingItem.cantidad === 0) {
+        itemsCarritos = itemsCarritos.filter(
+          (cartItem) => cartItem.title !== parsedItem.title
+        );
+      }
+    } else {
+      existingItem.cantidad++;
+    }
+  }
+  const newCart = JSON.stringify(itemsCarritos);
+  localStorage.setItem("cartItems", newCart);
+  agregarItemsCarrito(newCart);
+  initilizeCart();
+}
+function deleteFromCarrito(item) {
+  const parsedItem = JSON.parse(item);
+  let itemsCarritos = JSON.parse(localStorage.getItem("cartItems")) || [];
+  // Filtrar los elementos que no coincidan con el item a eliminar
+  itemsCarritos = itemsCarritos.filter(
+    (cartItem) => cartItem.title !== parsedItem.title
+  );
+  const newCart = JSON.stringify(itemsCarritos);
+  localStorage.setItem("cartItems", newCart);
+  agregarItemsCarrito(newCart);
+}
 
 function agregarItemsCarrito(listaProductos) {
+  let lista = JSON.parse(listaProductos);
   let listaCarrito = document.getElementById("lista-items-carrito");
 
-  const itemsHTML = listaProductos
-    .map((producto) => {
-      return `
-      <div class="items-carrito">
-        <img class="img-item-carrito" src="${producto.img1}" alt="" />
-        <div>${producto.nombre}, editorial: ${producto.editorial}</div>
-        <div class="cantidad-item-container">
-          <div class="cantidad-item">-</div>
-          <div class="cantidad-item">${producto.cantidad}</div>
-          <div class="cantidad-item">+</div>
-        </div>
-        <div class="precio-item">${producto.precio}</div>
-        <img class="tacho" src="imgs/tacho.png" alt="" />
-      </div>
-    `;
-    })
-    .join("");
-  listaCarrito.innerHTML = itemsHTML;
+  // Eliminar elementos previos del carrito
+  while (listaCarrito.firstChild) {
+    listaCarrito.removeChild(listaCarrito.firstChild);
+  }
+
+  lista.forEach((producto) => {
+    // Crear elementos del producto
+    let divItemCarrito = document.createElement("div");
+    divItemCarrito.classList.add("items-carrito");
+
+    let imgItemCarrito = document.createElement("img");
+    imgItemCarrito.classList.add("img-item-carrito");
+    imgItemCarrito.src = producto.img1;
+    imgItemCarrito.alt = "";
+
+    let nombreProducto = document.createElement("div");
+    nombreProducto.textContent = `${producto.nombre}, editorial: ${producto.editorial}`;
+
+    let divCantidadContainer = document.createElement("div");
+    divCantidadContainer.classList.add("cantidad-item-container");
+
+    let divCantidadMenos = document.createElement("div");
+    divCantidadMenos.classList.add("cantidad-item");
+    divCantidadMenos.textContent = "-";
+    divCantidadMenos.onclick = () =>
+      updateCarritoProduct(JSON.stringify(producto), true);
+
+    let divCantidad = document.createElement("div");
+    divCantidad.classList.add("cantidad-item");
+    divCantidad.textContent = producto.cantidad;
+
+    let divCantidadMas = document.createElement("div");
+    divCantidadMas.classList.add("cantidad-item");
+    divCantidadMas.textContent = "+";
+    divCantidadMas.onclick = () =>
+      updateCarritoProduct(JSON.stringify(producto), false);
+
+    let precioProducto = document.createElement("div");
+    precioProducto.classList.add("precio-item");
+    precioProducto.textContent = producto.precio;
+
+    let imgTacho = document.createElement("img");
+    imgTacho.classList.add("tacho");
+    imgTacho.src = "imgs/tacho.png";
+    imgTacho.alt = "";
+    imgTacho.onclick = () => deleteFromCarrito(JSON.stringify(producto));
+
+    // Agregar elementos al contenedor del carrito
+    divCantidadContainer.appendChild(divCantidadMenos);
+    divCantidadContainer.appendChild(divCantidad);
+    divCantidadContainer.appendChild(divCantidadMas);
+
+    divItemCarrito.appendChild(imgItemCarrito);
+    divItemCarrito.appendChild(nombreProducto);
+    divItemCarrito.appendChild(divCantidadContainer);
+    divItemCarrito.appendChild(precioProducto);
+    divItemCarrito.appendChild(imgTacho);
+
+    listaCarrito.appendChild(divItemCarrito);
+  });
 }
+
 function renderCategories() {
   const secciones = document.getElementById("secciones");
   categorias.forEach((categoria, index) => {
