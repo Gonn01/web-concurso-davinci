@@ -247,7 +247,7 @@ function agregarItemsCarrito(listaProductos) {
     imgItemCarrito.alt = "";
 
     let nombreProducto = document.createElement("div");
-    nombreProducto.textContent = `${producto.nombre}, editorial: ${producto.editorial}`;
+    nombreProducto.textContent = `${producto.title}`;
 
     let divCantidadContainer = document.createElement("div");
     divCantidadContainer.classList.add("cantidad-item-container");
@@ -270,8 +270,9 @@ function agregarItemsCarrito(listaProductos) {
 
     let precioProducto = document.createElement("div");
     precioProducto.classList.add("precio-item");
-    precioProducto.textContent = producto.precio;
-
+    precioProducto.textContent = formatearPrecio(
+      producto.precio * producto.cantidad
+    );
     let imgTacho = document.createElement("img");
     imgTacho.classList.add("tacho");
     imgTacho.src = "imgs/tacho.png";
@@ -388,7 +389,7 @@ function generarInventarioEnLaTienda(categoriasLibros) {
       // Create card price element
       const cardText = document.createElement("p");
       cardText.classList.add("card-text");
-      cardText.textContent = libro.precio;
+      cardText.textContent = formatearPrecio(libro.precio);
       cardBody.appendChild(cardText);
 
       // Create buy button element
@@ -411,4 +412,26 @@ function generarInventarioEnLaTienda(categoriasLibros) {
     // Append category container to the list container
     listContainer.appendChild(categoriaContainer);
   });
+}
+function formatearPrecio(precio) {
+  // Convertir el precio a número
+  const numero = parseFloat(precio);
+
+  // Validar si el precio es un número
+  if (isNaN(numero)) {
+    return "Precio inválido";
+  }
+
+  // Formatear el precio con separadores de miles y decimales
+  const opcionesFormato = {
+    style: "currency",
+    currency: "ARS", // Cambiar a la moneda que necesites
+    minimumFractionDigits: 0, // Ajustar el número de decimales
+    maximumFractionDigits: 2, // Ajustar el número de decimales
+  };
+
+  const formateador = new Intl.NumberFormat("es-AR", opcionesFormato);
+  const precioFormateado = formateador.format(numero);
+
+  return precioFormateado;
 }
