@@ -1,0 +1,17 @@
+.landing {
+  height: calc(100vh - 110px);
+  width: 100%;
+  position: relative;
+  background-position: center;
+  background-image: url(../../imgs/landing_background.png) !important;
+  background-attachment: fixed;
+  background-size: cover;
+}
+body {
+  overflow-x: hidden;
+}
+#waves {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+}

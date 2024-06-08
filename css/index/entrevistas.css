@@ -1,0 +1,35 @@
+#entrevistas-section {
+  margin: 100px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.entrevistas-img {
+  width: 350px;
+  height: 400px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 30px;
+}
+.entrevistas-text {
+  width: 500px;
+  font-family: "Domine", serif;
+  font-weight: 500;
+  text-align: center;
+}
+.entrevistas-title {
+  font-weight: 900;
+  font-size: 45px;
+  margin: auto;
+}
+
+.entrevistas-description {
+  font-size: 30px;
+  margin: auto;
+  padding: 20px 0;
+}
+.section-title {
+  margin: 100px 0;
+  text-align: center;
+}

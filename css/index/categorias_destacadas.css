@@ -1,0 +1,21 @@
+.categoria-destacada {
+  padding: 50px 190px;
+}
+.categoria-destacada-item {
+  width: 300px;
+  height: 400px;
+}
+.categoria-description {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 500;
+}
+.categoria-destacada-title {
+  font-size: 30px;
+  font-weight: 900;
+  margin: 20px 0;
+}
+.categoria-destacada-description {
+  font-size: 20px;
+  margin: 20px 0;
+}
