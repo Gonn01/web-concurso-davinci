@@ -1,13 +1,9 @@
-#metodos-de-pago {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  margin: 50px 190px;
-}
 .metodo-de-pago {
-  width: 300px;
   text-align: center;
 }
 .metodo-de-pago-img {
   padding: 10px 0;
+}
+.metodo-de-pago-img-wrapper {
+  height: 200px;
 }
