@@ -33,3 +33,16 @@
   margin: 100px 0;
   text-align: center;
 }
+
+@media screen and (max-width: 992px) {
+  #entrevistas-section {
+    display: flex;
+    flex-direction: column;
+  }
+  .entrevistas-title {
+    font-size: 30px;
+  }
+  .entrevistas-description {
+    font-size: 15px;
+  }
+}

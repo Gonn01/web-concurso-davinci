@@ -20,3 +20,9 @@ body {
   height: 30px;
   margin: 0 10px;
 }
+
+@media screen and (max-width: 992px) {
+  .footer-responsive {
+    top: -100px !important;
+  }
+}
