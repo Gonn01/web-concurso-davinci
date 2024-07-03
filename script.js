@@ -427,13 +427,14 @@ function generarCategoriasDestacadas() {
     row.classList.add(
       "row",
       "categoria-destacada",
+      "categoria-responsive",
       categoria.id % 2 === 0 ? "flex-row" : "flex-row-reverse"
     );
     row.style.backgroundColor = categoria.color;
 
     // Creo la columna del titulo, descripcion y boton de cada categoria
     const datos = document.createElement("div");
-    datos.classList.add("col", "my-auto");
+    datos.classList.add("col", "my-auto", "col-responsive");
 
     // Creo un wrapper que contiene el titulo, descripcion y boton
     const datosWrapper = document.createElement("div");
@@ -471,7 +472,7 @@ function generarCategoriasDestacadas() {
     categoria.imgs.forEach((element) => {
       // Creo la columna de la imagen
       const col = document.createElement("div");
-      col.classList.add("col");
+      col.classList.add("col", "col-responsive");
 
       // Creo la imagen
       const img = document.createElement("img");

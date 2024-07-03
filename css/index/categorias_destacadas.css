@@ -19,3 +19,12 @@
   font-size: 20px;
   margin: 20px 0;
 }
+@media screen and (max-width: 992px) {
+  .categoria-responsive {
+    padding: 0;
+  }
+  .col-responsive {
+    text-align: center;
+    margin: 20px 0;
+  }
+}

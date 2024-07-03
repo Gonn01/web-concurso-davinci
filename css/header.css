@@ -55,4 +55,11 @@ nav {
   #logo-nav {
     display: none;
   }
+  nav {
+    padding: 0 20px !important;
+  }
+  .header-custom {
+    display: flex;
+    flex-direction: row;
+  }
 }
