@@ -36,65 +36,77 @@ let categoriasDestacadas = [
 ];
 
 // Inventario de libros que se muestran en la tienda
-let inventarioLibros = {
-  manga: [
-    {
-      title: "Berserk",
-      img1: "imgs/manga1.png",
-      precio: 8000,
-    },
-    {
-      title: "Vinland Saga",
-      img1: "imgs/manga2.png",
-      precio: 9000,
-    },
-    {
-      title: "Vagabond",
-      img1: "imgs/manga3.png",
-      precio: 8500,
-    },
-  ],
-  novelasJuveniles: [
-    {
-      title: "La mentira perfecta",
-      img1: "imgs/novelas_juveniles1.png",
-      categoria: "Novelas Juveniles",
-      precio: 6000,
-    },
-    {
-      title: "Promesas crueles",
-      img1: "imgs/novelas_juveniles2.png",
-      categoria: "Novelas Juveniles",
-      precio: 5000,
-    },
-    {
-      title: "Destrozando este diario",
-      img1: "imgs/novelas_juveniles3.png",
-      categoria: "Novelas Juveniles",
-      precio: 3500,
-    },
-  ],
-  bienestarPersonal: [
-    {
-      title: "Hábitos para el éxito",
-      img1: "imgs/bienestar_personal1.png",
-      categoria: "Bienesrar personal",
-      precio: 4000,
-    },
-    {
-      title: "La riqueza que el dinero no puede comprar",
-      img1: "imgs/bienestar_personal2.png",
-      categoria: "Bienesrar personal",
-      precio: 5500,
-    },
-    {
-      title: "Desbloquea el proximo nivel",
-      img1: "imgs/bienestar_personal3.png",
-      categoria: "Bienestar personal",
-      precio: 6500,
-    },
-  ],
-};
+let inventarioLibros = [
+  {
+    id: 0,
+    title: "Manga",
+    libros: [
+      {
+        title: "Berserk",
+        img1: "imgs/manga1.png",
+        precio: 8000,
+      },
+      {
+        title: "Vinland Saga",
+        img1: "imgs/manga2.png",
+        precio: 9000,
+      },
+      {
+        title: "Vagabond",
+        img1: "imgs/manga3.png",
+        precio: 8500,
+      },
+    ],
+  },
+  {
+    id: 1,
+    title: "Novelas Juveniles",
+    libros: [
+      {
+        title: "La mentira perfecta",
+        img1: "imgs/novelas_juveniles1.png",
+        categoria: "Novelas Juveniles",
+        precio: 6000,
+      },
+      {
+        title: "Promesas crueles",
+        img1: "imgs/novelas_juveniles2.png",
+        categoria: "Novelas Juveniles",
+        precio: 5000,
+      },
+      {
+        title: "Destrozando este diario",
+        img1: "imgs/novelas_juveniles3.png",
+        categoria: "Novelas Juveniles",
+        precio: 3500,
+      },
+    ],
+  },
+  {
+    id: 2,
+    title: "Bienestar Personal",
+    libros: [
+      {
+        title: "Hábitos para el éxito",
+        img1: "imgs/bienestar_personal1.png",
+        categoria: "Bienesrar personal",
+        precio: 4000,
+      },
+      {
+        title: "La riqueza que el dinero no puede comprar",
+        img1: "imgs/bienestar_personal2.png",
+        categoria: "Bienesrar personal",
+        precio: 5500,
+      },
+      {
+        title: "Desbloquea el proximo nivel",
+        img1: "imgs/bienestar_personal3.png",
+        categoria: "Bienestar personal",
+        precio: 6500,
+      },
+    ],
+  },
+];
 
 window.onload = function () {
   // Inicializa el carrito
@@ -322,14 +334,15 @@ function generarInventarioEnLaTienda(categoriasLibros) {
   const listContainer = document.querySelector(".list-categoria-container");
 
   // Por cada categoria, genero los items en la tienda
-  Object.entries(categoriasLibros).forEach(([categoria, librosEnCategoria]) => {
+  categoriasLibros.forEach((categoria) => {
+    const librosEnCategoria = categoria["libros"];
     // Creo el contenedor de la categoria
     const categoriaContainer = document.createElement("div");
     categoriaContainer.classList.add("categoria-container");
 
     // Creo el titulo de la categoria, le agrego el contenido y lo agrego al contenedor de la categoria
     const categoryTitle = document.createElement("h3");
-    categoryTitle.textContent = categoria;
+    categoryTitle.textContent = categoria["title"];
     categoriaContainer.appendChild(categoryTitle);
 
     // Creo el contador de resultados, le agrego las claes y el contenido y lo agrego al contenedor de la categoria

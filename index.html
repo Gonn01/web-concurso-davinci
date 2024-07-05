@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="css/index/entrevistas.css" />
     <link rel="stylesheet" href="css/index/metodos_de_pago.css" />
     <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/footer.css" />
     <link rel="stylesheet" href="css/header.css" />
   </head>
 
@@ -66,14 +67,18 @@
                 >
               </li>
               <li id="carrito-list">
-                <a href="carrito.html">
+                <a class="nav-link" href="carrito.html">
+                  <span id="carrito-text">Carrito</span>
                   <div class="carrito-container">
                     <img src="imgs/carrito.png" alt="" />
                     <div id="carrito-valor"></div></div
                 ></a>
               </li>
               <li>
-                <a href="perfil.html"> <img src="imgs/user.png" alt="" /></a>
+                <a class="nav-link" href="perfil.html"
+                  ><span id="perfil-text">Perfil</span>
+                  <img id="perfil-img" src="imgs/user.png" alt=""
+                /></a>
               </li>
             </ul>
           </div>
@@ -184,12 +189,8 @@
         </div>
       </div>
     </main>
-    <div style="height: 200px"></div>
-    <footer style="position: relative">
-      <div
-        class="row footer-responsive"
-        style="position: absolute; top: 350px; z-index: 3; left: 0; right: 0"
-      >
+    <footer>
+      <div class="row footer-responsive">
         <div class="col">
           <div>
             <div class="text-center">
@@ -214,7 +215,7 @@
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 1440 320"
-        style="position: absolute"
+        class="footer-wave"
       >
         <path
           fill="#dadada"

@@ -25,4 +25,7 @@ body {
   .footer-responsive {
     top: -100px !important;
   }
+  #waves {
+    width: 500%;
+  }
 }

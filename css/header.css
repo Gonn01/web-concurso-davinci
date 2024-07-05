@@ -51,6 +51,15 @@ nav {
   color: #ffa24c !important;
   text-decoration: underline;
 }
+#carrito-text {
+  display: none;
+}
+#perfil-text {
+  display: none;
+}
+.navbar-toggler:focus {
+  box-shadow: none !important;
+}
 @media (max-width: 992px) {
   #logo-nav {
     display: none;
@@ -61,5 +70,24 @@ nav {
   .header-custom {
     display: flex;
     flex-direction: row;
+  }
+  .navbar-nav {
+    background-color: #ffffff;
+    padding: 20px;
+  }
+  #perfil-img {
+    display: none;
+  }
+  #perfil-text {
+    display: block;
+  }
+  #carrito-text {
+    display: block;
+  }
+  .carrito-container {
+    display: none;
+  }
+  #carrito-list {
+    margin: 0 0;
   }
 }
