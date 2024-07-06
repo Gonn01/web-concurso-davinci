@@ -129,7 +129,7 @@ window.onload = function () {
   let existeCarrito = document.getElementById("lista-items-carrito");
   if (existeCarrito) {
     let itemsCarrito = localStorage.getItem(carritoKey);
-    agregarItemsCarrito(itemsCarrito);
+    generarItemsCarrito(itemsCarrito);
   }
 };
 
@@ -222,7 +222,7 @@ function modificarProductoCarrito(itemStringifyed, restar) {
   localStorage.setItem(carritoKey, nuevoCarrito);
 
   // Actualizo el valor del carrito
-  agregarItemsCarrito(nuevoCarrito);
+  generarItemsCarrito(nuevoCarrito);
 
   // Actualizo el valor del carrito(header)
   initilizeCart();
@@ -244,10 +244,10 @@ function deleteFromCarrito(itemStringifyed) {
   localStorage.setItem(carritoKey, nuevoCarrito);
 
   // Actualizo el valor del carrito
-  agregarItemsCarrito(nuevoCarrito);
+  generarItemsCarrito(nuevoCarrito);
 }
 
-function agregarItemsCarrito(listaProductos) {
+function generarItemsCarrito(listaProductos) {
   // Parseo a json la lista de productos agregados al carrito
   let lista = JSON.parse(listaProductos);
 
@@ -262,19 +262,30 @@ function agregarItemsCarrito(listaProductos) {
   lista.forEach((producto) => {
     // Creo el contenedor del item del carrito
     let divItemCarrito = document.createElement("div");
-    divItemCarrito.classList.add("items-carrito");
+    divItemCarrito.classList.add("row", "p-3");
 
     // Creo la imagen del item del carrito
+    const imgCol = document.createElement("div");
+    imgCol.className = "col my-auto text-center";
+
     let imgItemCarrito = document.createElement("img");
     imgItemCarrito.classList.add("img-item-carrito");
     imgItemCarrito.src = producto.img1;
     imgItemCarrito.alt = "";
 
+    imgCol.appendChild(imgItemCarrito);
+
     // Creo el nombre del producto
+    const nombreCol = document.createElement("div");
+    nombreCol.classList.add("col", "my-auto", "text-center");
     let nombreProducto = document.createElement("div");
     nombreProducto.textContent = `${producto.title}`;
+    nombreCol.appendChild(nombreProducto);
 
     // Creo el contenedor de la cantidad del producto
+    const cantidadCol = document.createElement("div");
+    cantidadCol.classList.add("col", "my-auto", "text-center");
+
     let divCantidadContainer = document.createElement("div");
     divCantidadContainer.classList.add("cantidad-item-container");
 
@@ -296,32 +307,37 @@ function agregarItemsCarrito(listaProductos) {
     divCantidadMas.textContent = "+";
     divCantidadMas.onclick = () =>
       modificarProductoCarrito(JSON.stringify(producto), false);
-
+    cantidadCol.appendChild(divCantidadContainer);
     // Creo el precio del producto
+    const precioCol = document.createElement("div");
+    precioCol.classList.add("col", "my-auto", "text-center");
     let precioProducto = document.createElement("div");
     precioProducto.classList.add("precio-item");
     precioProducto.textContent = formatearPrecio(
       producto.precio * producto.cantidad
     );
+    precioCol.appendChild(precioProducto);
 
     // Creo el icono de tacho para eliminar el producto del carrito
+    const tachoCol = document.createElement("div");
+    tachoCol.classList.add("col", "my-auto", "text-center");
     let imgTacho = document.createElement("img");
     imgTacho.classList.add("tacho");
     imgTacho.src = "imgs/tacho.png";
     imgTacho.alt = "";
     imgTacho.onclick = () => deleteFromCarrito(JSON.stringify(producto));
-
+    tachoCol.appendChild(imgTacho);
     // Agregar elementos al contenedor de la cantidad
     divCantidadContainer.appendChild(divCantidadMenos);
     divCantidadContainer.appendChild(divCantidad);
     divCantidadContainer.appendChild(divCantidadMas);
 
     // Agregar elementos al contenedor del item del carrito
-    divItemCarrito.appendChild(imgItemCarrito);
-    divItemCarrito.appendChild(nombreProducto);
-    divItemCarrito.appendChild(divCantidadContainer);
-    divItemCarrito.appendChild(precioProducto);
-    divItemCarrito.appendChild(imgTacho);
+    divItemCarrito.appendChild(imgCol);
+    divItemCarrito.appendChild(nombreCol);
+    divItemCarrito.appendChild(cantidadCol);
+    divItemCarrito.appendChild(precioCol);
+    divItemCarrito.appendChild(tachoCol);
 
     // Agregar el item del carrito a la lista de items del carrito
     listaCarrito.appendChild(divItemCarrito);

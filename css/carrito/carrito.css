@@ -11,10 +11,6 @@ body {
   margin: 20px;
 }
 
-#items-carrito-container {
-  display: flex;
-  justify-content: space-evenly;
-}
 #lista-items-carrito {
   width: 100%;
 }
