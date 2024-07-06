@@ -7,9 +7,6 @@
   background-attachment: fixed;
   background-size: cover;
 }
-body {
-  overflow-x: hidden;
-}
 #waves {
   position: absolute;
   width: 100%;

@@ -5,7 +5,7 @@ nav {
 #carrito-list {
   margin: 0 20px;
 }
-.carrito-container {
+.carrito-container-header {
   position: relative;
   width: 100%;
   top: 8px;
@@ -84,7 +84,7 @@ nav {
   #carrito-text {
     display: block;
   }
-  .carrito-container {
+  .carrito-container-header {
     display: none;
   }
   #carrito-list {

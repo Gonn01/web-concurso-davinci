@@ -1,6 +1,9 @@
 * {
   font-family: sans-serif;
 }
+body {
+  overflow-x: hidden;
+}
 .boton {
   background-color: #ffa24c;
   color: white;

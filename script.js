@@ -262,7 +262,7 @@ function generarItemsCarrito(listaProductos) {
   lista.forEach((producto) => {
     // Creo el contenedor del item del carrito
     let divItemCarrito = document.createElement("div");
-    divItemCarrito.classList.add("row", "p-3");
+    divItemCarrito.classList.add("row", "p-3", "item-carrito");
 
     // Creo la imagen del item del carrito
     const imgCol = document.createElement("div");
