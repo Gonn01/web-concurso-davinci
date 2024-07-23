@@ -27,19 +27,19 @@ body {
 .domicilio-placeholder {
   margin-right: 40px;
 }
-#facturas-container {
+.facturas-container {
   background-color: #fff;
   width: 120%;
   padding: 20px;
   border-radius: 15px;
 }
-#facturas-data-container {
+.facturas-data-container {
   border: 1px solid #f0f0f0;
   padding: 10px;
   border-radius: 15px;
   margin: 30px;
 }
-#facturas-section {
+.facturas-section {
   width: 30vw;
 }
 .facturas-data {
