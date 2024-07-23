@@ -56,6 +56,36 @@ let inventarioLibros = [
         img1: "imgs/manga3.png",
         precio: 8500,
       },
+      {
+        title: "Berserk",
+        img1: "imgs/manga1.png",
+        precio: 8000,
+      },
+      {
+        title: "Vinland Saga",
+        img1: "imgs/manga2.png",
+        precio: 9000,
+      },
+      {
+        title: "Vagabond",
+        img1: "imgs/manga3.png",
+        precio: 8500,
+      },
+      {
+        title: "Berserk",
+        img1: "imgs/manga1.png",
+        precio: 8000,
+      },
+      {
+        title: "Vinland Saga",
+        img1: "imgs/manga2.png",
+        precio: 9000,
+      },
+      {
+        title: "Vagabond",
+        img1: "imgs/manga3.png",
+        precio: 8500,
+      },
     ],
   },
   {
@@ -262,11 +292,11 @@ function generarItemsCarrito(listaProductos) {
   lista.forEach((producto) => {
     // Creo el contenedor del item del carrito
     let divItemCarrito = document.createElement("div");
-    divItemCarrito.classList.add("row", "p-3", "item-carrito");
+    divItemCarrito.classList.add("row", "py-3", "item-carrito");
 
     // Creo la imagen del item del carrito
     const imgCol = document.createElement("div");
-    imgCol.className = "col my-auto text-center";
+    imgCol.className = "col my-auto text-center col-carrito";
 
     let imgItemCarrito = document.createElement("img");
     imgItemCarrito.classList.add("img-item-carrito");
@@ -277,14 +307,14 @@ function generarItemsCarrito(listaProductos) {
 
     // Creo el nombre del producto
     const nombreCol = document.createElement("div");
-    nombreCol.classList.add("col", "my-auto", "text-center");
+    nombreCol.classList.add("col", "my-auto", "text-center", "col-carrito");
     let nombreProducto = document.createElement("div");
     nombreProducto.textContent = `${producto.title}`;
     nombreCol.appendChild(nombreProducto);
 
     // Creo el contenedor de la cantidad del producto
     const cantidadCol = document.createElement("div");
-    cantidadCol.classList.add("col", "my-auto", "text-center");
+    cantidadCol.classList.add("col", "my-auto", "text-center", "col-carrito");
 
     let divCantidadContainer = document.createElement("div");
     divCantidadContainer.classList.add("cantidad-item-container");
@@ -310,7 +340,7 @@ function generarItemsCarrito(listaProductos) {
     cantidadCol.appendChild(divCantidadContainer);
     // Creo el precio del producto
     const precioCol = document.createElement("div");
-    precioCol.classList.add("col", "my-auto", "text-center");
+    precioCol.classList.add("col", "my-auto", "text-center", "col-carrito");
     let precioProducto = document.createElement("div");
     precioProducto.classList.add("precio-item");
     precioProducto.textContent = formatearPrecio(
@@ -320,7 +350,7 @@ function generarItemsCarrito(listaProductos) {
 
     // Creo el icono de tacho para eliminar el producto del carrito
     const tachoCol = document.createElement("div");
-    tachoCol.classList.add("col", "my-auto", "text-center");
+    tachoCol.classList.add("col", "my-auto", "text-center", "col-carrito");
     let imgTacho = document.createElement("img");
     imgTacho.classList.add("tacho");
     imgTacho.src = "imgs/tacho.png";
@@ -375,7 +405,7 @@ function generarInventarioEnLaTienda(categoriasLibros) {
     librosEnCategoria.forEach((libro) => {
       // Creo el contenedor del item
       const card = document.createElement("div");
-      card.classList.add("card");
+      card.classList.add("tarjeta");
 
       // Creo la imagen del item y le agrego las clases y el contenido y lo agrego a la card
       const image = document.createElement("img");
@@ -402,7 +432,7 @@ function generarInventarioEnLaTienda(categoriasLibros) {
 
       // Creo el boton de comprar y le agrego las clases y el contenido y lo agrego al cuerpo de la card
       const buyButton = document.createElement("button");
-      buyButton.classList.add("btn", "btn-primary");
+      buyButton.classList.add("btn", "btn-tienda");
       buyButton.textContent = "Comprar";
       buyButton.onclick = () => sumarCarrito(JSON.stringify(libro));
       cardBody.appendChild(buyButton);
