@@ -1,6 +1,25 @@
 const carritoKey = "itemsCarrito";
+const usuariosKey = "usuarios";
 /// Items del carrito
 let itemsCarrito = [];
+
+// Usuarios registrados en la pagina
+let usuariosRegistrados = [
+  {
+    id: 0,
+    nombre: "Juan",
+    apellido: "Perez",
+    email: "juan@gmail.com",
+    password: "1234",
+  },
+  {
+    id: 1,
+    nombre: "gon",
+    apellido: "Perez",
+    email: "gon@gmail.com",
+    password: "1234",
+  },
+];
 
 // Categorias destacadas que se muestran en la pagina principal
 let categoriasDestacadas = [
@@ -230,6 +249,12 @@ let inventarioLibros = [
 window.onload = function () {
   // Inicializa el carrito
   initilizeCart();
+
+  // Convertimos el array de objetos a un string JSON
+  const usuariosJSON = JSON.stringify(usuariosRegistrados);
+
+  // Guardamos el string JSON en el localStorage
+  localStorage.setItem(usuariosKey, usuariosJSON);
 
   // Genera los items del carrito si el elemento existe
   let existeInventario = document.querySelector(".list-categoria-container");
@@ -704,4 +729,69 @@ function generarCategoriasDestacadas() {
     // Agrego el container a la seccion
     secciones.appendChild(container);
   }
+}
+
+function iniciarSesion() {
+  // Obtengo los valores de los inputs
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+
+  // Recuperamos los datos del localStorage
+  const usuariosJSON = localStorage.getItem(usuariosKey);
+
+  // Convertimos el string JSON a un objeto JavaScript
+  const usuariossRegistrados = JSON.parse(usuariosJSON);
+
+  // Busco el usuario con el email y la contraseña ingresados
+  const usuario = usuariossRegistrados.find(
+    (user) => user.email === email && user.password === password
+  );
+
+  // Si no se encuentra el usuario, muestro un mensaje de error
+  if (!usuario) {
+    alert("Usuario o contraseña incorrectos");
+    return;
+  }
+
+  // Guardo el usuario en el local storage
+  localStorage.setItem("usuario", JSON.stringify(usuario));
+
+  // Redirijo al usuario a la pagina principal
+  window.location.href = "menu_admin.html";
+}
+
+function registrarUsuario() {
+  // Recuperamos los datos del localStorage
+  const usuariosJSON = localStorage.getItem(usuariosKey);
+
+  // Convertimos el string JSON a un objeto JavaScript
+  const usuariossRegistrados = JSON.parse(usuariosJSON);
+
+  // Obtengo los valores de los inputs
+  const nombre = document.getElementById("nombre-registro").value;
+  const apellido = document.getElementById("apellido-registro").value;
+  const email = document.getElementById("email-registro").value;
+  const password = document.getElementById("password-registro").value;
+
+  // Creo un nuevo usuario
+  const nuevoUsuario = {
+    id: usuariossRegistrados.length + 1,
+    nombre,
+    apellido,
+    email,
+    password,
+  };
+
+  // Agrego el nuevo usuario al array de usuarios registrados
+  usuariossRegistrados.push(nuevoUsuario);
+
+  // Convertimos el array de objetos a un string JSON
+  const usuariosJSONs = JSON.stringify(usuariossRegistrados);
+
+  // Guardamos el string JSON en el localStorage
+  localStorage.setItem(usuariosKey, usuariosJSONs);
+
+
+  // Redirijo al usuario a la pagina principal
+  window.location.href = "login.html";
 }
