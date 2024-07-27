@@ -57,34 +57,59 @@ let inventarioLibros = [
         precio: 8500,
       },
       {
-        title: "Berserk",
-        img1: "imgs/manga1.png",
+        title: "Blue lock 13",
+        img1: "imgs/blue_lock_1.webp",
         precio: 8000,
       },
       {
-        title: "Vinland Saga",
-        img1: "imgs/manga2.png",
+        title: "Dragon ball",
+        img1: "imgs/dragon_ball.webp",
         precio: 9000,
       },
       {
-        title: "Vagabond",
-        img1: "imgs/manga3.png",
+        title: "Tokyo Revengers 19",
+        img1: "imgs/tokyo_revengers_1.webp",
         precio: 8500,
       },
       {
-        title: "Berserk",
-        img1: "imgs/manga1.png",
+        title: "Tokyo Revengers 21",
+        img1: "imgs/tokyo_revengers_2.webp",
         precio: 8000,
       },
       {
-        title: "Vinland Saga",
-        img1: "imgs/manga2.png",
+        title: "Tokyo Revengers 17",
+        img1: "imgs/tokyo_revengers_3.webp",
         precio: 9000,
       },
       {
-        title: "Vagabond",
-        img1: "imgs/manga3.png",
+        title: "Tokyo Revengers 18",
+        img1: "imgs/tokyo_revengers_4.webp",
         precio: 8500,
+      },
+      {
+        title: "Tokyo Revengers 20",
+        img1: "imgs/tokyo_revengers_5.webp",
+        precio: 8500,
+      },
+      {
+        title: "Blue lock 14",
+        img1: "imgs/blue_lock_2.webp",
+        precio: 8000,
+      },
+      {
+        title: "Blue lock 15",
+        img1: "imgs/blue_lock_3.webp",
+        precio: 8000,
+      },
+      {
+        title: "Blue lock 16",
+        img1: "imgs/blue_lock_4.webp",
+        precio: 8000,
+      },
+      {
+        title: "Kaiju",
+        img1: "imgs/kaiju.webp",
+        precio: 8000,
       },
     ],
   },
@@ -95,19 +120,51 @@ let inventarioLibros = [
       {
         title: "La mentira perfecta",
         img1: "imgs/novelas_juveniles1.png",
-        categoria: "Novelas Juveniles",
         precio: 6000,
       },
       {
         title: "Promesas crueles",
         img1: "imgs/novelas_juveniles2.png",
-        categoria: "Novelas Juveniles",
         precio: 5000,
       },
       {
         title: "Destrozando este diario",
         img1: "imgs/novelas_juveniles3.png",
-        categoria: "Novelas Juveniles",
+        precio: 3500,
+      },
+      {
+        title: "Tu Amigo Invisible 2 - Tai - Santiago L. Speranza",
+        img1: "imgs/novelas_juveniles4.webp",
+        precio: 3500,
+      },
+      {
+        title: "Alas De Hierro - Saga Empireo 2 - Rebecca Yarros",
+        img1: "imgs/novelas_juveniles5.webp",
+        precio: 3500,
+      },
+      {
+        title: "Heartless - Marissa Meyer",
+        img1: "imgs/novelas_juveniles6.webp",
+        precio: 3500,
+      },
+      {
+        title: "Fabricante De Lagrimas - Erin Doom",
+        img1: "imgs/novelas_juveniles7.webp",
+        precio: 3500,
+      },
+      {
+        title: "La Maldicion Del Amor Verdadero - Stephanie Garber",
+        img1: "imgs/novelas_juveniles8.webp",
+        precio: 3500,
+      },
+      {
+        title: "El Hilo Invisible - Miriam Tirado - Full",
+        img1: "imgs/novelas_juveniles9.webp",
+        precio: 3500,
+      },
+      {
+        title: "Coleccion Ana La De Las Tejas Verdes - Lucy Maud Montgomery",
+        img1: "imgs/novelas_juveniles10.webp",
         precio: 3500,
       },
     ],
@@ -119,19 +176,51 @@ let inventarioLibros = [
       {
         title: "Hábitos para el éxito",
         img1: "imgs/bienestar_personal1.png",
-        categoria: "Bienesrar personal",
         precio: 4000,
       },
       {
         title: "La riqueza que el dinero no puede comprar",
         img1: "imgs/bienestar_personal2.png",
-        categoria: "Bienesrar personal",
         precio: 5500,
       },
       {
         title: "Desbloquea el proximo nivel",
         img1: "imgs/bienestar_personal3.png",
-        categoria: "Bienestar personal",
+        precio: 6500,
+      },
+      {
+        title: "Tu Nombre Ancestral Es Abundancia - Enric Corbera",
+        img1: "imgs/bienestar_personal5.webp",
+        precio: 6500,
+      },
+      {
+        title: "Deseo - Lic. Cecilia Ce",
+        img1: "imgs/bienestar_personal6.webp",
+        precio: 6500,
+      },
+      {
+        title: "El Amor Despues Del Desamor - Maximiliano Mc Coubrey",
+        img1: "imgs/bienestar_personal7.webp",
+        precio: 6500,
+      },
+      {
+        title: "Desbloquea Tu Proximo Nivel - Daniela De Lucia",
+        img1: "imgs/bienestar_personal8.webp",
+        precio: 6500,
+      },
+      {
+        title: "El Cerebro Optimista - Mikel Alonso Lopez",
+        img1: "imgs/bienestar_personal9.webp",
+        precio: 6500,
+      },
+      {
+        title: "Espiritu Animal - Magali Tajes",
+        img1: "imgs/bienestar_personal10.webp",
+        precio: 6500,
+      },
+      {
+        title: "Constelaciones Astrologicas - Cecilia Garcia Robles",
+        img1: "imgs/bienestar_personal11.webp",
         precio: 6500,
       },
     ],
@@ -275,6 +364,8 @@ function deleteFromCarrito(itemStringifyed) {
 
   // Actualizo el valor del carrito
   generarItemsCarrito(nuevoCarrito);
+  // Actualizo el valor del carrito(header)
+  initilizeCart();
 }
 
 function generarItemsCarrito(listaProductos) {
@@ -374,7 +465,6 @@ function generarItemsCarrito(listaProductos) {
   });
 }
 
-//! Esto va a cambiar cuando agregue nombres a las categorias
 function generarInventarioEnLaTienda(categoriasLibros) {
   // Obtengo el contenedor donde se van a agregar los items del inventario
   const listContainer = document.querySelector(".list-categoria-container");

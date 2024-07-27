@@ -15,11 +15,11 @@
 </head>
 
 <body>
-  <header>
+  <header class="container-fluid m-0 p-0" style="position: fixed; z-index: 1000">
     <nav class="navbar navbar-expand-lg fixed-top bg-light">
       <img id="logo-nav" src="imgs/logo_yenny.png" alt="Logo">
       <div class="container-fluid header-custom">
-        <a class="navbar-brand" href="index.html">Libreria Yenny</a>
+        <a class="navbar-brand" href="index.html">Yenny - El Ateneo</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
           aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -37,29 +37,30 @@
               <a class="nav-link" href="peliculas.html">Peliculas</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="articulos_libreria.html">Articulos de
-                libreria</a>
+              <a class="nav-link" href="articulos_libreria.html">Articulos de libreria</a>
             </li>
             <li id="carrito-list">
-              <a href="carrito.html">
+              <a class="nav-link" href="carrito.html">
+                <span id="carrito-text">Carrito</span>
                 <div class="carrito-container-header">
-                  <img src="imgs/carrito.png" alt>
+                  <img src="imgs/carrito.png" alt="">
                   <div id="carrito-valor"></div>
                 </div>
               </a>
             </li>
             <li>
-              <a href="perfil.html"> <img src="imgs/user.png" alt="user"></a>
+              <a class="nav-link" href="perfil.html"><span id="perfil-text">Perfil</span>
+                <img id="perfil-img" src="imgs/user.png" alt=""></a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
-    <div style="height: 80px"></div>
     <div id="avisos-envios-gratis">
       <div>ENVÍOS GRATIS EN PRODUCTOS SELECCIONADOS</div>
     </div>
   </header>
+  <div style="height: 100px;"></div>
   <main>
     <div class="list-categoria-container"></div>
   </main>

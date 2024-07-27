@@ -1,6 +1,10 @@
 * {
   font-family: sans-serif;
 }
+a {
+  text-decoration: none !important;
+  color: #ffa24c;
+}
 body {
   overflow-x: hidden;
 }
@@ -17,8 +21,8 @@ body {
   font-weight: 600;
 }
 .boton-outlined {
-  border: 1px solid #ffffff;
-  color: #ffffff;
+  border: 1px solid #ffa24c;
+  color: #ffa24c;
   padding: 10px 15px;
   cursor: pointer;
   border-radius: 15px;
