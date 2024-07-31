@@ -12,16 +12,8 @@
   width: 100%;
   bottom: 0;
 }
-.footer-img {
-  width: 30px;
-  height: 30px;
-  margin: 0 10px;
-}
 
 @media screen and (max-width: 992px) {
-  .footer-responsive {
-    top: -100px !important;
-  }
   #waves {
     width: 500%;
   }

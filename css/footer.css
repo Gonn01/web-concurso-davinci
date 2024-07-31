@@ -19,7 +19,7 @@ footer {
   }
   .footer-responsive {
     position: absolute;
-    top: 100px !important;
+    top: 150px !important;
     z-index: 3;
     flex-direction: column;
     left: 0;

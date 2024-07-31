@@ -51,4 +51,9 @@
     width: 100px !important;
     height: 150px !important;
   }
+  .tarjeta{
+    width: 130px !important;
+    padding: 5px;
+    margin: 10px;
+  }
 }
