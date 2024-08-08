@@ -1,10 +1,9 @@
 
 nav {
-  padding: 0 190px !important;
-  height: 80px;
+  padding: 0 190px !important; 
 }
 #carrito-list {
-  margin: 0 20px;
+  margin: 0 20px; 
 }
 .carrito-container-header {
   position: relative;
@@ -71,9 +70,9 @@ nav {
   .header-custom {
     display: flex;
     flex-direction: row;
+    padding: 20px;
   }
   .navbar-nav {
-    background-color: #ffffff;
     padding: 20px;
   }
   #perfil-img {

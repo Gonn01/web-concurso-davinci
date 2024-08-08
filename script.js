@@ -54,12 +54,198 @@ let categoriasDestacadas = [
   },
 ];
 
+// Inventario de peliculas que se muestran en la tienda
+let inventarioPeliculas = [
+  {
+    id: 0,
+    title: "Infantiles",
+    elementos: [
+      {
+        title: "Dvd - Isla De Perros",
+        img1: "imgs/infantiles1.webp",
+        precio: 8000,
+      },
+      {
+        title: "Dvd - Power Rangers",
+        img1: "imgs/infantiles2.webp",
+        precio: 9000,
+      },
+      {
+        title: "Dvd - Natacha",
+        img1: "imgs/infantiles3.webp",
+        precio: 8500,
+      },
+      {
+        title: "Dvd - Pokemon 4 Ever",
+        img1: "imgs/infantiles4.webp",
+        precio: 8000,
+      },
+      {
+        title: "Blu-ray - Turbo (3d)",
+        img1: "imgs/infantiles5.webp",
+        precio: 9000,
+      },
+      {
+        title: "Dvd - El Castillo De Cagliostro",
+        img1: "imgs/infantiles6.webp",
+        precio: 8500,
+      },
+      {
+        title: "Dvd - Doctor Strange - El Hechicero Maximo",
+        img1: "imgs/infantiles7.webp",
+        precio: 8000,
+      },
+      {
+        title: "Dvd - Barbie Y La Puerta Secreta",
+        img1: "imgs/infantiles8.webp",
+        precio: 9000,
+      },
+      {
+        title: "Blu-ray - Lego Ninjago: La Pelicula",
+        img1: "imgs/infantiles9.webp",
+        precio: 8500,
+      },
+      {
+        title: "Dvd - Ositos Cariñosos",
+        img1: "imgs/infantiles10.webp",
+        precio: 8500,
+      },
+      {
+        title: "Dvd - Barbie En Un Mundo De Video Juegos",
+        img1: "imgs/infantiles11.webp",
+        precio: 8000,
+      },
+      {
+        title: "Dvd - Colorin Colorado",
+        img1: "imgs/infantiles12.webp",
+        precio: 8000,
+      },
+    ],
+  },
+  {
+    id: 1,
+    title: "Comedia",
+    elementos: [
+      {
+        title: "Dvd - Zoolander 2",
+        img1: "imgs/comedia1.webp",
+        precio: 6000,
+      },
+      {
+        title: "Dvd - Zapada",
+        img1: "imgs/comedia2.webp",
+        precio: 5000,
+      },
+      {
+        title: "Dvd - 50 Primaveras",
+        img1: "imgs/comedia3.webp",
+        precio: 3500,
+      },
+      {
+        title: "Dvd - Beata Ignorancia",
+        img1: "imgs/comedia4.webp",
+        precio: 3500,
+      },
+      {
+        title: "Dvd - Mujer Y Marido",
+        img1: "imgs/comedia5.webp",
+        precio: 3500,
+      },
+      {
+        title: "Dvd - Boca De Fresa",
+        img1: "imgs/comedia6.webp",
+        precio: 3500,
+      },
+      {
+        title: "Dvd - El Futbol O Yo",
+        img1: "imgs/comedia7.webp",
+        precio: 3500,
+      },
+      {
+        title: "Dvd - Dictablanda",
+        img1: "imgs/comedia8.webp",
+        precio: 3500,
+      },
+      {
+        title: "Dvd - Por Que El?",
+        img1: "imgs/comedia9.webp",
+        precio: 3500,
+      },
+      {
+        title: "Dvd - Hablemos De Amor",
+        img1: "imgs/comedia10.webp",
+        precio: 3500,
+      },
+      {
+        title: "Dvd - Permitidos",
+        img1: "imgs/comedia10.webp",
+        precio: 3500,
+      },
+    ],
+  },
+  {
+    id: 2,
+    title: "Terror",
+    elementos: [
+      {
+        title: "Dvd - 05:00 A.m.",
+        img1: "imgs/terror1.webp",
+        precio: 4000,
+      },
+      {
+        title: "Dvd - Aplicacion Siniestra",
+        img1: "imgs/terror2.webp",
+        precio: 5500,
+      },
+      {
+        title: "Dvd - Buscando Al Demonio",
+        img1: "imgs/terror3.webp",
+        precio: 6500,
+      },
+      {
+        title: "Dvd - 12 Horas Para Sobrevivir 4",
+        img1: "imgs/terror4.webp",
+        precio: 6500,
+      },
+      {
+        title: "Dvd - Ataud Blanco",
+        img1: "imgs/terror5.webp",
+        precio: 6500,
+      },
+      {
+        title: "Dvd - Fear The Walking Dead 3",
+        img1: "imgs/terror6.webp",
+        precio: 6500,
+      },
+      {
+        title: "Dvd - Nadie Vive",
+        img1: "imgs/terror7.webp",
+        precio: 6500,
+      },
+      {
+        title: "Dvd - La Resurreccion Del Mal",
+        img1: "imgs/terror8.webp",
+        precio: 6500,
+      },
+      {
+        title: "Dvd - Verdad O Reto",
+        img1: "imgs/terror9.webp",
+        precio: 6500,
+      },
+      {
+        title: "Dvd - Feliz Dia De Tu Muerte 2",
+        img1: "imgs/terror10.webp",
+        precio: 6500,
+      },
+    ],
+  },
+];
 // Inventario de libros que se muestran en la tienda
 let inventarioLibros = [
   {
     id: 0,
     title: "Manga",
-    libros: [
+    elementos: [
       {
         title: "Berserk",
         img1: "imgs/manga1.png",
@@ -135,7 +321,7 @@ let inventarioLibros = [
   {
     id: 1,
     title: "Novelas Juveniles",
-    libros: [
+    elementos: [
       {
         title: "La mentira perfecta",
         img1: "imgs/novelas_juveniles1.png",
@@ -191,7 +377,7 @@ let inventarioLibros = [
   {
     id: 2,
     title: "Bienestar Personal",
-    libros: [
+    elementos: [
       {
         title: "Hábitos para el éxito",
         img1: "imgs/bienestar_personal1.png",
@@ -244,6 +430,142 @@ let inventarioLibros = [
       },
     ],
   },
+];// Inventario de articulos de libreria que se muestran en la tienda
+let inventarioArticulosLibreria = [
+  {
+    id: 0,
+    title: "Escolar",
+    elementos: [
+      {
+        title: "Libreta Brugge 9x14 Mickey - Hojas Rayadas",
+        img1: "imgs/escolares1.webp",
+        precio: 8000,
+      },
+      {
+        title: "Marcadores Touch Tonos Piel X12 - Nuwa",
+        img1: "imgs/escolares2.webp",
+        precio: 9000,
+      },
+      {
+        title: "Boligrafos Disney X5 - Tinta Azul - Princesas - Nuwa",
+        img1: "imgs/escolares3.webp",
+        precio: 8500,
+      },
+      {
+        title: "Resaltadores Disney Mini X6 Toy Story - Nuwa",
+        img1: "imgs/escolares4.webp",
+        precio: 8000,
+      },
+      {
+        title: "Cuaderno A5 Rayado Mafalda El Feminismo Rosa - Tapa Dura",
+        img1: "imgs/escolares5.webp",
+        precio: 9000,
+      },
+      {
+        title: "Resaltadores Disney - Mini X6 - Pixar - Nuwa",
+        img1: "imgs/escolares6.webp",
+        precio: 8500,
+      },
+      {
+        title: "Marcadores Lettering Lata - Nuwa",
+        img1: "imgs/escolares7.webp",
+        precio: 8000,
+      },
+      {
+        title: "Resaltadores Disney - Mini X6 - Princesas - Nuwa",
+        img1: "imgs/escolares8.webp",
+        precio: 9000,
+      },
+      {
+        title: "Cuaderno A5 Rayado Mafalda Protesta Triste... - Tapa Dura",
+        img1: "imgs/escolares9.webp",
+        precio: 8500,
+      },
+      {
+        title: "Cuaderno A5 Rayado Nuwa Trama Bicicleta Cosido - Tapa Blanda",
+        img1: "imgs/escolares10.webp",
+        precio: 8500,
+      },
+      {
+        title: "Cuaderno A4 Rayado Nuwa Trama Lampara - Tapa Dura",
+        img1: "imgs/escolares11.webp",
+        precio: 8000,
+      },
+      {
+        title: "Libreta Brugge 13x21 Mafalda Hojas Rayadas",
+        img1: "imgs/escolares12.webp",
+        precio: 8000,
+      },
+    ],
+  },
+  {
+    id: 1,
+    title: "Agendas y Diarios Íntimos",
+    elementos: [
+      {
+        title: "Agenda Escolar Perpetua - Pajaros - Granica",
+        img1: "imgs/agendasydiarios1.webp",
+        precio: 6000,
+      },
+      {
+        title: "Agenda Artesanal Perpetua - Palabras Para El Alma - Roja",
+        img1: "imgs/agendasydiarios2.webp",
+        precio: 5000,
+      },
+      {
+        title: "Notebook Planner Girl Power Perpetuo - Linea Trendy",
+        img1: "imgs/agendasydiarios3.webp",
+        precio: 3500,
+      },
+      {
+        title: "Agenda Perpetua Quino Roja - Quino",
+        img1: "imgs/agendasydiarios4.webp",
+        precio: 3500,
+      },
+      {
+        title: "Agenda Artesanal Perpetua - La Vida Es Movimiento - Verde",
+        img1: "imgs/agendasydiarios5.webp",
+        precio: 3500,
+      },
+      {
+        title: "Agenda Perpetua Gaturro - Nik",
+        img1: "imgs/agendasydiarios6.webp",
+        precio: 3500,
+      },
+      {
+        title: "Agenda Perpetua En Ingles Mafalda And Friends Amarilla Quino",
+        img1: "imgs/agendasydiarios7.webp",
+        precio: 3500,
+      },
+      {
+        title: "Agenda Perpetua Quino Verde - Quino",
+        img1: "imgs/agendasydiarios8.webp",
+        precio: 3500,
+      },
+    ],
+  },
+  {
+    id: 2,
+    title: "Artística y Pintura",
+    elementos: [
+      {
+        title: "Lapices Acuarelables Disney X12 - Pixar Toy Story - Nuwa",
+        img1: "imgs/artisticaypintura1.webp",
+        precio: 4000,
+      },
+      {
+        title: "Lapices Acuarelables Disney X12 - Princesas Pastel - Nuwa",
+        img1: "imgs/artisticaypintura2.webp",
+        precio: 5500,
+      },
+      {
+        title: "Lapices Acuarelables Disney X12 - Princesas - Nuwa",
+        img1: "imgs/artisticaypintura3.webp",
+        precio: 6500,
+      },
+
+    ],
+  },
 ];
 
 window.onload = function () {
@@ -257,9 +579,21 @@ window.onload = function () {
   localStorage.setItem(usuariosKey, usuariosJSON);
 
   // Genera los items del carrito si el elemento existe
-  let existeInventario = document.querySelector(".list-categoria-container");
-  if (existeInventario) {
-    generarInventarioEnLaTienda(inventarioLibros);
+  let existeLibros = document.querySelector(".list-categoria-container");
+  if (existeLibros) {
+    generarTienda(inventarioLibros, ".list-categoria-container");
+  }
+
+  // Genera los items del carrito si el elemento existe
+  let existePeliculas = document.querySelector(".list-categoria-container-peliculas");
+  if (existePeliculas) {
+    generarTienda(inventarioPeliculas, ".list-categoria-container-peliculas");
+  }
+
+  // Genera los items del carrito si el elemento existe
+  let existeArticulosLibreria = document.querySelector(".list-categoria-container-articulos-libreria");
+  if (existeArticulosLibreria) {
+    generarTienda(inventarioArticulosLibreria, ".list-categoria-container-articulos-libreria");
   }
 
   // Genera las categorias destacadas si el elemento existe
@@ -490,13 +824,13 @@ function generarItemsCarrito(listaProductos) {
   });
 }
 
-function generarInventarioEnLaTienda(categoriasLibros) {
+function generarTienda(categoriasLibros, element) {
   // Obtengo el contenedor donde se van a agregar los items del inventario
-  const listContainer = document.querySelector(".list-categoria-container");
+  const listContainer = document.querySelector(element);
 
   // Por cada categoria, genero los items en la tienda
   categoriasLibros.forEach((categoria) => {
-    const librosEnCategoria = categoria["libros"];
+    const librosEnCategoria = categoria["elementos"];
     // Creo el contenedor de la categoria
     const categoriaContainer = document.createElement("div");
     categoriaContainer.classList.add("categoria-container");
@@ -566,6 +900,7 @@ function generarInventarioEnLaTienda(categoriasLibros) {
     listContainer.appendChild(categoriaContainer);
   });
 }
+
 function formatearPrecio(precio) {
   // Convertir el precio a número
   const numero = parseFloat(precio);
