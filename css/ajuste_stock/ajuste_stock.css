@@ -1,0 +1,35 @@
+body {
+    background-color: #f0f0f0 !important;
+}
+
+main {
+    margin: 0 190px;
+}
+
+.col {
+    padding: 0;
+}
+
+.img-inventario {
+    width: 50px;
+    height: 80px;
+
+}
+
+.producto {
+    margin: 20px 0;
+}
+
+.clean-input-a {
+    width: 250px !important;
+    display: block;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+}
+
+.clean-input-a:focus {
+    border-color: #888;
+}
