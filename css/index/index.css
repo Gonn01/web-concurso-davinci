@@ -7,14 +7,29 @@
   background-attachment: fixed;
   background-size: cover;
 }
+
 #waves {
   position: absolute;
   width: 100%;
   bottom: 0;
 }
 
+.carousel {
+  display: none;
+}
+
+
 @media screen and (max-width: 992px) {
   #waves {
     width: 500%;
   }
+
+  .carousel {
+    display: block;
+  }
+
+  .cat-dest {
+    display: none;
+  }
+
 }
