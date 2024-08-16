@@ -751,7 +751,7 @@ let inventarioArticulosLibreria = [
 
 window.onload = function () {
   // Inicializa el carrito
-  // initilizeCart();
+  initilizeCart();
 
   // Convertimos el array de objetos a un string JSON
   const usuariosJSON = JSON.stringify(usuariosRegistrados);
@@ -1183,7 +1183,7 @@ function generarTienda(categoriasLibros, element) {
 
       // Creo el boton de comprar y le agrego las clases y el contenido y lo agrego al cuerpo de la card
       const buyButton = document.createElement("button");
-      buyButton.classList.add("btn", "btn-tienda");
+      buyButton.classList.add("boton", "btn-tienda");
       buyButton.textContent = "Comprar";
       buyButton.onclick = () => sumarCarrito(JSON.stringify(libro));
       cardBody.appendChild(buyButton);
@@ -1228,6 +1228,7 @@ function formatearPrecio(precio) {
 function generarCategoriasDestacadas() {
   const secciones = document.getElementById("secciones");
   for (let index = 0; index < categoriasDestacadas.length; index++) {
+    const carouselName = `carouselDestacadas${index}`;
     const categoria = categoriasDestacadas[index];
     // Creo el container de cada categoria y le agrego las clases
     const container = document.createElement("div");
@@ -1270,7 +1271,13 @@ function generarCategoriasDestacadas() {
     const boton = document.createElement("div");
     boton.classList.add("boton-outlined");
     boton.textContent = "Ver más";
+    boton.style.border = `1px solid white`;
+    boton.style.color = `white`;
     datosWrapper.appendChild(boton);
+
+    const espacio = document.createElement("div");
+    espacio.style.height = "30px";
+    datosWrapper.appendChild(espacio);
 
     // Agrego el wrapper al contenedor de datos
     datos.appendChild(datosWrapper);
@@ -1283,7 +1290,8 @@ function generarCategoriasDestacadas() {
     categoria.imgs.forEach((element) => {
       // Creo la columna de la imagen
       const col = document.createElement("div");
-      col.classList.add("col", "col-responsive");
+      col.classList.add("col", "col-responsive", "cat-dest");
+
 
       // Creo la imagen
       const img = document.createElement("img");
@@ -1297,6 +1305,14 @@ function generarCategoriasDestacadas() {
       // Agrego la columna a la row
       row.appendChild(col);
     });
+
+
+
+
+
+
+
+
     const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     svg.setAttribute("width", "1920");
     svg.setAttribute("height", "99");
@@ -1328,6 +1344,90 @@ function generarCategoriasDestacadas() {
     container.appendChild(svg);
     // Agrego la row al container
     container.appendChild(row);
+
+    const carousel = document.createElement('div');
+    carousel.classList.add('carousel');
+    carousel.classList.add('slide');
+    ///
+    carousel.setAttribute('id', carouselName);
+
+    const indicators = document.createElement('div');
+    indicators.classList.add('carousel-indicators');
+
+    for (let indexa = 0; indexa < categoria.imgs.length; indexa++) {
+      const indicator = document.createElement('button');
+      indicator.classList.add('carousel-indicator');
+      indicator.setAttribute('data-bs-target', `#${carouselName}`);
+      indicator.setAttribute('data-bs-slide-to', indexa);
+      indicator.setAttribute('type', 'button');
+
+      if (indexa === 0) {
+        indicator.classList.add('active');
+      }
+      indicators.appendChild(indicator);
+
+    }
+
+    carousel.appendChild(indicators);
+
+    const inner = document.createElement('div');
+    inner.classList.add('carousel-inner');
+
+    categoria.imgs.forEach((img, index) => {
+      const item = document.createElement('div');
+      item.classList.add('carousel-item');
+      item.classList.add('text-center');
+      item.style.backgroundColor = categoria.color;
+      if (index === 0) {
+        item.classList.add('active');
+      }
+
+      const imgElement = document.createElement('img');
+      imgElement.src = img;
+      item.appendChild(imgElement);
+
+      inner.appendChild(item);
+    });
+
+    carousel.appendChild(inner);
+
+    const prevButton = document.createElement('button');
+    prevButton.classList.add('carousel-control-prev');
+    prevButton.setAttribute('type', 'button');
+    prevButton.setAttribute('data-bs-target', `#${carouselName}`);
+    prevButton.setAttribute('data-bs-slide', 'prev');
+
+    const prevIcon = document.createElement('span');
+    prevIcon.classList.add('carousel-control-prev-icon');
+    prevIcon.setAttribute('aria-hidden', 'true');
+    prevButton.appendChild(prevIcon);
+
+    const prevLabel = document.createElement('span');
+    prevLabel.classList.add('visually-hidden');
+    prevLabel.textContent = 'Previous';
+    prevButton.appendChild(prevLabel);
+
+    carousel.appendChild(prevButton);
+
+    const nextButton = document.createElement('button');
+    nextButton.classList.add('carousel-control-next');
+    nextButton.setAttribute('type', 'button');
+    nextButton.setAttribute('data-bs-target', `#${carouselName}`);
+    nextButton.setAttribute('data-bs-slide', 'next');
+
+    const nextIcon = document.createElement('span');
+    nextIcon.classList.add('carousel-control-next-icon');
+    nextIcon.setAttribute('aria-hidden', 'true');
+    nextButton.appendChild(nextIcon);
+
+    const nextLabel = document.createElement('span');
+    nextLabel.classList.add('visually-hidden');
+    nextLabel.textContent = 'Next';
+    nextButton.appendChild(nextLabel);
+
+    carousel.appendChild(nextButton);
+
+    container.appendChild(carousel);
     if (index == categoriasDestacadas.length - 1) {
       const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svg.setAttribute("width", "1920");
@@ -1432,3 +1532,12 @@ function registrarUsuario() {
   // Redirijo al usuario a la pagina principal
   window.location.href = "login.html";
 }
+const elemento = document.getElementById('carrito-ref');
+elemento.addEventListener('click', function () {
+  // Aquí va el código que quieres ejecutar al hacer clic
+  window.location.href = 'carrito.html'; // Redirige a otra página
+}); const elemento2 = document.getElementById('perfil-ref');
+elemento2.addEventListener('click', function () {
+  // Aquí va el código que quieres ejecutar al hacer clic
+  window.location.href = 'perfil.html'; // Redirige a otra página
+});

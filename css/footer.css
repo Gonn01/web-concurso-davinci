@@ -1,4 +1,4 @@
-footer {
+/* footer {
   position: relative;
 }
 .footer-wave {
@@ -25,4 +25,15 @@ footer {
     left: 0;
     right: 0;
   }
+} */
+.footer {
+  background: #202020;
+}
+
+.footer .footer-item a {
+  transition: 0.5s;
+}
+
+.footer .footer-item a:hover {
+  color: #ffa24c;
 }

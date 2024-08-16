@@ -1,13 +1,16 @@
 * {
   font-family: sans-serif;
 }
+
 a {
   text-decoration: none !important;
   color: #ffa24c;
 }
+
 body {
   overflow-x: hidden;
 }
+
 .boton {
   background-color: #ffa24c;
   color: white;
@@ -18,8 +21,12 @@ body {
   align-items: center;
   justify-content: center;
   font-size: medium;
+  box-shadow: inset 0 0 0 0 #fff;
+  transition: .5s;
   font-weight: 600;
+  border: 2px solid #ffffff00;
 }
+
 .boton-outlined {
   border: 1px solid #ffa24c;
   color: #ffa24c;
@@ -31,6 +38,20 @@ body {
   justify-content: center;
   font-size: medium;
   font-weight: 500;
+  box-shadow: inset 0 0 0 0 #ffa24c;
+  transition: .5s;
+}
+
+.boton:hover {
+  box-shadow: inset 0 0 0 300px #fff;
+  color: #ffa24c;
+  border: 2px solid #ffa24c;
+}
+
+.boton-outlined:hover {
+  box-shadow: inset 0 0 0 300px #ffa24c;
+  color: white;
+  border: 1px solid #ffa24c;
 }
 
 .clean-input {
@@ -47,4 +68,10 @@ body {
 
 .clean-input:focus {
   border-color: #888;
+}
+
+.carousel-control-next,
+.carousel-control-prev,
+.carousel-indicators {
+  filter: invert(100%);
 }
