@@ -1,9 +1,30 @@
 .metodo-de-pago {
   text-align: center;
 }
+
 .metodo-de-pago-img {
   padding: 10px 0;
 }
+
 .metodo-de-pago-img-wrapper {
   height: 200px;
+}
+
+.metodo-de-pago-text {
+  color: #202020;
+}
+
+#carouselMetodosDePago {
+  display: none;
+}
+
+@media screen and (max-width: 992px) {
+
+  #carouselMetodosDePago {
+    display: block;
+  }
+
+  #section-metodos-de-pago {
+    display: none;
+  }
 }
