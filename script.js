@@ -1073,7 +1073,7 @@ function generarItemsCarrito(listaProductos) {
 
     // Dentro del contenedor de la cantidad, creo el boton de restar la cantidad con su funcion
     let divCantidadMenos = document.createElement("div");
-    divCantidadMenos.classList.add("cantidad-item");
+    divCantidadMenos.classList.add("cantidad-item", "fs-4", "fw-normal");
     divCantidadMenos.textContent = "-";
     divCantidadMenos.onclick = () =>
       modificarProductoCarrito(JSON.stringify(producto), true);
@@ -1085,7 +1085,7 @@ function generarItemsCarrito(listaProductos) {
 
     // Dentro del contenedor de la cantidad, creo el boton de sumar la cantidad con su funcion
     let divCantidadMas = document.createElement("div");
-    divCantidadMas.classList.add("cantidad-item");
+    divCantidadMas.classList.add("cantidad-item", "fs-4", "fw-normal");
     divCantidadMas.textContent = "+";
     divCantidadMas.onclick = () =>
       modificarProductoCarrito(JSON.stringify(producto), false);
@@ -1137,16 +1137,23 @@ function generarTienda(categoriasLibros, element) {
     const categoriaContainer = document.createElement("div");
     categoriaContainer.classList.add("categoria-container");
 
+    const cateContainer = document.createElement("div");
+    cateContainer.classList.add("py-4", "text-center");
+
     // Creo el titulo de la categoria, le agrego el contenido y lo agrego al contenedor de la categoria
     const categoryTitle = document.createElement("h3");
+    categoryTitle.classList.add("px-4", "fs-2", "fw-bold");
     categoryTitle.textContent = categoria["title"];
-    categoriaContainer.appendChild(categoryTitle);
+    cateContainer.appendChild(categoryTitle);
 
     // Creo el contador de resultados, le agrego las claes y el contenido y lo agrego al contenedor de la categoria
     const categoriaResultados = document.createElement("p");
-    categoriaResultados.classList.add("categoria-resultados");
+    categoriaResultados.classList.add("categoria-resultados", "px-4");
     categoriaResultados.textContent = librosEnCategoria.length + " resultados";
-    categoriaContainer.appendChild(categoriaResultados);
+    cateContainer.appendChild(categoriaResultados);
+
+    // Agrego el contenedor de la categoria al contenedor de la lista
+    categoriaContainer.appendChild(cateContainer);
 
     // Creo un contenedor para los items de la categoria para poder darle estilo
     const categoriaWrapper = document.createElement("div");
@@ -1329,7 +1336,7 @@ function generarCategoriasDestacadas() {
 
     rect.setAttribute(
       "fill",
-      index == 0 ? "#ffffff" : categoriasDestacadas[index - 1].color
+      index == 0 ? "white" : categoriasDestacadas[index - 1].color
     );
 
     const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
@@ -1446,7 +1453,7 @@ function generarCategoriasDestacadas() {
       rect.setAttribute("width", 1920);
       rect.setAttribute("height", 99);
 
-      rect.setAttribute("fill", "#ffffff");
+      rect.setAttribute("fill", "white");
 
       const path = document.createElementNS(
         "http://www.w3.org/2000/svg",

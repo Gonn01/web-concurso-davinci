@@ -1,5 +1,6 @@
 nav {
-  padding: 0 190px !important;
+  padding: 10px 190px !important;
+  background-color: #fff;
 }
 
 #carrito-list {
@@ -15,7 +16,7 @@ nav {
 #carrito-valor {
   position: absolute;
   background-color: #ffa24c;
-  color: white;
+  color: #fff;
   width: 25px;
   height: 25px;
   top: -10px;
@@ -26,7 +27,7 @@ nav {
 
 #avisos-envios-gratis {
   background-color: #016034;
-  color: white;
+  color: #fff;
   height: 30px;
   display: flex;
   align-items: center;
@@ -57,7 +58,6 @@ nav {
 
 .active {
   color: #ffa24c !important;
-  /* text-decoration: underline; */
 }
 
 #carrito-text {
@@ -76,7 +76,7 @@ header div a {
   text-decoration: none;
   color: black;
   position: relative;
-  display: inline-block;
+  display: block;
 }
 
 header div a::after {
@@ -94,6 +94,12 @@ header div a::after {
 
 header div a:hover::after {
   transform: scaleX(1);
+}
+
+nav {
+  background-color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
+
 }
 
 #perfil-ref,

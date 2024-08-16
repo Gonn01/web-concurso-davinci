@@ -1,11 +1,13 @@
 .categoria-card-list {
   display: flex;
-  margin: 20px;
+  margin: 40px 20px;
 }
+
 .card-img-top {
   width: 200px !important;
   height: 250px !important;
 }
+
 .tarjeta {
   display: flex;
   flex-direction: column;
@@ -18,20 +20,33 @@
   box-shadow: #ddd 0px 0px 10px;
   width: 220px !important;
 }
+
+.categoria-container {
+  margin: 0 160px;
+}
+
+.categoria-resultados {
+  color: #ccc;
+  font-weight: 400 !important;
+}
+
 .categoria-wrapper {
   display: flex;
   flex-wrap: wrap;
   justify-content: start;
 }
+
 .btn-tienda {
   background-color: #ffa24c;
   color: #fff;
 }
+
 .btn-tienda:hover {
   background-color: #fff;
   color: #ffa24c;
   border: 1px solid #ffa24c;
 }
+
 .card-body {
   padding: 8px;
   display: flex;
@@ -39,19 +54,23 @@
   justify-content: space-between;
   width: 100%;
 }
+
 @media screen and (max-width: 992px) {
   .categoria-wrapper {
     justify-content: center;
   }
+
   .card {
     margin: 10px;
     width: 150px;
   }
+
   .card-img-top {
     width: 100px !important;
     height: 150px !important;
   }
-  .tarjeta{
+
+  .tarjeta {
     width: 130px !important;
     padding: 5px;
     margin: 10px;

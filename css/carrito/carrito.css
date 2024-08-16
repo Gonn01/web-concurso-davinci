@@ -1,18 +1,22 @@
 body {
   background-color: #f0f0f0 !important;
 }
+
 #carrito-container {
   margin: 100px;
-  background-color: #ffffff;
+  background-color: #fff;
 }
+
 #carrito-title {
   font-size: 30px;
   font-weight: bold;
   margin: 20px;
 }
+
 main {
   text-align: center;
 }
+
 .items-carrito {
   display: flex;
   width: 100%;
@@ -20,6 +24,7 @@ main {
   align-items: center;
   margin: 20px 0;
 }
+
 .img-item-carrito {
   width: 100px;
   height: 150px;
@@ -29,6 +34,7 @@ main {
   display: flex;
   align-items: center;
 }
+
 .cantidad-item {
   width: 50px;
   height: 50px;
@@ -37,41 +43,49 @@ main {
   align-items: center;
   border: 1px solid #ffa24c;
 }
+
 .tacho {
   width: 30px;
   height: 30px;
 }
+
 #envio-section {
   padding: 40px;
   margin: 100px;
-  background-color: #ffffff;
+  background-color: #fff;
 }
+
 #envio-title {
   font-size: 30px;
   font-weight: bold;
   margin: 20px;
 }
+
 #envio-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-right: 200px;
 }
+
 .envio-data {
   font-size: 15px;
   margin: 20px;
   color: #8a8a8a;
 }
+
 .envio-data-clickable {
   font-size: 15px;
   color: #ffa24c;
   cursor: pointer;
   text-decoration: underline;
 }
+
 #opciones-envio {
   display: flex;
   justify-content: space-evenly;
 }
+
 .envio-opcion {
   margin: 0 20px;
   width: 125px;
@@ -85,9 +99,11 @@ main {
   font-size: 15px;
   color: #8a8a8a;
 }
+
 .envio-opcion:hover {
   border: 3px solid #ffa24c;
 }
+
 .envio-opcion-dinero {
   font-size: 20px;
   font-weight: bold;
@@ -97,28 +113,34 @@ main {
 @media (max-width: 992px) {
   #carrito-container {
     margin: 10px;
-    background-color: #ffffff;
+    background-color: #fff;
   }
+
   .item-carrito {
     flex-direction: column;
     align-items: center;
     border: 1px solid #000;
   }
+
   .cantidad-item-container {
     justify-content: center;
   }
+
   #envio-container {
     flex-direction: column;
     align-items: center;
     padding-right: 0px;
   }
+
   #envio-section {
     margin: 10px;
   }
+
   #opciones-envio {
     margin: 10px;
     flex-direction: column;
   }
+
   .col-carrito {
     padding: 0;
   }

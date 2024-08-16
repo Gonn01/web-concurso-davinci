@@ -26,14 +26,6 @@
     right: 0;
   }
 } */
-.footer {
+footer {
   background: #202020;
-}
-
-.footer .footer-item a {
-  transition: 0.5s;
-}
-
-.footer .footer-item a:hover {
-  color: #ffa24c;
 }

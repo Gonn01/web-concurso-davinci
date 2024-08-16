@@ -16,7 +16,7 @@
 
 <body>
   <header class="container-fluid m-0 p-0" style="position: fixed; z-index: 1000">
-    <nav class="navbar navbar-expand-lg fixed-top bg-light">
+    <nav class="navbar navbar-expand-lg fixed-top ">
       <img id="logo-nav" src="imgs/logo_yenny.png" alt="Logo">
       <div class="container-fluid header-custom">
         <a class="navbar-brand" href="index.html">Yenny - El Ateneo</a>
@@ -99,49 +99,56 @@
       </div>
     </div>
   </main>
-  <footer>
-    <div class="container-fluid footer py-2">
-      <div class="container py-5">
-        <div class="row g-5">
-          <div class="col-md-6 col-lg-6 col-xl-3">
-            <div class="footer-item d-flex flex-column">
-              <h4 class="mb-4 text-white">Contactanos</h4>
-              <span class="text-white"><i class="fas fa-envelope me-2"></i>gonzalomiguelrigoni@davinci.edu.ar</span>
-              <a href="" class="mb-3" target="_blank"><i class="fas fa-phone me-2"></i>
-                2213191122</a>
-              <div class="d-flex align-items-center">
-                <i class="fas fa-share fa-2x text-white me-2"></i>
-                <a class="btn-square btn btn-primary rounded-circle mx-1" href="" target="_blank">
-                  <i class="fab fa-instagram"></i>
-                </a>
-                <a class="btn-square btn btn-primary rounded-circle mx-1" href="" target="_blank">
-                  <i class="fab fa-linkedin-in"></i>
-                </a>
-              </div>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 220" class="footer-wave">
+    <path fill="#202020" fill-opacity="1"
+      d="M0,128L80,122.7C160,117,320,107,480,117.3C640,128,800,160,960,149.3C1120,139,1280,85,1360,58.7L1440,32L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z">
+    </path>
+  </svg>
+  <footer class="container-fluid py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="footer-item d-flex flex-column">
+            <h4 class="mb-4 text-white">Contactanos</h4>
+            <span class="text-white">
+              <i class="fas fa-envelope"></i> gonzalo.rigoni@davinci.edu.ar</span>
+            <a class="mb-3 text-white" target="_blank"><i class="fas fa-phone text-white"></i>
+              221 319 7594</a>
+            <div class="d-flex align-items-center">
+              <a class="btn-square rounded-circle" target="_blank">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a class="btn-square rounded-circle mx-4" target="_blank">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a class="btn-square rounded-circle" target="_blank">
+                <i class="fab fa-facebook"></i>
+              </a>
             </div>
           </div>
-          <div class="col-md-6 col-lg-6 col-xl-3">
-            <div class="footer-item d-flex flex-column">
-              <h4 class="mb-4 text-white">Compañía</h4>
-              <a href=""><i class="fas fa-angle-right me-2"></i> Sobre Nosotros</a>
-            </div>
+        </div>
+        <div class="col-md-4">
+          <div class="footer-item d-flex flex-column">
+            <h4 class="mb-4 text-white">Compañía</h4>
+            <a class=" text-white"> Sobre Nosotros</a>
           </div>
-          <div class="col-md-6 col-lg-6 col-xl-3">
-            <div class="footer-item d-flex flex-column">
-              <h4 class="mb-4 text-white">Soporte</h4>
-              <a href=""><i class="fas fa-angle-right me-2"></i> Contacto</a>
-            </div>
+        </div>
+        <div class="col-md-4">
+          <div class="footer-item d-flex flex-column">
+            <i class="fa-solid fa-share-from-square"></i>
+            <h4 class="mb-4 text-white">Soporte</h4>
+            <a class=" text-white"> Contacto</a>
           </div>
         </div>
       </div>
     </div>
-
   </footer>
   <!-- Bootstrap JavaScript Libraries -->
   <script src="script.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/6912da1432.js" crossorigin="anonymous"></script>
 </body>
 
 </html>
