@@ -772,19 +772,16 @@ window.onload = function () {
   // Guardamos el string JSON en el localStorage
   localStorage.setItem(usuariosKey, usuariosJSON);
 
-  // Genera los items del carrito si el elemento existe
   let existeLibros = document.querySelector(".list-categoria-container");
   if (existeLibros) {
     generarTienda(inventarioLibros, ".list-categoria-container");
   }
 
-  // Genera los items del carrito si el elemento existe
   let existePeliculas = document.querySelector(".list-categoria-container-peliculas");
   if (existePeliculas) {
     generarTienda(inventarioPeliculas, ".list-categoria-container-peliculas");
   }
 
-  // Genera los items del carrito si el elemento existe
   let existeArticulosLibreria = document.querySelector(".list-categoria-container-articulos-libreria");
   if (existeArticulosLibreria) {
     generarTienda(inventarioArticulosLibreria, ".list-categoria-container-articulos-libreria");
@@ -1058,7 +1055,14 @@ function generarItemsCarrito(listaProductos) {
   const totalText = document.getElementById("total-text");
   const t = lista.reduce((sum, item) => sum + item.precio * item.cantidad, 0);
   totalText.textContent = `Total: ${formatearPrecio(t)}`;
-
+  if (lista.length === 0) {
+    const vacio = document.createElement("div");
+    vacio.textContent = "El carrito está vacío";
+    vacio.style.fontWeight = "bold";
+    vacio.style.fontSize = "1.5rem";
+    vacio.style.textAlign = "center";
+    listaCarrito.appendChild(vacio);
+  }
   lista.forEach((producto) => {
     // Creo el contenedor del item del carrito
     let divItemCarrito = document.createElement("div");
