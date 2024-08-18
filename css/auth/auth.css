@@ -4,16 +4,19 @@
   rotate: 180deg;
   height: 100vh;
 }
+
 #lapices2 {
   position: absolute;
   right: 0;
   height: 100vh;
 }
+
 #libro {
   position: absolute;
   inset: 0;
   margin: auto;
 }
+
 #data {
   width: 1250px;
   height: 768px;
@@ -23,25 +26,30 @@
   align-items: center;
   z-index: 5;
 }
+
 #login-container {
   display: flex;
   align-items: center;
   vertical-align: middle;
   height: 80vh;
 }
+
 #texto-bienvenida {
   width: 300px;
   text-align: center;
   margin: 20px 0;
 }
+
 #container-bienvenida {
   text-align: center;
 }
+
 #container-logeo {
   width: 300px;
   text-align: center;
   margin: 20px 0;
 }
+
 #container-menu {
   display: flex;
   justify-content: center;
@@ -49,23 +57,38 @@
   flex-direction: column;
   height: 100vh;
 }
+
 #menu-options {
   display: flex;
   width: 900px;
   justify-content: space-around;
   margin: 20px 0;
 }
+
 .menu-option {
   display: flex;
   flex-direction: column;
 }
+
 .menu-option-img {
   width: 150px;
   height: 150px;
   margin: 10px auto;
 }
+
 #menu-title {
   font-size: 30px;
   font-weight: bold;
   margin: 10px 0;
+}
+
+
+@media (max-width: 992px) {
+  #libro {
+    position: absolute;
+    inset: 0 !important;
+    margin: auto;
+    display: none;
+  }
+
 }

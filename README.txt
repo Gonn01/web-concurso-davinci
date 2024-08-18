@@ -18,7 +18,7 @@ esto lo logre usando el mencionado por el profesor Local Storage, en esta seccio
 total de lo que salen los articulos elegidos. A su vez tambien se puede aumentar o disminuir la cantidad de
 ese tipo de elemento que se intenta comprar como eliminarlo con el tacho.
 
-Todas las paginas mencionadas son responsive a una resolucion de 400px.
+Todas las paginas mencionadas son responsive a una resolucion de 400px. Y para desktop 1920x1080px
 
 A parte tiene una pagina donde logearse con los usuarios disponibles(hardcodeados en el js) y tambien registrar
 usuarios una vez logeado esto te lleva a una seccion donde poder elegir que es lo que se va a hacer como admin,

@@ -2,12 +2,6 @@
   height: calc(105vh);
   width: 100%;
   position: relative;
-  background-position: center;
-  background-image: url(../../imgs/landing_background.png) !important;
-  background-attachment: fixed;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: bottom;
 }
 
 .social-icon {
@@ -17,8 +11,13 @@
 }
 
 #carouselExampleSlidesOnly {
-  background-color: #000;
+  background-color: #202020;
   z-index: 0;
+}
+
+.mapa {
+  display: flex;
+  justify-content: center;
 }
 
 .image-i {

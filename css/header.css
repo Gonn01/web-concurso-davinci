@@ -24,6 +24,10 @@ nav {
   border-radius: 50%;
   right: -10px;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
 }
 
 #avisos-envios-gratis {
@@ -98,7 +102,7 @@ header div a:hover::after {
 
 nav {
   background-color: #fff;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .3);
 
 }
 

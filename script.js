@@ -750,8 +750,21 @@ let inventarioArticulosLibreria = [
 ];
 
 window.onload = function () {
-  // Inicializa el carrito
-  initilizeCart();
+  const header = document.querySelector("header");
+  if (header) {
+    // Inicializa el carrito
+    initilizeCart();
+
+    const elemento = document.getElementById('carrito-ref');
+    elemento.addEventListener('click', function () {
+      // Aquí va el código que quieres ejecutar al hacer clic
+      window.location.href = 'carrito.html'; // Redirige a otra página
+    }); const elemento2 = document.getElementById('perfil-ref');
+    elemento2.addEventListener('click', function () {
+      // Aquí va el código que quieres ejecutar al hacer clic
+      window.location.href = 'perfil.html'; // Redirige a otra página
+    });
+  }
 
   // Convertimos el array de objetos a un string JSON
   const usuariosJSON = JSON.stringify(usuariosRegistrados);
@@ -789,6 +802,7 @@ window.onload = function () {
   if (existeCarrito) {
     let itemsCarrito = localStorage.getItem(carritoKey);
     generarItemsCarrito(itemsCarrito);
+
   }
 
   // Genera las categorias destacadas si el elemento existe
@@ -1283,10 +1297,10 @@ function generarCategoriasDestacadas() {
     // y lo agrego al wrapper
     const boton = document.createElement("div");
     boton.classList.add("boton-outlined");
-    boton.textContent = "Ver más";
-    boton.style.border = `1px solid white`;
+    boton.textContent = "VER MÁS";
     boton.style.color = 'white';
-
+    boton.style.backgroundColor = '#005735';
+    // boton.style.border = '1px solid #005735';
 
     datosWrapper.appendChild(boton);
 
@@ -1540,12 +1554,3 @@ function registrarUsuario() {
   // Redirijo al usuario a la pagina principal
   window.location.href = "login.html";
 }
-const elemento = document.getElementById('carrito-ref');
-elemento.addEventListener('click', function () {
-  // Aquí va el código que quieres ejecutar al hacer clic
-  window.location.href = 'carrito.html'; // Redirige a otra página
-}); const elemento2 = document.getElementById('perfil-ref');
-elemento2.addEventListener('click', function () {
-  // Aquí va el código que quieres ejecutar al hacer clic
-  window.location.href = 'perfil.html'; // Redirige a otra página
-});
