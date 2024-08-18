@@ -1,20 +1,40 @@
 .landing {
-  height: calc(100vh - 110px);
+  height: calc(105vh);
   width: 100%;
   position: relative;
   background-position: center;
   background-image: url(../../imgs/landing_background.png) !important;
   background-attachment: fixed;
   background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
+
+#carouselExampleSlidesOnly {
+  background-color: #000;
+  z-index: 0;
+}
+
+.image-i {
+  -webkit-transform: scale(0.8);
+  -ms-transform: scale(0.8);
+  transform: scale(0.8);
+  transition: 1s ease;
+  transition-duration: 1s;
+
+  &:hover {
+    background-color: #ccc;
+    transform: scale(1.1);
+  }
 }
 
 #waves {
   position: absolute;
   width: 100%;
-  bottom: 0;
+  bottom: -100px;
 }
 
-.carousel {
+.carousel2 {
   display: none;
 }
 
@@ -24,7 +44,7 @@
     width: 500%;
   }
 
-  .carousel {
+  .carousel2 {
     display: block;
   }
 

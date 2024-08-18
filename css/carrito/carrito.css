@@ -1,16 +1,25 @@
 body {
-  background-color: #f0f0f0 !important;
+  background-color: #fcfcfc !important;
 }
 
 #carrito-container {
   margin: 100px;
   background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
 }
 
 #carrito-title {
   font-size: 30px;
   font-weight: bold;
   margin: 20px;
+  padding-top: 20px;
+}
+
+.rowa {
+  --bs-gutter-x: 0;
+  border: 1px solid #cccccc66;
+  margin: 10px;
 }
 
 main {
@@ -19,20 +28,23 @@ main {
 
 .items-carrito {
   display: flex;
-  width: 100%;
   justify-content: space-evenly;
   align-items: center;
   margin: 20px 0;
+  padding: 20px 0;
+  width: 100% !important;
 }
 
 .img-item-carrito {
   width: 100px;
   height: 150px;
+  box-shadow: 0 0 10px #000;
 }
 
 .cantidad-item-container {
   display: flex;
   align-items: center;
+
 }
 
 .cantidad-item {
@@ -49,10 +61,23 @@ main {
   height: 30px;
 }
 
+.tacho:hover {
+  src: url(../img/tacho2.png);
+}
+
 #envio-section {
   padding: 40px;
   margin: 100px;
   background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.container-total {
+
+  padding: 40px;
+  margin: 100px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 #envio-title {
@@ -65,7 +90,6 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-right: 200px;
 }
 
 .envio-data {
@@ -83,7 +107,8 @@ main {
 
 #opciones-envio {
   display: flex;
-  justify-content: space-evenly;
+  flex-direction: row;
+  flex-wrap: wrap !important;
 }
 
 .envio-opcion {
@@ -110,16 +135,64 @@ main {
   color: #000;
 }
 
+#total-text {
+  display: flex;
+  justify-items: center;
+  justify-content: center;
+  text-align: right;
+  font-size: 25px;
+  font-weight: bold;
+  margin: 20px;
+}
+
+.mas:hover,
+.menos:hover {
+
+  color: #ffa24c;
+}
+
+.mas {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.menos {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.col-carrito {
+  padding: 0;
+  margin: 0;
+}
+
 @media (max-width: 992px) {
   #carrito-container {
     margin: 10px;
     background-color: #fff;
   }
 
+  .col-carrito {
+    padding: 10px;
+  }
+
+  .container-total {
+    padding: 20px;
+    margin: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  }
+
+  .rowe {
+
+    flex-direction: column !important;
+  }
+
   .item-carrito {
     flex-direction: column;
     align-items: center;
-    border: 1px solid #000;
+
   }
 
   .cantidad-item-container {
@@ -134,14 +207,14 @@ main {
 
   #envio-section {
     margin: 10px;
+    padding: 10px;
   }
 
   #opciones-envio {
     margin: 10px;
-    flex-direction: column;
   }
 
-  .col-carrito {
-    padding: 0;
+  .envio-opcion {
+    margin: 5px;
   }
 }

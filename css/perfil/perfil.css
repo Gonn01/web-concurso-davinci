@@ -1,52 +1,65 @@
 body {
-  background-color: #f0f0f0 !important;
+  background-color: #FCFCFC !important;
 }
+
 #sections-containers {
   display: flex;
   justify-content: space-evenly;
   margin: 100px;
 }
+
 .perfil-container {
   background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   display: flex;
   padding: 20px;
   border-radius: 15px;
 }
+
 .domicilio-campos {
   display: flex;
   margin-left: 20px;
 }
+
 .domicilio-campo {
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
 }
+
 .domicilio-campo:last-child {
   margin-bottom: 0;
 }
+
 .domicilio-placeholder {
   margin-right: 40px;
 }
+
 .facturas-container {
   background-color: #fff;
   padding: 20px;
   border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
 .facturas-data-container {
   border: 1px solid #f0f0f0;
   padding: 10px;
   border-radius: 15px;
   margin: 30px;
 }
+
 .facturas-data {
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
   align-items: center;
 }
+
 .f-span {
   margin-left: 10px;
 }
+
 .perfil-title {
   font-size: 30px;
   margin-bottom: 20px;
@@ -54,7 +67,7 @@ body {
 }
 
 @media screen and (max-width: 992px) {
-  #sections-containers{
+  #sections-containers {
     flex-direction: column;
     align-items: center;
   }

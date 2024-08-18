@@ -1041,10 +1041,14 @@ function generarItemsCarrito(listaProductos) {
     listaCarrito.removeChild(listaCarrito.firstChild);
   }
 
+  const totalText = document.getElementById("total-text");
+  const t = lista.reduce((sum, item) => sum + item.precio * item.cantidad, 0);
+  totalText.textContent = `Total: ${formatearPrecio(t)}`;
+
   lista.forEach((producto) => {
     // Creo el contenedor del item del carrito
     let divItemCarrito = document.createElement("div");
-    divItemCarrito.classList.add("row", "py-3", "item-carrito");
+    divItemCarrito.classList.add("row", "py-3", "item-carrito", "rowa");
 
     // Creo la imagen del item del carrito
     const imgCol = document.createElement("div");
@@ -1062,6 +1066,7 @@ function generarItemsCarrito(listaProductos) {
     nombreCol.classList.add("col", "my-auto", "text-center", "col-carrito");
     let nombreProducto = document.createElement("div");
     nombreProducto.textContent = `${producto.title}`;
+    nombreProducto.style.fontWeight = "bold";
     nombreCol.appendChild(nombreProducto);
 
     // Creo el contenedor de la cantidad del producto
@@ -1073,8 +1078,9 @@ function generarItemsCarrito(listaProductos) {
 
     // Dentro del contenedor de la cantidad, creo el boton de restar la cantidad con su funcion
     let divCantidadMenos = document.createElement("div");
-    divCantidadMenos.classList.add("cantidad-item", "fs-4", "fw-normal");
+    divCantidadMenos.classList.add("menos", "cantidad-item", "fs-4", "fw-normal");
     divCantidadMenos.textContent = "-";
+    divCantidadMenos.style.cursor = "pointer";
     divCantidadMenos.onclick = () =>
       modificarProductoCarrito(JSON.stringify(producto), true);
 
@@ -1085,8 +1091,9 @@ function generarItemsCarrito(listaProductos) {
 
     // Dentro del contenedor de la cantidad, creo el boton de sumar la cantidad con su funcion
     let divCantidadMas = document.createElement("div");
-    divCantidadMas.classList.add("cantidad-item", "fs-4", "fw-normal");
+    divCantidadMas.classList.add("mas", "cantidad-item", "fs-4", "fw-normal");
     divCantidadMas.textContent = "+";
+    divCantidadMas.style.cursor = "pointer";
     divCantidadMas.onclick = () =>
       modificarProductoCarrito(JSON.stringify(producto), false);
     cantidadCol.appendChild(divCantidadContainer);
@@ -1098,6 +1105,7 @@ function generarItemsCarrito(listaProductos) {
     precioProducto.textContent = formatearPrecio(
       producto.precio * producto.cantidad
     );
+    precioProducto.style.fontWeight = "bold";
     precioCol.appendChild(precioProducto);
 
     // Creo el icono de tacho para eliminar el producto del carrito
@@ -1105,6 +1113,7 @@ function generarItemsCarrito(listaProductos) {
     tachoCol.classList.add("col", "my-auto", "text-center", "col-carrito");
     let imgTacho = document.createElement("img");
     imgTacho.classList.add("tacho");
+    imgTacho.style.cursor = "pointer";
     imgTacho.src = "imgs/tacho.png";
     imgTacho.alt = "";
     imgTacho.onclick = () => deleteFromCarrito(JSON.stringify(producto));
@@ -1279,7 +1288,9 @@ function generarCategoriasDestacadas() {
     boton.classList.add("boton-outlined");
     boton.textContent = "Ver más";
     boton.style.border = `1px solid white`;
-    boton.style.color = `white`;
+    boton.style.color = 'white';
+
+
     datosWrapper.appendChild(boton);
 
     const espacio = document.createElement("div");
@@ -1304,7 +1315,8 @@ function generarCategoriasDestacadas() {
       const img = document.createElement("img");
       img.src = element;
       img.alt = element;
-      img.classList.add("categoria-destacada-item");
+      img.classList.add("categoria-destacada-item", "image-i");
+      img.style.boxShadow = "0px 0px 10px 0px rgba(0,0,0,0.75)";
 
       // Agrego la imagen a la columna
       col.appendChild(img);
@@ -1312,13 +1324,6 @@ function generarCategoriasDestacadas() {
       // Agrego la columna a la row
       row.appendChild(col);
     });
-
-
-
-
-
-
-
 
     const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     svg.setAttribute("width", "1920");
@@ -1353,7 +1358,7 @@ function generarCategoriasDestacadas() {
     container.appendChild(row);
 
     const carousel = document.createElement('div');
-    carousel.classList.add('carousel');
+    carousel.classList.add('carousel', 'carousel2');
     carousel.classList.add('slide');
     ///
     carousel.setAttribute('id', carouselName);
@@ -1372,7 +1377,6 @@ function generarCategoriasDestacadas() {
         indicator.classList.add('active');
       }
       indicators.appendChild(indicator);
-
     }
 
     carousel.appendChild(indicators);
@@ -1382,7 +1386,7 @@ function generarCategoriasDestacadas() {
 
     categoria.imgs.forEach((img, index) => {
       const item = document.createElement('div');
-      item.classList.add('carousel-item');
+      item.classList.add('carousel-item', 'image-i', 'text-center');
       item.classList.add('text-center');
       item.style.backgroundColor = categoria.color;
       if (index === 0) {
@@ -1474,7 +1478,6 @@ function generarCategoriasDestacadas() {
     secciones.appendChild(container);
   }
 }
-
 function iniciarSesion() {
   // Obtengo los valores de los inputs
   const email = document.getElementById("email").value;
