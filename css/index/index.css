@@ -10,15 +10,18 @@
   background-position: bottom;
 }
 
+.social-icon {
+  font-size: 30px;
+  color: #fff;
+  margin: 0 10px;
+}
+
 #carouselExampleSlidesOnly {
   background-color: #000;
   z-index: 0;
 }
 
 .image-i {
-  -webkit-transform: scale(0.8);
-  -ms-transform: scale(0.8);
-  transform: scale(0.8);
   transition: 1s ease;
   transition-duration: 1s;
 
@@ -38,6 +41,15 @@
   display: none;
 }
 
+a {
+  color: #fff;
+  text-decoration: none !important;
+}
+
+#carouselExampleSlidesOnlyPhone {
+  display: none;
+  z-index: 0;
+}
 
 @media screen and (max-width: 992px) {
   #waves {
@@ -49,6 +61,18 @@
   }
 
   .cat-dest {
+    display: none;
+  }
+
+  .image-i:hover {
+    transform: scale(1);
+  }
+
+  #carouselExampleSlidesOnlyPhone {
+    display: block;
+  }
+
+  #carouselExampleSlidesOnly {
     display: none;
   }
 

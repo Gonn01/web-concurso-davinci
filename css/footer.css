@@ -1,31 +1,8 @@
-/* footer {
-  position: relative;
-}
-.footer-wave {
-  position: absolute;
-  width: 100%;
-}
-.footer-responsive {
-  position: absolute;
-  top: 350px;
-  z-index: 3;
-  left: 0;
-  right: 0;
-}
-
-@media screen and (max-width: 992px) {
-  .footer-wave {
-    width: 300%;
-  }
-  .footer-responsive {
-    position: absolute;
-    top: 150px !important;
-    z-index: 3;
-    flex-direction: column;
-    left: 0;
-    right: 0;
-  }
-} */
 footer {
   background: #202020;
+}
+
+a {
+  color: #fff;
+  text-decoration: none !important;
 }

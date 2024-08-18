@@ -1,5 +1,5 @@
 body {
-  background-color: #fcfcfc !important;
+  background-color: #ececec !important;
 }
 
 #carrito-container {
@@ -59,10 +59,16 @@ main {
 .tacho {
   width: 30px;
   height: 30px;
+  cursor: pointer;
+  background-image: url('../../imgs/tacho.png');
+  background-size: cover;
 }
 
 .tacho:hover {
-  src: url(../img/tacho2.png);
+  width: 30px;
+  height: 30px;
+  scale: 1.1;
+  background-image: url('../../imgs/tacho-red.png');
 }
 
 #envio-section {

@@ -19,7 +19,8 @@ nav {
   color: #fff;
   width: 25px;
   height: 25px;
-  top: -10px;
+  top: -5px;
+  z-index: 2;
   border-radius: 50%;
   right: -10px;
   text-align: center;
@@ -53,7 +54,6 @@ nav {
 
 .nav-link:hover {
   color: #ffa24c;
-  text-decoration: underline;
 }
 
 .active {
@@ -107,6 +107,10 @@ nav {
   cursor: pointer;
 }
 
+.a-hidden {
+  display: none !important;
+}
+
 @media (max-width: 992px) {
   #logo-nav {
     display: none;
@@ -145,4 +149,24 @@ nav {
   #carrito-list {
     margin: 0 0;
   }
+
+  #carrito-valor {
+    position: relative;
+    top: 0;
+    background-color: #ffa24c;
+    color: #fff;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+  }
+
+  .a-hidden {
+    display: block;
+  }
+
 }

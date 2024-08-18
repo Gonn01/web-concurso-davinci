@@ -1,5 +1,5 @@
 body {
-  background-color: #FCFCFC !important;
+  background-color: #ECECEC !important;
 }
 
 #sections-containers {
@@ -56,9 +56,6 @@ body {
   align-items: center;
 }
 
-.f-span {
-  margin-left: 10px;
-}
 
 .perfil-title {
   font-size: 30px;
@@ -70,5 +67,31 @@ body {
   #sections-containers {
     flex-direction: column;
     align-items: center;
+  }
+
+
+  .facturas-data {
+    flex-direction: column;
+  }
+
+  .perfil-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .domicilio-campos {
+    margin-left: 0;
+  }
+
+  .domicilio-campo {
+    flex-direction: column;
+  }
+
+  .facturas-data-container {
+    margin: 10px;
+  }
+
+  .boton {
+    min-width: 210px;
   }
 }

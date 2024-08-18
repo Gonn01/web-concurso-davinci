@@ -1111,11 +1111,8 @@ function generarItemsCarrito(listaProductos) {
     // Creo el icono de tacho para eliminar el producto del carrito
     const tachoCol = document.createElement("div");
     tachoCol.classList.add("col", "my-auto", "text-center", "col-carrito");
-    let imgTacho = document.createElement("img");
-    imgTacho.classList.add("tacho");
-    imgTacho.style.cursor = "pointer";
-    imgTacho.src = "imgs/tacho.png";
-    imgTacho.alt = "";
+    let imgTacho = document.createElement("div");
+    imgTacho.classList.add("tacho", 'mx-auto');
     imgTacho.onclick = () => deleteFromCarrito(JSON.stringify(producto));
     tachoCol.appendChild(imgTacho);
     // Agregar elementos al contenedor de la cantidad
@@ -1359,6 +1356,7 @@ function generarCategoriasDestacadas() {
 
     const carousel = document.createElement('div');
     carousel.classList.add('carousel', 'carousel2');
+    carousel.style.backgroundColor = categoria.color;
     carousel.classList.add('slide');
     ///
     carousel.setAttribute('id', carouselName);

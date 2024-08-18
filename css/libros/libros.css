@@ -71,8 +71,18 @@
   }
 
   .tarjeta {
-    width: 130px !important;
+    width: 150px !important;
     padding: 5px;
     margin: 10px;
+
+  }
+
+  .card-img-top {
+    text-align: center;
+    margin: auto;
+  }
+
+  .categoria-container {
+    margin: 0 10px;
   }
 }
