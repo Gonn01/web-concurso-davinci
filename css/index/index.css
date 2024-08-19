@@ -45,14 +45,82 @@ a {
   text-decoration: none !important;
 }
 
-#carouselExampleSlidesOnlyPhone {
+.fade-mobile {
   display: none;
   z-index: 0;
+}
+
+.fadein img {
+  position: absolute;
+  top: 0;
+  -webkit-animation-name: fade;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-duration: 15s;
+  animation-name: fade;
+  animation-iteration-count: infinite;
+  animation-duration: 15s;
+}
+
+@-webkit-keyframes fade {
+  0% {
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  33% {
+    opacity: 1;
+  }
+
+  53% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  33% {
+    opacity: 1;
+  }
+
+  53% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.f1 {
+  animation-delay: -10s;
+}
+
+.f2 {
+  animation-delay: -5s;
+}
+
+.f3 {
+  animation-delay: -0s;
 }
 
 @media screen and (max-width: 992px) {
   #waves {
     width: 500%;
+    bottom: 100px;
   }
 
   .carousel2 {
@@ -67,11 +135,12 @@ a {
     transform: scale(1);
   }
 
-  #carouselExampleSlidesOnlyPhone {
+  .fade-mobile {
     display: block;
+    height: 800px;
   }
 
-  #carouselExampleSlidesOnly {
+  .fade-desktop {
     display: none;
   }
 

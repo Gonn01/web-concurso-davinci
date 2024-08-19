@@ -23,6 +23,7 @@
     rel="stylesheet">
 </head>
 
+
 <body>
   <a href="#" style="z-index: 1000; position: fixed; bottom: 10px; right: 10px;
     transition: 0.5s;">
@@ -81,34 +82,16 @@
   </header>
   <main>
     <div>
-      <div id="carouselExampleSlidesOnly" class="carousel carousel-fade" data-bs-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active" data-bs-interval="5000">
-            <img src="imgs/2.webp" class="d-block w-100 landing" alt="...">
-          </div>
-          <div class="carousel-item " data-bs-interval="5000">
-            <img src="imgs/1.webp" class="d-block w-100 landing" alt="...">
-          </div>
-          <div class="carousel-item" data-bs-interval="5000">
-            <img src="imgs/5.jpg" class="d-block w-100 landing" alt="...">
-          </div>
-          <div class="carousel-item" data-bs-interval="5000">
-            <img src="imgs/4.jpg" class="d-block w-100 landing" alt="...">
-          </div>
-          <div class="carousel-item" data-bs-interval="5000">
-            <img src="imgs/3.webp" class="d-block w-100 landing" alt="...">
-          </div>
-        </div>
+      <div class="fadein fade-desktop" style="width:1920px; height: 1000px"></div>
+      <div class="fadein fade-desktop">
+        <img class="f3" src="imgs/2.webp" width="1920px" height="1000px">
+        <img class="f2" src="imgs/1.webp" width="1920px" height="1000px">
+        <img class="f1" src="imgs/5.jpg" width="1920px" height="1000px">
       </div>
-      <div id="carouselExampleSlidesOnlyPhone" class="carousel carousel-fade" data-bs-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active" data-bs-interval="5000">
-            <img src="imgs/1-phone.jpeg" class="d-block w-100 landing" alt="...">
-          </div>
-          <div class="carousel-item" data-bs-interval="5000">
-            <img src="imgs/3-phone.jpg" class="d-block w-100 landing" alt="...">
-          </div>
-        </div>
+      <div class="fadein fade-mobile">
+        <img class="f3" src="imgs/2-phone.png" width="400px" height="800px">
+        <img class="f2" src="imgs/1-phone.jpeg" width="400px" height="800px">
+        <img class="f1" src="imgs/3-phone.jpg" width="400px" height="800px">
       </div>
       <svg id="waves" viewBox="0 0 900 600">
         <path
