@@ -121,7 +121,8 @@ nav {
   }
 
   nav {
-    padding: 0 20px !important;
+    width: 100vw !important;
+    padding: 0 0px !important;
   }
 
   .header-custom {

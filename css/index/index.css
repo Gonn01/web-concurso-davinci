@@ -1,5 +1,5 @@
 .landing {
-  height: calc(105vh);
+  height: calc(100vh);
   width: 100%;
   position: relative;
 }
@@ -119,8 +119,34 @@ a {
 
 @media screen and (max-width: 992px) {
   #waves {
-    width: 500%;
-    bottom: 100px;
+    width: 100vw;
+    bottom: calc(-5vh) !important;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+
+  .svg {
+    width: calc(100% + 2px);
+    max-width: calc(100% + 2px);
+    margin-left: -1px;
+  }
+
+  .col-responsive {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100vw;
+  }
+
+  .entrevistas-text,
+  .entrevistas-title,
+  .entrevistas-description {
+    width: 100vw !important;
+  }
+
+  .categoria-responsive {
+    width: 103vw !important;
   }
 
   .carousel2 {
@@ -137,7 +163,14 @@ a {
 
   .fade-mobile {
     display: block;
+    width: 100vw !important;
     height: 800px;
+  }
+
+  .f1,
+  .f2,
+  .f3 {
+    width: 100vw !important;
   }
 
   .fade-desktop {
