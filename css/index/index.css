@@ -120,7 +120,7 @@ a {
 @media screen and (max-width: 992px) {
   #waves {
     width: 100vw;
-    bottom: calc(-5vh) !important;
+    bottom: calc(15vh) !important;
   }
 
   body {
