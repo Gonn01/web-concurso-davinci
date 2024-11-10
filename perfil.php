@@ -9,10 +9,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <link rel="stylesheet" href="../css/perfil/perfil.css">
-  <link rel="stylesheet" href="../css/global.css">
-  <link rel="stylesheet" href="../css/footer.css">
-  <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="./css/perfil/perfil.css">
+  <link rel="stylesheet" href="./css/global.css">
+  <link rel="stylesheet" href="./css/footer.css">
+  <link rel="stylesheet" href="./css/header.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -65,7 +65,7 @@
                   <div>Número de reserva:&nbsp;</div>
                   <span class="f-span"> 853133</span>
                 </div>
-                <a href="./404.html" class="boton ms-5">Descargar comprobante</a>
+                <a href="./404.php" class="boton ms-5">Descargar comprobante</a>
               </div>
             </div>
             <div class="facturas-data-container">
@@ -84,7 +84,7 @@
                   <div>Número de reserva:&nbsp;</div>
                   <span class="f-span"> 853133</span>
                 </div>
-                <a href="./404.html" class="boton ms-5">Descargar comprobante</a>
+                <a href="./404.php" class="boton ms-5">Descargar comprobante</a>
               </div>
             </div>
             <div class="facturas-data-container">
@@ -103,7 +103,7 @@
                   <div>Número de reserva:&nbsp;</div>
                   <span class="f-span"> 853133</span>
                 </div>
-                <a href="./404.html" class="boton ms-5">Descargar comprobante</a>
+                <a href="./404.php" class="boton ms-5">Descargar comprobante</a>
               </div>
             </div>
           </div>
@@ -128,7 +128,7 @@
                 <div>Fecha:&nbsp;</div>
                 <span class="f-span"> 07/05/2021</span>
               </div>
-              <a href="./404.html" class="boton ms-5">Ver detalles</a>
+              <a href="./404.php" class="boton ms-5">Ver detalles</a>
             </div>
           </div>
           <div class="facturas-data-container">
@@ -147,7 +147,7 @@
                 <div>Fecha:&nbsp;</div>
                 <span class="f-span"> 07/05/2021</span>
               </div>
-              <a href="./404.html" class="boton ms-5">Ver detalles</a>
+              <a href="./404.php" class="boton ms-5">Ver detalles</a>
             </div>
           </div>
           <div class="facturas-data-container">
@@ -166,7 +166,7 @@
                 <div>Fecha:&nbsp;</div>
                 <span class="f-span"> 07/05/2021</span>
               </div>
-              <a href="./404.html" class="boton ms-5">Ver detalles</a>
+              <a href="./404.php" class="boton ms-5">Ver detalles</a>
             </div>
           </div>
           <div class="facturas-data-container">
@@ -185,7 +185,7 @@
                 <div>Fecha:&nbsp;</div>
                 <span class="f-span"> 07/05/2021</span>
               </div>
-              <a href="./404.html" class="boton ms-5">Ver detalles</a>
+              <a href="./404.php" class="boton ms-5">Ver detalles</a>
             </div>
           </div>
         </div>
@@ -199,7 +199,7 @@
   </svg>
 
   <?php include 'footer.php'; ?>
-  <script src="../js/script.js"></script>
+  <script src="./js/script.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>

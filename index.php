@@ -98,7 +98,7 @@
               Sumá los productos que quieras al carrito.<br>
               Te los llevamos hasta dónde estés.
             </div>
-            <a href="./pages/404.html" class="boton-outlined my-2">Conocer más</a>
+            <a href="./404.php" class="boton-outlined my-2">Conocer más</a>
           </div>
         </div>
         <div class="col mx-auto">
@@ -111,7 +111,7 @@
               Sumá los productos que quieras al carrito.<br>
               Te los llevamos hasta dónde estés.
             </div>
-            <a href="./pages/404.html" class="boton-outlined my-2">Conocer más</a>
+            <a href="./404.php" class="boton-outlined my-2">Conocer más</a>
           </div>
         </div>
         <div class="col mx-auto">
@@ -125,7 +125,7 @@
               Sumá los productos que quieras al carrito.<br>
               Te los llevamos hasta dónde estés.
             </div>
-            <a href="./pages/404.html" class="boton-outlined my-2">Conocer más</a>
+            <a href="./404.php" class="boton-outlined my-2">Conocer más</a>
           </div>
         </div>
       </div>
@@ -151,7 +151,7 @@
               Sumá los productos que quieras al carrito.<br>
               Te los llevamos hasta dónde estés.
             </div>
-            <a href="./pages/404.html" class="boton-outlined my-2">Conocer más</a>
+            <a href="./404.php" class="boton-outlined my-2">Conocer más</a>
           </div>
         </div>
         <div class="carousel-item">
@@ -165,7 +165,7 @@
               Sumá los productos que quieras al carrito.<br>
               Te los llevamos hasta dónde estés.
             </div>
-            <a href="./pages/404.html" class="boton-outlined my-2">Conocer más</a>
+            <a href="./404.php" class="boton-outlined my-2">Conocer más</a>
           </div>
         </div>
         <div class="carousel-item">
@@ -179,7 +179,7 @@
               Sumá los productos que quieras al carrito.<br>
               Te los llevamos hasta dónde estés.
             </div>
-            <a href="./pages/404.html" class="boton-outlined my-2">Conocer más</a>
+            <a href="./404.php" class="boton-outlined my-2">Conocer más</a>
           </div>
         </div>
       </div>

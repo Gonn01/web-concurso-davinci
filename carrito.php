@@ -9,10 +9,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <link rel="stylesheet" href="../css/carrito/carrito.css">
-  <link rel="stylesheet" href="../css/global.css">
-  <link rel="stylesheet" href="../css/footer.css">
-  <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="./css/carrito/carrito.css">
+  <link rel="stylesheet" href="./css/global.css">
+  <link rel="stylesheet" href="./css/footer.css">
+  <link rel="stylesheet" href="./css/header.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -44,11 +44,11 @@
         </div>
         <div id="opciones-envio">
           <div class="envio-opcion">
-            <img class="envio-opcion-img" src="../imgs/logo-oca.png" alt="">
+            <img class="envio-opcion-img" src="./imgs/logo-oca.png" alt="">
             <div class="envio-opcion-texto">DOMICILIO</div>
           </div>
           <div class="envio-opcion">
-            <img class="envio-opcion-img" src="../imgs/logo-oca.png" alt="">
+            <img class="envio-opcion-img" src="./imgs/logo-oca.png" alt="">
             <div class="envio-opcion-texto">SUCURSAL</div>
           </div>
           <div class="envio-opcion">
@@ -98,7 +98,7 @@
     </path>
   </svg>
   <?php include 'footer.php'; ?>
-  <script src="../js/script.js"></script>
+  <script src="./js/script.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
