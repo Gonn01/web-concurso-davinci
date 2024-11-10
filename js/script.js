@@ -753,61 +753,61 @@ window.onload = function () {
   const header = document.querySelector("header");
   if (header) {
     // Inicializa el carrito
-    // initilizeCart();
+    initilizeCart();
 
     const elemento = document.getElementById('carrito-ref');
     elemento.addEventListener('click', function () {
       // Aquí va el código que quieres ejecutar al hacer clic
-      window.location.href = '../pages/carrito.html'; // Redirige a otra página
+      window.location.href = '../pages/carrito.php'; // Redirige a otra página
     }); const elemento2 = document.getElementById('perfil-ref');
     elemento2.addEventListener('click', function () {
       // Aquí va el código que quieres ejecutar al hacer clic
-      window.location.href = '../pages/perfil.html'; // Redirige a otra página
+      window.location.href = '../pages/perfil.php'; // Redirige a otra página
     });
   }
 
   // Convertimos el array de objetos a un string JSON
-  // const usuariosJSON = JSON.stringify(usuariosRegistrados);
+  const usuariosJSON = JSON.stringify(usuariosRegistrados);
 
   // Guardamos el string JSON en el localStorage
-  // localStorage.setItem(usuariosKey, usuariosJSON);
+  localStorage.setItem(usuariosKey, usuariosJSON);
 
-  // let existeLibros = document.querySelector(".list-categoria-container");
-  // if (existeLibros) {
-  //   generarTienda(inventarioLibros, ".list-categoria-container");
-  // }
+  let existeLibros = document.querySelector(".list-categoria-container");
+  if (existeLibros) {
+    generarTienda(inventarioLibros, ".list-categoria-container");
+  }
 
-  // let existePeliculas = document.querySelector(".list-categoria-container-peliculas");
-  // if (existePeliculas) {
-  //   generarTienda(inventarioPeliculas, ".list-categoria-container-peliculas");
-  // }
+  let existePeliculas = document.querySelector(".list-categoria-container-peliculas");
+  if (existePeliculas) {
+    generarTienda(inventarioPeliculas, ".list-categoria-container-peliculas");
+  }
 
-  // let existeArticulosLibreria = document.querySelector(".list-categoria-container-articulos-libreria");
-  // if (existeArticulosLibreria) {
-  //   generarTienda(inventarioArticulosLibreria, ".list-categoria-container-articulos-libreria");
-  // }
-
-  // Genera las categorias destacadas si el elemento existe
-  // let existeCategoriasDestacadas = document.getElementById("secciones");
-  // if (existeCategoriasDestacadas) {
-  //   let itemsCarrito = localStorage.getItem(carritoKey);
-  //   generarCategoriasDestacadas(itemsCarrito);
-  // }
+  let existeArticulosLibreria = document.querySelector(".list-categoria-container-articulos-libreria");
+  if (existeArticulosLibreria) {
+    generarTienda(inventarioArticulosLibreria, ".list-categoria-container-articulos-libreria");
+  }
 
   // Genera las categorias destacadas si el elemento existe
-  // let existeCarrito = document.getElementById("lista-items-carrito");
-  // if (existeCarrito) {
-  //   let itemsCarrito = localStorage.getItem(carritoKey);
-  //   generarItemsCarrito(itemsCarrito);
-
-  // }
+  let existeCategoriasDestacadas = document.getElementById("secciones");
+  if (existeCategoriasDestacadas) {
+    let itemsCarrito = localStorage.getItem(carritoKey);
+    generarCategoriasDestacadas(itemsCarrito);
+  }
 
   // Genera las categorias destacadas si el elemento existe
-  // let existeProductosInventario = document.getElementById("lista-productos-inventario");
-  // if (existeProductosInventario) {
-  //   let listas = [inventarioLibros, inventarioPeliculas, inventarioArticulosLibreria];
-  //   generarListaDeProductosInventario2(listas);
-  // }
+  let existeCarrito = document.getElementById("lista-items-carrito");
+  if (existeCarrito) {
+    let itemsCarrito = localStorage.getItem(carritoKey);
+    generarItemsCarrito(itemsCarrito);
+
+  }
+
+  // Genera las categorias destacadas si el elemento existe
+  let existeProductosInventario = document.getElementById("lista-productos-inventario");
+  if (existeProductosInventario) {
+    let listas = [inventarioLibros, inventarioPeliculas, inventarioArticulosLibreria];
+    generarListaDeProductosInventario2(listas);
+  }
 };
 function generarListaDeProductosInventario2(listas) {
   const productosContainer = document.createElement('div');
@@ -1303,7 +1303,7 @@ function generarCategoriasDestacadas() {
     boton.classList.add("boton-outlined");
     boton.id = `btn-ver-mas`;
     boton.textContent = "VER MÁS";
-    boton.href = '../pages/libros.html'
+    boton.href = '../pages/libros.php'
     boton.style.color = 'white';
     boton.style.backgroundColor = '#005735';
 

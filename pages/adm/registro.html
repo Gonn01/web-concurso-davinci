@@ -24,26 +24,31 @@
   <main>
     <img id="lapices1" src="../imgs/lapices.png" alt="">
     <img id="lapices2" src="../imgs/lapices.png" alt="">
-    <div id="container-menu">
-      <div id="menu-title">Seleccione uno</div>
-      <div id="menu-options">
-        <div class="menu-option">
-          <img class="menu-option-img" src="../imgs/monitor.png" alt="">
-          <a href="../index.html" class="boton">Web</a>
+    <img id="libro" src="../imgs/libro.png" alt="">
+    <div id="login-container">
+      <section id="data">
+        <div id="container-logeo">
+          <h2>Iniciar sesión</h2>
+          <input id="nombre-registro" type="text" class="clean-input" placeholder="Nombre">
+          <input id="apellido-registro" type="text" class="clean-input" placeholder="Apellido">
+          <input id="email-registro" type="text" class="clean-input" placeholder="Email">
+          <input id="password-registro" type="text" class="clean-input" placeholder="Contraseña">
+          <a class="boton" onclick="registrarUsuario()">Registrarse</a>
+          <div>o</div>
+          <div class="boton-outlined"><a href="./login.html">Iniciar sesión</a></div>
         </div>
-        <div class="menu-option">
-          <img class="menu-option-img" src="../imgs/stock.png" alt="">
-          <a href="./ajuste_stock.html" class="boton">Stock</a>
+        <div id="container-bienvenida">
+          <h2>Bienvenido a Yenny</h2>
+          <div id="texto-bienvenida">
+            Descubrí en Yenny - El Ateneo lo que más te gusta de Libros
+            Físicos con las mejores ofertas. ¡Encontrá promociones y
+            descuentos en toda la tienda!
+          </div>
+          <div class="boton-outlined">
+            <a href="../index.php">Ir al inicio</a>
+          </div>
         </div>
-        <div class="menu-option">
-          <img class="menu-option-img" src="../imgs/items.png" alt="">
-          <a href="./ajuste_stock.html" class="boton">Items</a>
-        </div>
-        <div class="menu-option">
-          <img class="menu-option-img" src="../imgs/informes.png" alt="">
-          <a href="./ajuste_stock.html" class="boton">Informes</a>
-        </div>
-      </div>
+      </section>
     </div>
   </main>
   <script src="../js/script.js"></script>
