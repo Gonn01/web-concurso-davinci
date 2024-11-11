@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = ""; // En este caso, asumimos que no hay contraseña para el usuario root
-$dbname = "mydb"; // Reemplaza "tu_base_de_datos" con el nombre de tu base de datos
+$dbname = "yenny"; // Reemplaza "tu_base_de_datos" con el nombre de tu base de datos
 function executeQuery($query)
 {
     global $servername, $username, $password, $dbname; // Acceder a las variables globales

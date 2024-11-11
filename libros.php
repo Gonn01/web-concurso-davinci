@@ -22,8 +22,9 @@
 
 <body>
 
-  <?php include './header.php';
-  $_SESSION['paginaActual'] = 'libros'; ?>
+  <?php
+  include './header.php';
+  ?>
   <div style="height: 100px;"></div>
   <main>
     <div class="list-categoria-container"></div>

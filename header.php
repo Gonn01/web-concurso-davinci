@@ -1,3 +1,6 @@
+<?php
+$currentPage = basename($_SERVER['PHP_SELF']);
+?>
 <header class="container-fluid m-0 p-0" style="position: fixed; z-index: 1000">
   <nav class="navbar navbar-expand-lg fixed-top ">
     <img id="logo-nav" src="imgs/logo_yenny.png" alt="Logo">
@@ -11,27 +14,18 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a class="nav-link <?php
-            echo ($_SESSION['paginaActual']);
-            echo ($_SESSION['paginaActual']);
-            echo ($_SESSION['paginaActual']);
-            echo ($_SESSION['paginaActual']);
-            echo ($_SESSION['paginaActual']);
-            echo ($_SESSION['paginaActual']);
-            echo ($_SESSION['paginaActual']);
-            echo ($_SESSION['paginaActual']);
-            echo ($_SESSION['paginaActual'] == 'inicio') ? 'active' : ''; ?>" href="index.php">Iniciao</a>
+            <a class="nav-link <?php echo ($currentPage == 'index.php') ? 'active' : ''; ?>" href="index.php">Inicio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link <?php echo ($_SESSION['paginaActual'] == 'libros') ? 'active' : ''; ?>"
+            <a class="nav-link <?php echo ($currentPage == 'libros.php') ? 'active' : ''; ?>"
               href="libros.php">Libros</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link <?php echo ($_SESSION['paginaActual'] == 'peliculas') ? 'active' : ''; ?>"
+            <a class="nav-link <?php echo ($currentPage == 'peliculas.php') ? 'active' : ''; ?>"
               href="peliculas.php">Películas</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link <?php echo ($_SESSION['paginaActual'] == 'articulosLibreria') ? 'active' : ''; ?>"
+            <a class="nav-link <?php echo ($currentPage == 'articulos_libreria.php') ? 'active' : ''; ?>"
               href="articulos_libreria.php">Artículos de librería</a>
           </li>
           <li id="carrito-list">
