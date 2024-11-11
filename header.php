@@ -11,16 +11,28 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a class="nav-link active" href="index.php">Inicio</a>
+            <a class="nav-link <?php
+            echo ($_SESSION['paginaActual']);
+            echo ($_SESSION['paginaActual']);
+            echo ($_SESSION['paginaActual']);
+            echo ($_SESSION['paginaActual']);
+            echo ($_SESSION['paginaActual']);
+            echo ($_SESSION['paginaActual']);
+            echo ($_SESSION['paginaActual']);
+            echo ($_SESSION['paginaActual']);
+            echo ($_SESSION['paginaActual'] == 'inicio') ? 'active' : ''; ?>" href="index.php">Iniciao</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="libros.php">Libros</a>
+            <a class="nav-link <?php echo ($_SESSION['paginaActual'] == 'libros') ? 'active' : ''; ?>"
+              href="libros.php">Libros</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="peliculas.php">Películas</a>
+            <a class="nav-link <?php echo ($_SESSION['paginaActual'] == 'peliculas') ? 'active' : ''; ?>"
+              href="peliculas.php">Películas</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="articulos_libreria.php">Artículos de librería</a>
+            <a class="nav-link <?php echo ($_SESSION['paginaActual'] == 'articulosLibreria') ? 'active' : ''; ?>"
+              href="articulos_libreria.php">Artículos de librería</a>
           </li>
           <li id="carrito-list">
             <div id="carrito-ref" class="nav-link">

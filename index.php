@@ -87,7 +87,9 @@
       <?php
       require_once 'db_connection.php';
       require_once 'categoria_destacada_model.php';
-
+      session_start();
+      // $_SESSION['paginaActual'] = 'inicio';
+      
       $sql = "SELECT * FROM categoria_destacada";
 
       $result = executeQuery($sql);
