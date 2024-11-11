@@ -83,7 +83,122 @@
 
     <h2 class="section-title">LAS CATEGORÍAS MAS DESTACADAS</h2>
 
-    <div id="secciones"></div>
+    <div id="secciones">
+      <?php
+      require_once 'db_connection.php';
+      require_once 'categoria_destacada_model.php';
+
+      $sql = "SELECT * FROM categoria_destacada";
+
+      $result = executeQuery($sql);
+
+      $categorias = [];
+
+      foreach ($result as $categoria_data) {
+        $categoria = new Categoria(
+          $categoria_data['id'],
+          $categoria_data['title'],
+          $categoria_data['description'],
+          $categoria_data['color']
+        );
+        $categorias[] = $categoria;
+      }
+
+      foreach ($categorias as $categoria) {
+        $sqlImgs = "SELECT img_categoria_destacada.url
+        FROM img_categoria_destacada
+        JOIN categoria_destacada_has_img_categoria_destacada ON img_categoria_destacada.id = categoria_destacada_has_img_categoria_destacada.img_categoria_destacada_id
+        WHERE categoria_destacada_has_img_categoria_destacada.categoria_destacada_id = $categoria->id;
+        ";
+        $resultImgs = executeQuery($sqlImgs);
+        $urls = array_map(function ($img) {
+          return $img['url'];
+        }, $resultImgs);
+
+        $imagenes = json_encode($urls);
+
+
+        $html = "
+        <div class='container-fluid mx-auto p-0'>
+        <svg class='svg' width='1920' height='99' viewBox='0 0 1920 99' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' preserveAspectRatio='none'>
+          <rect x='0' y='0' width='1920' height='99' fill='white'>
+          </rect>
+          <path d='M0 32L21.4 35.5C42.6 39 85.4 46 128 46.8C170.6 47.7 213.4 42.3 256 40C298.6 37.7 341.4 38.3 384 41.2C426.6 44 469.4 49 512 45.7C554.6 42.3 597.4 30.7 640 26.7C682.6 22.7 725.4 26.3 768 32.3C810.6 38.3 853.4 46.7 896 49.2C938.6 51.7 981.4 48.3 1024 41.8C1066.6 35.3 1109.4 25.7 1152 25.3C1194.6 25 1237.4 34 1280 37.3C1322.6 40.7 1365.4 38.3 1408 33.2C1450.6 28 1493.4 20 1536 18.7C1578.6 17.3 1621.4 22.7 1664 23.5C1706.6 24.3 1749.4 20.7 1792 16C1834.6 11.3 1877.4 5.69999 1898.6 2.79999L1920 0V99H1898.6C1877.4 99 1834.6 99 1792 99C1749.4 99 1706.6 99 1664 99C1621.4 99 1578.6 99 1536 99C1493.4 99 1450.6 99 1408 99C1365.4 99 1322.6 99 1280 99C1237.4 99 1194.6 99 1152 99C1109.4 99 1066.6 99 1024 99C981.4 99 938.6 99 896 99C853.4 99 810.6 99 768 99C725.4 99 682.6 99 640 99C597.4 99 554.6 99 512 99C469.4 99 426.6 99 384 99C341.4 99 298.6 99 256 99C213.4 99 170.6 99 128 99C85.4 99 42.6 99 21.4 99H0V32Z' fill={$categoria->color}>
+          </path>
+        </svg>
+        <div class='row categoria-destacada categoria-responsive flex-row' style='background-color: $categoria->color;'>
+          <div class='col my-auto col-responsive'>
+            <div class='categoria-description'>
+              <h2 class='categoria-destacada-title'>
+                $categoria->title
+              </h2>
+              <p class='categoria-destacada-description'>
+                $categoria->description
+              </p>
+              <a class='boton-outlined' id='btn-ver-mas' href='./libros.php' style='color: white; background-color: rgb(0, 87, 53);'>
+                VER MÁS
+              </a>
+              <div style='height: 30px;'>
+              </div>
+            </div>
+          </div>
+          <div class='col col-responsive cat-dest'>
+            <img src=\"{$urls[0]}\" alt='' class='categoria-destacada-item image-i' style='box-shadow: rgba(0, 0, 0, 0.75) 0px 0px 10px 0px;'>
+            </img>
+            <div class='col col-responsive cat-dest'>
+              <img src=\"{$urls[1]}\" alt='' class='categoria-destacada-item image-i' style='box-shadow: rgba(0, 0, 0, 0.75) 0px 0px 10px 0px;'>
+              </img>
+              <div class='col col-responsive cat-dest'>
+                <img src=\"{$urls[2]}\" alt='' class='categoria-destacada-item image-i' style='box-shadow: rgba(0, 0, 0, 0.75) 0px 0px 10px 0px;'>
+                </img>
+              </div>
+              <div class='carousel carousel2 slide' id='carouselDestacadas0' style='background-color: rgb(254, 219, 192);'>
+                <div class='carousel-indicators'>
+                  <button class='carousel-indicator active' data-bs-target='#carouselDestacadas0' data-bs-slide-to='0' type='button'>
+                  </button>
+                  <button class='carousel-indicator' data-bs-target='#carouselDestacadas0' data-bs-slide-to='1' type='button'>
+                  </button>
+                  <button class='carousel-indicator' data-bs-target='#carouselDestacadas0' data-bs-slide-to='2' type='button'>
+                  </button>
+                </div>
+                <div class='carousel-inner'>
+                  <div class='carousel-item image-i text-center active' style='background-color: rgb(254, 219, 192);'>
+                    <img src='imgs/manga1.png'>
+                    </img>
+                    <div class='carousel-item image-i text-center' style='background-color: rgb(254, 219, 192);'>
+                      <img src='imgs/manga2.png'>
+                      </img>
+                      <div class='carousel-item image-i text-center' style='background-color: rgb(254, 219, 192);'>
+                        <img src='imgs/manga3.png'>
+                        </img>
+                      </div>
+                      <button class='carousel-control-prev' type='button' data-bs-target='#carouselDestacadas0' data-bs-slide='prev'>
+                        <span class='carousel-control-prev-icon' aria-hidden='true'>
+                        </span>
+                        <span class='visually-hidden'>
+                          Previous
+                        </span>
+                      </button>
+                      <button class='carousel-control-next' type='button' data-bs-target='#carouselDestacadas0' data-bs-slide='next'>
+                        <span class='carousel-control-next-icon' aria-hidden='true'>
+                        </span>
+                        <span class='visually-hidden'>
+                          Next
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+        ";
+        echo $html;
+      }
+      ?>
+    </div>
 
     <h2 class="section-title">MÉTODOS DE PAGO</h2>
     <div id="section-metodos-de-pago" class="container-sm">
@@ -202,7 +317,7 @@
     </path>
   </svg>
   <?php include_once 'footer.php'; ?>
-  <script src="./js/script.js"></script>
+  <!-- <script src="./js/script.js"></script> -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
