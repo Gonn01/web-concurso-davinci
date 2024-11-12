@@ -15,6 +15,10 @@
         class="d-flex align-items-center justify-content-center text-light bg-danger">
         404 Not Found
     </div>
+    <a href="index.php" style="height: 100vh; display: flex; align-items: center;"
+        class="d-flex align-items-center justify-content-center text-light bg-danger">
+        Volver al inicio
+    </a>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
         crossorigin="anonymous"></script>
