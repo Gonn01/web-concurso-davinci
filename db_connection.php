@@ -1,11 +1,11 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = ""; // En este caso, asumimos que no hay contraseña para el usuario root
-$dbname = "yenny"; // Reemplaza "tu_base_de_datos" con el nombre de tu base de datos
+$password = "";
+$dbname = "mydb";
 function executeQuery($query)
 {
-    global $servername, $username, $password, $dbname; // Acceder a las variables globales
+    global $servername, $username, $password, $dbname;
 
     try {
         $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
@@ -23,11 +23,12 @@ function executeQuery($query)
             return $stmt->rowCount();
         }
     } catch (PDOException $e) {
-        echo "Error en la consulta: " . $e->getMessage();
-        return false;
+        header("Location: 404.php");
+        exit();
     }
 }
 try {
+
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     // set the PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

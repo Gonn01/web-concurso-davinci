@@ -10,15 +10,14 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
 </head>
 
-<body>
-    <div style="height: 100vh; display: flex; align-items: center;"
-        class="d-flex align-items-center justify-content-center text-light bg-danger">
-        404 Not Found
+<body class=" bg-danger">
+    <div
+        style="height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+        <h1 class="text-light">404 Not Found</h1>
+
+        <a href="index.php" class="btn btn-light">Volver al inicio</a>
     </div>
-    <a href="index.php" style="height: 100vh; display: flex; align-items: center;"
-        class="d-flex align-items-center justify-content-center text-light bg-danger">
-        Volver al inicio
-    </a>
+
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
         crossorigin="anonymous"></script>

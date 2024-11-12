@@ -34,7 +34,10 @@
     </svg>
   </a>
 
-  <?php include_once 'header.php'; ?>
+  <?php
+  include_once 'header.php';
+  require_once 'db_connection.php';
+  ?>
 
   <main>
     <div>
@@ -85,7 +88,6 @@
 
     <div id="secciones">
       <?php
-      require_once 'db_connection.php';
       require_once 'categoria_destacada_model.php';
 
       $sql = "SELECT * FROM categoria_destacada";
