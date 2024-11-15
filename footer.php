@@ -47,7 +47,7 @@
                 <div class="footer-item d-flex flex-column my-3">
 
                     <h4 class="mb-4 text-white">Soporte</h4>
-                    <a href="404.php" class=" text-white"> Contacto</a>
+                    <a href="contacto.php" class=" text-white"> Contacto</a>
                 </div>
             </div>
             <div class="col d-flex justify-content-end">
