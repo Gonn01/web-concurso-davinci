@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "mydb";
+$dbname = "yenny";
 function executeQuery($query)
 {
     global $servername, $username, $password, $dbname;

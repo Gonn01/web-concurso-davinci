@@ -97,7 +97,7 @@
       $categorias = [];
 
       foreach ($result as $categoria_data) {
-        $categoria = new Categoria(
+        $categoria = new CategoriaDestacada(
           $categoria_data['id'],
           $categoria_data['title'],
           $categoria_data['description'],

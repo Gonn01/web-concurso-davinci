@@ -1,5 +1,5 @@
 <?php
-class Categoria
+class CategoriaDestacada
 {
     public $id;
     public $title;
