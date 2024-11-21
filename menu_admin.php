@@ -33,15 +33,11 @@
         </div>
         <div class="menu-option">
           <img class="menu-option-img" src="./imgs/stock.png" alt="">
-          <a href="./ajuste_stock.html" class="boton">Stock</a>
+          <a href="./ajuste_stock.php" class="boton">Stock</a>
         </div>
         <div class="menu-option">
           <img class="menu-option-img" src="./imgs/items.png" alt="">
-          <a href="./abm_items.html" class="boton">Items</a>
-        </div>
-        <div class="menu-option">
-          <img class="menu-option-img" src="./imgs/informes.png" alt="">
-          <a href="./informes.html" class="boton">Informes</a>
+          <a href="./abm_items.php" class="boton">Items</a>
         </div>
       </div>
     </div>

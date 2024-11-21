@@ -44,7 +44,7 @@
           <input id="password" type="text" class="clean-input" placeholder="Contraseña">
           <a class="boton" onclick="iniciarSesion()">Iniciar sesión</a>
           <div>o</div>
-          <div class="boton-outlined"><a href="./registro.html">Registrarse</a></div>
+          <div class="boton-outlined"><a href="./registro.php">Registrarse</a></div>
         </div>
       </section>
     </div>

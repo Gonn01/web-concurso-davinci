@@ -3,15 +3,17 @@ class Producto
 {
     public $nombre;
     public $precio;
-    public $url_imagen;
+    public $sku;
+    public $urlImagen;
     public $cantidadDisponible;
 
-    public function __construct($nombre, $precio, $url_imagen, $cantidadDisponible)
+    public function __construct($nombre, $precio, $sku, $url_imagen, $cantidad_disponible)
     {
         $this->nombre = $nombre;
         $this->precio = $precio;
-        $this->url_imagen = $url_imagen;
-        $this->cantidadDisponible = $cantidadDisponible;
+        $this->sku = $sku;
+        $this->urlImagen = $url_imagen;
+        $this->cantidadDisponible = $cantidad_disponible;
     }
 }
 

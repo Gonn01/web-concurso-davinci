@@ -15,6 +15,7 @@ function mostrarTarjetasDeProductos($idTipoProducto)
         $producto = new Producto(
             $productoData['producto'],
             $productoData['precio'],
+            $productoData['sku'],
             $productoData['url_imagen'],
             $productoData['cantidad_disponible']
         );

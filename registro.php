@@ -35,7 +35,7 @@
           <input id="password-registro" type="text" class="clean-input" placeholder="Contraseña">
           <a class="boton" onclick="registrarUsuario()">Registrarse</a>
           <div>o</div>
-          <div class="boton-outlined"><a href="./login.html">Iniciar sesión</a></div>
+          <div class="boton-outlined"><a href="./login.php">Iniciar sesión</a></div>
         </div>
         <div id="container-bienvenida">
           <h2>Bienvenido a Yenny</h2>

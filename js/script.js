@@ -38,46 +38,8 @@ window.onload = function () {
 
   }
 
-  // Genera las categorias destacadas si el elemento existe
-  let existeProductosInventario = document.getElementById("lista-productos-inventario");
-  if (existeProductosInventario) {
-    let listas = [inventarioLibros, inventarioPeliculas, inventarioArticulosLibreria];
-    generarListaDeProductosInventario2(listas);
-  }
 };
-function generarListaDeProductosInventario2(listas) {
-  const productosContainer = document.createElement('div');
-  productosContainer.classList.add('productos-container');
 
-  listas.forEach(categoria => {
-    const categoriaContainer = document.createElement('div');
-    categoriaContainer.classList.add('categoria');
-
-    const categoriaTitulo = document.createElement('h2');
-    categoriaTitulo.textContent = categoria.title;
-    categoriaContainer.appendChild(categoriaTitulo);
-
-    const productosLista = document.createElement('ul');
-    categoria.elementos.forEach(producto => {
-      const productoItem = document.createElement('li');
-      productoItem.classList.add('producto');
-      productoItem.innerHTML = `
-        <img src="${producto.img1}" alt="${producto.title}">
-        <h3>${producto.title}</h3>
-        <p>SKU: ${producto.sku}</p>
-        <p>Precio: ${producto.precio}</p>
-        <p>Cantidad: ${producto.cantidad}</p>
-      `;
-      productosLista.appendChild(productoItem);
-    });
-
-    categoriaContainer.appendChild(productosLista);
-    productosContainer.appendChild(categoriaContainer);
-  });
-
-  // Append the entire structure to your desired location in the DOM
-  document.body.appendChild(productosContainer);
-}
 function generarListaDeProductosInventario(listas) {
   const productos = document.createElement("div");
   productos.classList.add("productos");
