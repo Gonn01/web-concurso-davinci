@@ -1,4 +1,5 @@
 <?php
+session_start();
 $currentPage = basename($_SERVER['PHP_SELF']);
 ?>
 <header class="container-fluid m-0 p-0" style="position: fixed; z-index: 1000">

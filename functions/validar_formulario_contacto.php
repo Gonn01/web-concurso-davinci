@@ -1,11 +1,18 @@
 <?php
+session_start();
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $nombre = trim($_POST['nombre']);
-    $apellido = trim($_POST['apellido']);
-    $telefono = trim($_POST['telefono']);
-    $email = trim($_POST['email']);
-    $mensaje = trim($_POST['mensaje']);
-
+    $_SESSION['nombre'] = trim($_POST['nombre']);
+    $_SESSION['apellido'] = trim($_POST['apellido']);
+    $_SESSION['telefono'] = trim($_POST['telefono']);
+    $_SESSION['email'] = trim($_POST['email']);
+    $_SESSION['mensaje'] = trim($_POST['mensaje']);
+    // Assign values to variables for validation
+    $nombre = $_SESSION['nombre'];
+    $apellido = $_SESSION['apellido'];
+    $telefono = $_SESSION['telefono'];
+    $email = $_SESSION['email'];
+    $mensaje = $_SESSION['mensaje'];
+    $exito = false;
     // Validaciones
     $errores = [];
 
@@ -29,6 +36,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (empty($mensaje)) {
         $errores[] = "El mensaje es obligatorio.";
     }
-
+    // Check for errors
+    if (empty($errores)) {
+        // Validation successful, handle success case (e.g., send email)
+        $exito = "Formulario enviado exitosamente!";
+    }
 }
-include 'contacto.php';
+if (empty($errores)) {
+    $_SESSION['exito'] = "Formulario enviado exitosamente!";
+} else {
+    $_SESSION['errores'] = $errores;
+}
+header('Location: ../contacto.php');

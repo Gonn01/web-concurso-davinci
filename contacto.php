@@ -30,31 +30,31 @@
         <div class="col-md-12">
             <label class="form-label text-dark ps-2">Nombre/s</label>
             <input type="text" name="nombre" class="form-control mx-auto" placeholder="Escribí aquí."
-                value="<?= htmlspecialchars($nombre ?? '') ?>">
+                value="<?= htmlspecialchars($_SESSION['nombre']) ?>">
         </div>
 
         <div class="col-md-12">
             <label class="form-label text-dark ps-2">Apellido/s</label>
             <input type="text" name="apellido" class="form-control mx-auto" placeholder="Escribí aquí."
-                value="<?= htmlspecialchars($apellido ?? '') ?>">
+                value="<?= htmlspecialchars($_SESSION['apellido']) ?>">
         </div>
 
         <div class="col-md-12">
             <label class="form-label text-dark ps-2">Telefono</label>
             <input type="number" name="telefono" class="form-control mx-auto" placeholder="Escribí aquí."
-                value="<?= htmlspecialchars($telefono ?? '') ?>">
+                value="<?= htmlspecialchars($_SESSION['telefono']) ?>">
         </div>
 
         <div class="col-md-12">
             <label class="form-label text-dark ps-2">Email</label>
             <input type="email" name="email" class="form-control mx-auto" placeholder="Escribí aquí."
-                value="<?= htmlspecialchars($email ?? '') ?>">
+                value="<?= htmlspecialchars($_SESSION['email']) ?>">
         </div>
 
         <div class="col-md-12">
             <label class="form-label text-dark ps-2">Consultas</label>
             <textarea name="mensaje" class="form-control mx-auto"
-                placeholder="Escribí tu consulta aquí."><?= htmlspecialchars($mensaje ?? '') ?></textarea>
+                placeholder="Escribí tu consulta aquí."><?= htmlspecialchars($_SESSION['mensaje']) ?></textarea>
         </div>
 
         <div class="col-2 mt-5">
@@ -64,19 +64,22 @@
             <input type="submit" class="btn btn-success" value="Enviar">
         </div>
     </form>
-    <?php if (!empty($errores)): ?>
+    <?php
+    if (isset($_SESSION['errores'])): ?>
         <div class="alert alert-danger">
             <ul>
-                <?php foreach ($errores as $error): ?>
+                <?php foreach ($_SESSION['errores'] as $error): ?>
                     <li><?= htmlspecialchars($error) ?></li>
                 <?php endforeach; ?>
             </ul>
         </div>
-    <?php elseif (isset($exito)): ?>
+        <?php unset($_SESSION['errores']); endif; ?>
+
+    <?php if (isset($_SESSION['exito'])): ?>
         <div class="alert alert-success">
-            <p><?= htmlspecialchars($exito) ?></p>
+            <p><?= htmlspecialchars($_SESSION['exito']) ?></p>
         </div>
-    <?php endif; ?>
+        <?php unset($_SESSION['exito']); endif; ?>
     </div>
 
 
