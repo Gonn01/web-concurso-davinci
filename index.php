@@ -33,12 +33,9 @@
         d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0m-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707z" />
     </svg>
   </a>
-
   <?php
-  include_once 'header.php';
-  require_once 'db_connection.php';
+  include 'components/header.php';
   ?>
-
   <main>
     <div>
       <div class="fadein fade-desktop" style="width:1920px; height: 1000px"></div>
@@ -88,7 +85,8 @@
 
     <div id="secciones">
       <?php
-      require_once 'categoria_destacada_model.php';
+      include 'models/categoria_destacada.php';
+      include 'functions/db_connection.php';
 
       $sql = "SELECT * FROM categoria_destacada";
 
@@ -331,12 +329,7 @@
     </div>
   </main>
 
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 220" class="footer-wave svg">
-    <path fill="#202020" fill-opacity="1"
-      d="M0,128L80,122.7C160,117,320,107,480,117.3C640,128,800,160,960,149.3C1120,139,1280,85,1360,58.7L1440,32L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z">
-    </path>
-  </svg>
-  <?php include_once 'footer.php'; ?>
+  <?php include 'components/footer.php'; ?>
   <script src="./js/script.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"

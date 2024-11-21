@@ -23,7 +23,7 @@ function executeQuery($query)
             return $stmt->rowCount();
         }
     } catch (PDOException $e) {
-        header("Location: 404.php");
+        echo "Error: " . $e->getMessage();
         exit();
     }
 }

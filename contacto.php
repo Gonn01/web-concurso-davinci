@@ -19,11 +19,12 @@
 </head>
 
 <body style="background-color:#eee">
-    <?php include_once 'header.php'; ?>
+    <?php include 'components/header.php'; ?>
     <div style="height: 200px;"></div>
 
     <h1 class="container-fluid d-flex justify-content-center">Formulario de Contacto</h1>
-    <form style="width:600px" action="procesar.php" method="POST" class="row g-3 mx-auto pb-2">
+    <form style="width:600px" action="functions/validar_formulario_contacto.php" method="POST"
+        class="row g-3 mx-auto pb-2">
 
 
         <div class="col-md-12">

@@ -22,19 +22,24 @@
 </head>
 
 <body>
-  <?php include 'header.php'; ?>
+  <?php include 'components/header.php'; ?>
   <div style="height: 100px;"></div>
   <main>
-    <div class="list-categoria-container-articulos-libreria"></div>
+    <div class="list-categoria-container-articulos-libreria">
+      <?php
+      include 'models/categoria.php';
+      include 'models/producto.php';
+      include 'functions/mostrar_tarjetas_de_productos.php';
+
+      $idArticulosLibreria = 2;
+      mostrarTarjetasDeProductos($idArticulosLibreria);
+
+      ?>
+    </div>
 
   </main>
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 220" class="footer-wave">
-    <path fill="#202020" fill-opacity="1"
-      d="M0,128L80,122.7C160,117,320,107,480,117.3C640,128,800,160,960,149.3C1120,139,1280,85,1360,58.7L1440,32L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z">
-    </path>
-  </svg>
-  <?php include 'footer.php'; ?>
-  <script src="./js/script.js"></script>
+
+  <?php include 'components/footer.php'; ?>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
