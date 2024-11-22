@@ -76,7 +76,7 @@
                                 <td class='align-middle'>$producto->cantidadDisponible</td>
                                 <td><img style='width: 50px;height: 75px' src=\"$producto->urlImagen\"</td>
                                 <td class='align-middle'>
-                                    <i class='bi bi-caret-up-fill fs-3 text-success-emphasis me-3'style='cursor: pointer;'></i>
+                                    <i class='bi bi-caret-up-fill fs-3 text-success me-3'style='cursor: pointer;'></i>
                                     <i class='bi bi-caret-down-fill fs-3 text-danger'style='cursor: pointer;'></i>
                                 </td>
                             </tr>";
@@ -96,20 +96,22 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="row">
-                        <div class="col mb-3">
-                            <label for="sku" class="col-form-label">SKU:</label>
-                            <input type="text" class="form-control" id="sku">
+                    <form action="functions/modificar_stock.php" method="POST">
+                        <div class="row">
+                            <div class="col mb-3">
+                                <label for="sku" class="col-form-label">SKU:</label>
+                                <input type="text" class="form-control" id="sku">
+                            </div>
+                            <div class="col mb-3">
+                                <label for="cantidad" class="col-form-label">Cantidad:</label>
+                                <input type="number" class="form-control" id="cantidad">
+                            </div>
                         </div>
-                        <div class="col mb-3">
-                            <label for="cantidad" class="col-form-label">Cantidad:</label>
-                            <input type="number" class="form-control" id="cantidad">
-                        </div>
-                    </div>
+                    </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-success-emphasis">Aplicar</button>
+                    <button type="submit" class="btn btn-success">Aplicar</button>
                 </div>
             </div>
         </div>

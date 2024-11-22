@@ -2,7 +2,7 @@
 include 'db_connection.php';
 function mostrarTarjetasDeProductos($idTipoProducto)
 {
-    $query = "SELECT p.nombre AS producto, c.nombre AS categoria, p.precio, p.url_imagen, p.cantidad_disponible
+    $query = "SELECT p.nombre AS producto, c.nombre AS categoria, p.precio,p.sku, p.url_imagen, p.cantidad_disponible
       FROM productos p
       INNER JOIN categoria c ON p.categoria_id = c.id
       WHERE p.tipo_de_producto_id = $idTipoProducto
@@ -43,7 +43,7 @@ function mostrarTarjetasDeProductos($idTipoProducto)
                 </div>
                 <div class='categoria-wrapper'>";
         foreach ($categoria->productos as $producto) {
-            echo "<div class='tarjeta'><img class='card-img-top' src=\"{$producto->url_imagen}\" alt=\"{$producto->nombre}\">
+            echo "<div class='tarjeta'><img class='card-img-top' src=\"{$producto->urlImagen}\" alt=\"{$producto->nombre}\">
                     <div class='card-body'>
                         <h5 class='card-title'>$producto->nombre</h5>
                         <p class='card-text'>$&nbsp;$producto->precio</p><button class='boton btn-tienda'>Comprar</button>
