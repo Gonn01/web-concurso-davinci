@@ -56,8 +56,11 @@
                         <?php
                         include 'functions/db_connection.php';
                         include 'models/producto.php';
+
                         $query = "SELECT * FROM productos";
+
                         $result = executeQuery($query);
+
                         foreach ($result as $producto) {
                             $producto = new Producto(
                                 $producto['nombre'],
@@ -68,6 +71,7 @@
                             );
                             $productos[] = $producto;
                         }
+
                         foreach ($productos as $producto) {
                             echo "<tr>
                                 <td class='align-middle'>$producto->sku</td>
