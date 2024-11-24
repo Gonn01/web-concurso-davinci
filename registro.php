@@ -82,7 +82,7 @@ session_start();
             <input type="submit" class="boton" value="Registrarse">
           </form>
           <div>o</div>
-          <div class="boton-outlined" onclick="window.location.href='login.php'">Iniciar sesión</div>
+          <div class="boton-outlined" onclick="window.location.href='login.html'">Iniciar sesión</div>
         </div>
         <div id="container-bienvenida">
           <h2>Bienvenido a Yenny</h2>
