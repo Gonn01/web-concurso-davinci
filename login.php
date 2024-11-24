@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,16 +43,38 @@
         </div>
         <div id="container-logeo">
           <h2>Iniciar sesión</h2>
-          <input id="email" type="text" class="clean-input" placeholder="Email">
-          <input id="password" type="text" class="clean-input" placeholder="Contraseña">
-          <a class="boton" onclick="iniciarSesion()">Iniciar sesión</a>
+          <form style="width:300px" action="functions/validar_formulario_login.php" method="POST" class="mx-auto pb-2">
+
+            <div class="mb-4">
+              <input type="email" name="email" class="form-control mx-auto" placeholder="Email"
+                value="<?= htmlspecialchars($_SESSION['email_login'] ?? '') ?>">
+              <?php
+              if (isset($_SESSION['errorEmail'])) {
+                echo $_SESSION['errorEmail'];
+                unset($_SESSION['errorEmail']);
+              }
+              ?>
+            </div>
+            <div class="mb-4">
+              <input type="password" name="contraseña" class="form-control mx-auto" placeholder="Contraseña"
+                value="<?= htmlspecialchars($_SESSION['contraseña_login'] ?? '') ?>">
+              <?php
+              if (isset($_SESSION['errorContraseña'])) {
+                echo $_SESSION['errorContraseña'];
+                unset($_SESSION['errorContraseña']);
+              }
+              ?>
+            </div>
+
+
+            <input type="submit" class="boton" value="Iniciar sesión">
+          </form>
           <div>o</div>
-          <div class="boton-outlined"><a href="./registro.php">Registrarse</a></div>
+          <div class="boton-outlined"><a href="./login.php">Registrarse</a></div>
         </div>
       </section>
     </div>
   </main>
-  <script src="./js/script.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
