@@ -16,8 +16,10 @@ $smtm = $conn->prepare($sql);
 $smtm->execute();
 $result = $smtm->get_result();
 
+$sql = "SELECT * FROM usuarios_has_roles WHERE usuarios_id='$resu'";
+
 if ($result->num_rows > 0) {
-    echo json_encode(['success' => true, 'message' => 'Usuario logueado correctamente']);
+    echo json_encode(['success' => true, 'message' => 'Usuario logueado correctamente'],'esAdmin'=);
 } else {
     echo json_encode(['success' => false, 'message' => 'Usuario o contraseña incorrectos']);
 }

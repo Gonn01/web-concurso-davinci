@@ -29,36 +29,19 @@ document.getElementById('login-form').addEventListener('submit', async (event) =
     const email = document.getElementById('email').value;
     const contraseña = document.getElementById('contraseña').value
 
-    const mensajeError = document.getElementById('mensajeError');
-
     const cargando = document.getElementById('cargando');
     cargando.style.display = 'block';
 
     let response = await iniciarSesion(email, contraseña);
 
     if (response['success']) {
+        localStorage.setItem('logeado', true);
+        localStorage.setItem('admin', true);
         window.location.href = './menu_admin.php';
     } else {
+        const mensajeError = document.getElementById('mensajeError');
         mensajeError.style.display = 'block';
         mensajeError.innerHTML = response['message'];
     }
     cargando.style.display = 'none';
-});
-
-async function registrarUsuario() {
-    try {
-        const response = await fetch('./functions/registrarUsuario.php');
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-
-        const data = await response.json();
-        console.log(data);
-    } catch (error) {
-        console.error('Error fetching data:', error);
-    }
-}
-document.getElementById('register-form').addEventListener('submit', (event) => {
-    event.preventDefault();
-    registrarUsuario();
 });

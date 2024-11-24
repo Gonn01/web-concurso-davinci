@@ -14,8 +14,6 @@ function emailExists($email)
     return ($count > 0); // Return true if email exists
 }
 // Configuración de errores (opcional, para desarrollo)
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
 
 header('Content-Type: application/json');
 
@@ -42,25 +40,30 @@ if (emailExists($email)) {
     echo json_encode(['success' => false, 'message' => 'El correo electrónico ya está registrado']);
     exit();
 }
+$rol_id = 0;
+// Obtener el último ID
+$sql = "SELECT MAX(id) AS max_id FROM usuarios";
+$result = $conn->query($sql);
+$row = $result->fetch_assoc();
+$ultimo_id = $row['max_id'];
 
-// Insertar nuevo usuario
-$sql = "INSERT INTO usuarios (nombre, apellido, email, contraseña) VALUES (?, ?, ?, ?)";
+// Asignar el siguiente ID al nuevo usuario
+$nuevo_id = $ultimo_id + 1;
+
+// Insertar el nuevo usuario
+$sql = "INSERT INTO usuarios (id, nombre, apellido, email, contraseña) VALUES (?, ?, ?, ?, ?)";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("ssss", $nombre, $apellido, $email, $contraseña);
+$stmt->bind_param("issss", $nuevo_id, $nombre, $apellido, $email, $contraseña);
 $stmt->execute();
-$affectedRows = $stmt->affected_rows;
-$stmt->close();
-print_r($stmt);
 
-$sql = "INSERT INTO usuarios_has_roles (usuario_id, roles_id) VALUES (?, ?)";
+$sql = "INSERT INTO usuarios_has_roles (usuarios_id, roles_id) VALUES (?, ?)";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("ssss", $nombre, $apellido, $email, $contraseña);
+$stmt->bind_param("ii", $nuevo_id, $rol_id);
 $stmt->execute();
-$affectedRows = $stmt->affected_rows;
-$stmt->close();
 
-if ($affectedRows > 0) {
+if ($conn->affected_rows > 0) {
     echo json_encode(['success' => true, 'message' => 'Usuario registrado correctamente']);
 } else {
     echo json_encode(['success' => false, 'message' => 'Error al registrar el usuario']);
 }
+$stmt->close();
