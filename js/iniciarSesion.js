@@ -16,10 +16,7 @@ async function iniciarSesion(email, contraseña) {
         }
 
         const data = await response.json();
-        if (data['success']) {
-            localStorage.setItem('logeado', true);
-            localStorage.setItem('esAdmin', data['esAdmin']);
-        }
+
         return data;
     } catch (error) {
         console.error('Error fetching data:', error);

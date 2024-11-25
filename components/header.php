@@ -42,7 +42,8 @@ $currentPage = basename($_SERVER['PHP_SELF']);
             </div>
           </li>
           <li>
-            <div id="perfil-ref" onclick="navegarPerfil()" class="nav-link"><a><span id="perfil-text">Perfil</span></a>
+            <div id="perfil-ref" onclick="window.location.href='perfil.html'" class="nav-link" style="display:none">
+              <a><span id="perfil-text">Perfil</span></a>
               <img id="perfil-img" src="imgs/user.png" alt="">
             </div>
           </li>
