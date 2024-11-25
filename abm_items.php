@@ -50,7 +50,9 @@
             include 'functions/db_connection.php';
             include 'models/producto.php';
             $query = "SELECT * FROM productos";
-            $result = executeQuery($query);
+            $stmt = $conn->prepare($query);
+            $stmt->bind_param("", $sku, $cantidad, $exito);
+            $stmt->execute();
             foreach ($result as $producto) {
               $producto = new Producto(
                 $producto['nombre'],

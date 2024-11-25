@@ -11,7 +11,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $errores = [];
 
     $query = "UPDATE productos SET cantidad_disponible = cantidad_disponible + $cantidad WHERE sku = '$sku'";
-    executeQuery($query);
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("", $sku, $cantidad, $exito);
+    $stmt->execute();
+
     if (empty($sku)) {
         $errores[] = "El sku es obligatorio.";
     }
