@@ -19,23 +19,14 @@
     href="https://fonts.googleapis.com/css2?family=Domine:wght@400..700&family=Nanum+Brush+Script&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
     rel="stylesheet">
 </head>
+<script type="module" src="js/getPeliculas.js"></script>
 
 <body>
 
   <?php include 'components/header.php'; ?>
   <div style="height: 100px;"></div>
   <main>
-    <div class="list-categoria-container-peliculas">
-      <?php
-      include 'models/categoria.php';
-      include 'models/producto.php';
-      include 'functions/mostrar_tarjetas_de_productos.php';
-
-      $idPeliculas = 0;
-      mostrarTarjetasDeProductos($idPeliculas);
-
-      ?>
-    </div>
+    <div id="list-categoria-container-peliculas"></div>
 
   </main>
 

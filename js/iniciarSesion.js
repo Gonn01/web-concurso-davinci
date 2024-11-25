@@ -20,6 +20,7 @@ async function iniciarSesion(email, contraseña) {
         return data;
     } catch (error) {
         console.error('Error fetching data:', error);
+        throw error;
     }
 }
 
@@ -31,17 +32,24 @@ document.getElementById('login-form').addEventListener('submit', async (event) =
 
     const cargando = document.getElementById('cargando');
     cargando.style.display = 'block';
+    try {
+        let response = await iniciarSesion(email, contraseña);
 
-    let response = await iniciarSesion(email, contraseña);
-
-    if (response['success']) {
-        localStorage.setItem('logeado', true);
-        localStorage.setItem('admin', true);
-        window.location.href = './menu_admin.php';
-    } else {
+        if (response['success']) {
+            localStorage.setItem('logeado', true);
+            localStorage.setItem('admin', true);
+            window.location.href = './menu_admin.php';
+        } else {
+            const mensajeError = document.getElementById('mensajeError');
+            mensajeError.style.display = 'block';
+            mensajeError.innerHTML = response['message'];
+        }
+    } catch (error) {
         const mensajeError = document.getElementById('mensajeError');
         mensajeError.style.display = 'block';
-        mensajeError.innerHTML = response['message'];
+        mensajeError.innerHTML = error;
+
     }
     cargando.style.display = 'none';
+
 });

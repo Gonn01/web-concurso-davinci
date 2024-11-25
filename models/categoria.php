@@ -1,8 +1,8 @@
 <?php
 class Categoria
 {
-    public $nombre;
-    public $productos = [];
+    private $nombre;
+    private $productos = [];
 
     public function __construct($nombre)
     {
@@ -12,5 +12,10 @@ class Categoria
     public function agregarProducto(Producto $producto)
     {
         $this->productos[] = $producto;
+    }
+
+    public function getProductos()
+    {
+        return $this->productos;
     }
 }

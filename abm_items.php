@@ -51,25 +51,26 @@
             include 'models/producto.php';
             $query = "SELECT * FROM productos";
             $stmt = $conn->prepare($query);
-            $stmt->bind_param("", $sku, $cantidad, $exito);
             $stmt->execute();
+            $result = $stmt->get_result();
             foreach ($result as $producto) {
               $producto = new Producto(
                 $producto['nombre'],
                 $producto['precio'],
                 $producto['sku'],
                 $producto['url_imagen'],
-                $producto['cantidad_disponible']
+                $producto['cantidad_disponible'],
+                $producto['categoria_id']
               );
               $productos[] = $producto;
             }
             foreach ($productos as $producto) {
               echo "<tr>
-                                <td class='align-middle'>$producto->sku</td>
-                                <td class='align-middle'>$producto->nombre</td>
-                                <td class='align-middle'>$$producto->precio</td>
-                                <td class='align-middle'>$producto->cantidadDisponible</td>
-                                <td><img style='width: 50px;height: 75px' src=\"$producto->urlImagen\"</td>
+                                <td class='align-middle'>{$producto->getSku()}</td>
+                                <td class='align-middle'>{$producto->getNombre()}</td>
+                                <td class='align-middle'>{$producto->getPrecio()}</td>
+                                <td class='align-middle'>{$producto->getCantidadDisponible()}</td>
+                                <td><img style='width: 50px;height: 75px' src=\"{$producto->getUrlImagen()}\"</td>
                                 <td class='align-middle'>
                                     <i class='bi bi-pencil fs-4 text-warning me-3'style='cursor: pointer;'></i>
                                     <i class='bi bi-trash fs-4 text-danger'style='cursor: pointer;'></i>

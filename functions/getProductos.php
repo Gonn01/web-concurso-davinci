@@ -1,0 +1,83 @@
+<?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+require_once 'db_connection.php';
+require_once '../models/producto.php';
+
+
+header('Content-Type: application/json');
+// Conexión a la base de datos (reemplaza con tus credenciales)
+
+// Obtener datos del formulario (enviados desde JavaScript en formato JSON)
+$data = json_decode(file_get_contents('php://input'), true);
+$tipoDeProductoId = $data['tipoDeProductoId'];
+
+$query = "SELECT 
+            p.nombre AS producto, 
+            p.precio, 
+            p.sku, 
+            p.url_imagen, 
+            p.cantidad_disponible, 
+            c.id AS idCategoria, 
+            c.nombre AS nombreCategoria, 
+            p.tipo_de_producto_id
+          FROM productos p
+          INNER JOIN categoria c ON p.categoria_id = c.id
+          WHERE p.tipo_de_producto_id = ?
+          ORDER BY c.id;";
+
+$stmt = $conn->prepare($query);
+if (!$stmt) {
+    die("Error preparando consulta: " . $conn->error);
+}
+
+// Vincular parámetros para el filtro de tipo_de_producto_id
+$stmt->bind_param('i', $tipoDeProductoId, );
+$stmt->execute();
+$result = $stmt->get_result();
+
+$categorias = [];
+
+// Procesar los resultados
+while ($productoData = $result->fetch_assoc()) {
+    // Crear una instancia de la clase Producto
+    $producto = new Producto(
+        $productoData['producto'],
+        $productoData['precio'],
+        $productoData['sku'],
+        $productoData['url_imagen'],
+        $productoData['cantidad_disponible'],
+        $productoData['idCategoria']
+
+    );
+
+    $idCategoria = $productoData['idCategoria'];
+    $nombreCategoria = $productoData['nombreCategoria'];
+
+    // Agrupar productos por categoría
+    if (!isset($categorias[$idCategoria])) {
+        $categorias[$idCategoria] = [
+            'nombreCategoria' => $nombreCategoria,
+            'productos' => []
+        ];
+    }
+    $categorias[$idCategoria]['productos'][] = $producto;
+}
+
+// Convertir el array asociativo en un array indexado
+$body = array_values($categorias);
+
+if (empty($body)) {
+    echo json_encode([
+        'success' => false,
+        'message' => 'Productos no encontrados',
+        'body' => $body
+    ]);
+} else {
+    echo json_encode([
+        'success' => true,
+        'message' => 'Productos encontrados correctamente',
+        'body' => $body
+    ]);
+}

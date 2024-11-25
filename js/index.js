@@ -79,7 +79,7 @@ function generarCategoriasDestacadas(categoriasDestacadas) {
 
         // Por cada imagen de la categoria, creo una columna y una imagen
         // y la agrego a la row
-        categoria.imgs.forEach((element) => {
+        categoria.images.forEach((element) => {
             // Creo la columna de la imagen
             const col = document.createElement("div");
             col.classList.add("col", "col-responsive", "cat-dest");
@@ -143,7 +143,7 @@ function generarCategoriasDestacadas(categoriasDestacadas) {
         const indicators = document.createElement('div');
         indicators.classList.add('carousel-indicators');
 
-        for (let indexa = 0; indexa < categoria.imgs.length; indexa++) {
+        for (let indexa = 0; indexa < categoria.images.length; indexa++) {
             const indicator = document.createElement('button');
             indicator.classList.add('carousel-indicator');
             indicator.setAttribute('data-bs-target', `#${carouselName}`);
@@ -161,7 +161,7 @@ function generarCategoriasDestacadas(categoriasDestacadas) {
         const inner = document.createElement('div');
         inner.classList.add('carousel-inner');
 
-        categoria.imgs.forEach((img, index) => {
+        categoria.images.forEach((img, index) => {
             const item = document.createElement('div');
             item.classList.add('carousel-item', 'image-i', 'text-center');
             item.classList.add('text-center');

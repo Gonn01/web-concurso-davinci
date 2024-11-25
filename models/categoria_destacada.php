@@ -55,4 +55,3 @@ class CategoriaDestacada implements JsonSerializable
         ];
     }
 }
-?>

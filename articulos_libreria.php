@@ -20,21 +20,13 @@
     rel="stylesheet">
   <script src="https://kit.fontawesome.com/a00bd10181.js" crossorigin="anonymous"></script>
 </head>
+<script type="module" src="js/getArticulosLibreria.js"></script>
 
 <body>
   <?php include 'components/header.php'; ?>
   <div style="height: 100px;"></div>
   <main>
-    <div class="list-categoria-container-articulos-libreria">
-      <?php
-      include 'models/categoria.php';
-      include 'models/producto.php';
-      include 'functions/mostrar_tarjetas_de_productos.php';
-
-      $idArticulosLibreria = 2;
-      mostrarTarjetasDeProductos($idArticulosLibreria);
-
-      ?>
+    <div id="list-categoria-container-articulos-libreria">
     </div>
 
   </main>

@@ -19,6 +19,11 @@
     href="https://fonts.googleapis.com/css2?family=Domine:wght@400..700&family=Nanum+Brush+Script&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
     rel="stylesheet">
 </head>
+<script>
+  if (localStorage.getItem('logeado') === 'false') {
+    window.location.href = './index.php';
+  }
+</script>
 
 <body>
 
@@ -191,11 +196,13 @@
         </div>
       </div>
     </div>
+    <div class="container-fluid me-auto">
+      <div id="cerrarSesionButton" class="btn bg-danger text-light">Cerrar sesion</div>
+    </div>
   </main>
 
-
   <?php include 'components/footer.php'; ?>
-  <script src="./js/script.js"></script>
+  <script src="./js/header.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>

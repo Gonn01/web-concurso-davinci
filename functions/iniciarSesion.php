@@ -1,7 +1,9 @@
 <?php
-require_once 'db_connection.php';
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
+
+require_once 'db_connection.php';
+require_once '../models/usuario.php';
 header('Content-Type: application/json');
 // Conexión a la base de datos (reemplaza con tus credenciales)
 
@@ -25,10 +27,10 @@ if ($row = $result->fetch_assoc()) {
         $row['contraseña']
     );
 
-    // Ahora tienes un objeto Usuario
-    echo "Bienvenido, " . $usuario->nombre . " " . $usuario->apellido;
 } else {
-    echo "Usuario no encontrado o credenciales incorrectas.";
+    echo json_encode(['success' => false, 'message' => 'Usuario o contraseña incorrectos']);
+    $conn->close();
+    exit();
 }
 
 $sql = "SELECT COUNT(*) AS total FROM usuarios_has_roles WHERE usuarios_id='$usuario->id' AND roles_id=1";
@@ -40,16 +42,12 @@ $row = $result->fetch_assoc();
 
 $total = $row['total'];
 
-if ($total > 0) {
-    $usuario->setEsAdmin(true);
-    echo json_encode([
-        'success' => true,
-        'message' => 'Usuario logueado correctamente',
-        'esAdmin' => $usuario->esAdmin
-    ]);
+$usuario->setEsAdmin(esAdmin: $total > 0);
 
-} else {
-    echo json_encode(['success' => false, 'message' => 'Usuario o contraseña incorrectos']);
-}
+echo json_encode([
+    'success' => true,
+    'message' => 'Usuario logeado correctamente',
+    'esAdmin' => $usuario->esAdmin
+]);
 
 $conn->close();

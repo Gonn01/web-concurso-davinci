@@ -12,7 +12,7 @@ body {
 
 .boton {
   background-color: #ffa24c;
-  color: #fff;
+  color: #fff !important;
   padding: 10px 15px;
   cursor: pointer;
   border-radius: 15px;
