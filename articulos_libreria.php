@@ -21,6 +21,7 @@
   <script src="https://kit.fontawesome.com/a00bd10181.js" crossorigin="anonymous"></script>
 </head>
 <script type="module" src="js/getArticulosLibreria.js"></script>
+<script type="module" src="./js/carrito/inicializarCarrito.js"></script>
 
 <body>
   <?php include 'components/header.php'; ?>

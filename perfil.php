@@ -19,6 +19,7 @@
     href="https://fonts.googleapis.com/css2?family=Domine:wght@400..700&family=Nanum+Brush+Script&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
     rel="stylesheet">
 </head>
+<script type="module" src="./js/carrito/inicializarCarrito.js"></script>
 <script>
   if (localStorage.getItem('logeado') === 'false') {
     window.location.href = './index.php';

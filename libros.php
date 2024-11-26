@@ -20,6 +20,7 @@
     rel="stylesheet">
 </head>
 <script type="module" src="js/getLibros.js"></script>
+<script type="module" src="./js/carrito/inicializarCarrito.js"></script>
 
 <body>
 
@@ -38,6 +39,7 @@
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
   <script src="https://kit.fontawesome.com/6912da1432.js" crossorigin="anonymous"></script>
+
 </body>
 
 </html>

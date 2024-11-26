@@ -23,7 +23,7 @@
     rel="stylesheet">
 </head>
 <script type="module" src="js/index.js"></script>
-
+<script type="module" src="./js/carrito/inicializarCarrito.js"></script>
 
 <body>
   <a href="#" style="z-index: 1000; position: fixed; bottom: 10px; right: 10px;

@@ -19,6 +19,7 @@
     href="https://fonts.googleapis.com/css2?family=Domine:wght@400..700&family=Nanum+Brush+Script&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
     rel="stylesheet">
 </head>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 <body>
   <?php include 'components/header.php'; ?>
@@ -86,7 +87,12 @@
           <div class="text-start">¡Importante! La cuenta desde la que transfieras debe coincidir con tu cuenta de
             facturación.</div>
         </div>
-        <div id="total-text" class="col align-items-center"></div>
+        <div class="col">
+          <div id="total-text" class="align-items-center"></div>
+          <div id="comprarBtn" style="width: 200px;" class="align-items-center btn bg-success text-light">
+            Comprar</div>
+          <div id="cargando" style="display: none;">Cargando...</div>
+        </div>
       </div>
 
     </div>
@@ -94,7 +100,11 @@
   </main>
 
   <?php include 'components/footer.php'; ?>
-  <script src="./js/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+  <script type="module" src="./js/carrito/inicializarCarrito.js"></script>
+  <script type="module" src="./js/carrito/comprarCarrito.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>

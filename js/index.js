@@ -45,7 +45,7 @@ function generarCategoriasDestacadas(categoriasDestacadas) {
         // y lo agrego al wrapper
         const title = document.createElement("h2");
         title.classList.add("categoria-destacada-title");
-        title.textContent = categoria.title;
+        title.textContent = categoria.nombre;
         datosWrapper.appendChild(title);
 
         // Creo la descripcion de la categoria y le agrego las clases y el contenido

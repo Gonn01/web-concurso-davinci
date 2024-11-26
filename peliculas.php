@@ -20,6 +20,7 @@
     rel="stylesheet">
 </head>
 <script type="module" src="js/getPeliculas.js"></script>
+<script type="module" src="./js/carrito/inicializarCarrito.js"></script>
 
 <body>
 

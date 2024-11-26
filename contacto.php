@@ -17,6 +17,7 @@
         href="https://fonts.googleapis.com/css2?family=Domine:wght@400..700&family=Nanum+Brush+Script&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
         rel="stylesheet">
 </head>
+<script type="module" src="./js/carrito/inicializarCarrito.js"></script>
 
 <body style="background-color:#eee">
     <?php include 'components/header.php'; ?>
@@ -91,5 +92,6 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
     integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
     crossorigin="anonymous"></script>
+
 
 </html>

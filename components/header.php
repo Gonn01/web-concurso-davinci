@@ -30,7 +30,7 @@ $currentPage = basename($_SERVER['PHP_SELF']);
               href="articulos_libreria.php">Artículos de librería</a>
           </li>
           <li id="carrito-list">
-            <div id="carrito-ref" class="nav-link">
+            <div id="carrito-ref" class="nav-link" onclick="window.location.href = './carrito.php'">
               <a class="d-flex flex-row">
                 <span id="carrito-text">Carrito</span>
                 <div id="carrito-valor"></div>

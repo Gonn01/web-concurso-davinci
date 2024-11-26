@@ -1,11 +1,11 @@
 import { formatearPrecio } from "./formatearPrecio.js";
+import { sumarCarrito } from "./carrito/agregarAlCarrito.js";
 export function generarListaProductos(categoriasLibros, element) {
     // Obtengo el contenedor donde se van a agregar los items del inventario
     const listContainer = document.querySelector(element);
 
     // Por cada categoria, genero los items en la tienda
     categoriasLibros.forEach((categoria) => {
-        console.log(categoria);
         const librosEnCategoria = categoria["productos"];
         // Creo el contenedor de la categoria
         const categoriaContainer = document.createElement("div");
@@ -35,7 +35,6 @@ export function generarListaProductos(categoriasLibros, element) {
 
         // Por cada libro en la categoria, genero un item en la tienda
         librosEnCategoria.forEach((libro) => {
-            console.log(libro);
             // Creo el contenedor del item
             const card = document.createElement("div");
             card.classList.add("tarjeta");
@@ -44,7 +43,7 @@ export function generarListaProductos(categoriasLibros, element) {
             const image = document.createElement("img");
             image.classList.add("card-img-top");
             image.src = libro.urlImagen;
-            image.alt = libro.title;
+            image.alt = libro.nombre;
             card.appendChild(image);
 
             // Creo el contenedor del cuerpo de la card y le agrego las clases

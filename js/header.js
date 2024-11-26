@@ -9,7 +9,6 @@ if (localStorage.getItem('logeado') === "true") {
 // Verificar si existe el botón "Cerrar Sesión"
 if (document.getElementById('cerrarSesionButton')) {
     document.getElementById('cerrarSesionButton').addEventListener('click', () => {
-        console.log('cerrar sesion');
 
         // Actualizar valores en localStorage
         localStorage.setItem('logeado', "false");
