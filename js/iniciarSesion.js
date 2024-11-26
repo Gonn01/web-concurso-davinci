@@ -40,14 +40,19 @@ document.getElementById('login-form').addEventListener('submit', async (event) =
             localStorage.setItem('admin', true);
             window.location.href = './menu_admin.php';
         } else {
-            const mensajeError = document.getElementById('mensajeError');
-            mensajeError.style.display = 'block';
-            mensajeError.innerHTML = response['message'];
+            Swal.fire({
+                icon: "error",
+                title: response['message'],
+                text: "Something went wrong!",
+            });
+
         }
     } catch (error) {
-        const mensajeError = document.getElementById('mensajeError');
-        mensajeError.style.display = 'block';
-        mensajeError.innerHTML = error;
+        Swal.fire({
+            icon: "error",
+            title: error,
+            text: "Something went wrong!",
+        });
 
     }
     cargando.style.display = 'none';

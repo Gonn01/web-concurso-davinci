@@ -33,7 +33,16 @@ document.getElementById('formulario-registro').addEventListener('submit', async 
     let response = await registrarUsuario(nombre, apellido, email, contraseña);
 
     if (response['success']) {
-        window.location.href = './login.html';
+        Swal.fire({
+            title: "Good job!",
+            text: "You clicked the button!",
+            icon: "success",
+
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = './index.html';
+            }
+        });
     } else {
         let mensajeError = document.getElementById('mensaje-error-registro');
         mensajeError.style.display = 'block';
