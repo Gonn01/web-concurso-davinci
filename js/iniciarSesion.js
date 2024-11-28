@@ -36,8 +36,12 @@ document.getElementById('login-form').addEventListener('submit', async (event) =
         let response = await iniciarSesion(email, contraseña);
 
         if (response['success']) {
+            if (response['usuario']['rol']['roles_id'] == 1) {
+                localStorage.setItem('admin', true);
+            } else {
+                localStorage.setItem('admin', false);
+            }
             localStorage.setItem('logeado', true);
-            localStorage.setItem('admin', true);
             window.location.href = './menu_admin.php';
         } else {
             Swal.fire({
