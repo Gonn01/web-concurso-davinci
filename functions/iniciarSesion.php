@@ -33,21 +33,25 @@ if ($row = $result->fetch_assoc()) {
     exit();
 }
 
-$sql = "SELECT COUNT(*) AS total FROM usuarios_has_roles WHERE usuarios_id='$usuario->id' AND roles_id=1";
+$sql = "SELECT * FROM usuarios_has_roles WHERE usuarios_id='{$usuario->getId()}'";
 
 $stmt = $conn->prepare($sql);
 $stmt->execute();
 $result = $stmt->get_result();
 $row = $result->fetch_assoc();
 
-$total = $row['total'];
-
-$usuario->setEsAdmin(esAdmin: $total > 0);
+$usuario->setRol($row);
 
 echo json_encode([
     'success' => true,
     'message' => 'Usuario logeado correctamente',
-    'esAdmin' => $usuario->esAdmin
+    'usuario' => [
+        'id' => $usuario->getId(),
+        'nombre' => $usuario->getNombre(),
+        'apellido' => $usuario->getApellido(),
+        'email' => $usuario->getEmail(),
+        'rol' => $usuario->getRol()
+    ]
 ]);
 
 $conn->close();

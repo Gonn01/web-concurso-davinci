@@ -1,13 +1,13 @@
 <?php
 class Usuario
 {
-    public $id;
-    public $nombre;
-    public $apellido;
-    public $email;
-    public $contraseña;
+    private $id;
+    private $nombre;
+    private $apellido;
+    private $email;
+    private $contraseña;
 
-    public $esAdmin;
+    private $rol;
     public function __construct($id, $nombre, $apellido, $email, $contraseña)
     {
         $this->id = $id;
@@ -17,8 +17,33 @@ class Usuario
         $this->contraseña = $contraseña;
     }
 
-    public function setEsAdmin($esAdmin)
+    public function getId()
     {
-        $this->esAdmin = $esAdmin;
+        return $this->id;
+    }
+
+    public function getNombre()
+    {
+        return $this->nombre;
+    }
+
+    public function getApellido()
+    {
+        return $this->apellido;
+    }
+
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+
+    public function getRol()
+    {
+        return $this->rol;
+    }
+    public function setRol($rol)
+    {
+        $this->rol = $rol;
     }
 }
