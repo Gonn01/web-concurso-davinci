@@ -1,6 +1,6 @@
-export async function eliminarUsuario(id) {
+export async function hacerAdmin(id) {
     try {
-        const response = await fetch('./functions/eliminarUsuario.php', {
+        const response = await fetch('./functions/hacerAdmin.php', {
             method: 'POST',
             body: JSON.stringify({ idUsuario: id }),
             headers: {

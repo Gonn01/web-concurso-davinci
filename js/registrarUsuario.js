@@ -40,7 +40,7 @@ document.getElementById('formulario-registro').addEventListener('submit', async 
 
         }).then((result) => {
             if (result.isConfirmed) {
-                window.location.href = './index.html';
+                window.location.href = './login.html';
             }
         });
     } else {

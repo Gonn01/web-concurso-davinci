@@ -1,8 +1,13 @@
-export async function eliminarUsuario(id) {
+export async function editarUsuario(id, nombre, apellido, email) {
     try {
-        const response = await fetch('./functions/eliminarUsuario.php', {
+        const response = await fetch('./functions/editarUsuario.php', {
             method: 'POST',
-            body: JSON.stringify({ idUsuario: id }),
+            body: JSON.stringify({
+                idUsuario: id,
+                nombre: nombre,
+                apellido: apellido,
+                email: email,
+            }),
             headers: {
                 'Content-Type': 'application/json'
             }
