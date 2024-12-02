@@ -258,4 +258,4 @@ function generarCategoriasDestacadas(categoriasDestacadas) {
     }
 }
 let categoriasDestacadas = await getCategoriasDestacadas();
-generarCategoriasDestacadas(categoriasDestacadas);
+generarCategoriasDestacadas(categoriasDestacadas['body']);

@@ -1,12 +1,14 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+header('Content-Type: application/json');
+
 require_once 'db_connection.php';
 require_once '../models/usuario.php';
 require_once '../models/rol.php';
 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
 try {
+    // Obtengo los usuarios con sus roles
     $sql = "SELECT 
             u.id AS usuario_id,
             u.nombre AS usuario_nombre,
@@ -30,7 +32,7 @@ try {
         // Crear objeto Rol
         $rol = new Rol($row['rol_id'], $row['rol_nombre']);
 
-        // Crear objeto Usuario y asignarle el rol
+        // Crear objeto Usuario
         $usuario = new Usuario(
             $row['usuario_id'],
             $row['usuario_nombre'],
@@ -39,10 +41,9 @@ try {
             $row['usuario_contraseña']
         );
 
-        // Asignar rol al usuario (modificar la clase para permitir setRol)
         $usuario->setRol($rol);
 
-        // Agregar usuario a la lista
+        // Agrego usuario a la lista
         $usuarios[] = [
             'id' => $usuario->getId(),
             'nombre' => $usuario->getNombre(),
@@ -55,7 +56,7 @@ try {
         ];
     }
 
-    // Respuesta JSON
+    // Si todo salió bien, devuelvo un mensaje de éxito
     echo json_encode([
         'success' => true,
         'message' => 'Usuarios obtenidos',
@@ -63,12 +64,11 @@ try {
     ]);
 
 } catch (Exception $e) {
+
+    // Si hubo un error, devuelvo un mensaje de error
     echo json_encode([
         'success' => false,
         'message' => 'Error al conectar a la base de datos',
         'error' => $e->getMessage()
     ]);
-    exit;
 }
-
-$conn->close();

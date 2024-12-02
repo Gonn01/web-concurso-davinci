@@ -51,7 +51,7 @@ document.getElementById('comprarBtn').addEventListener('click', async (event) =>
             swal.fire({
                 icon: "success",
                 title: "Compra realizada",
-                text: "Compra realizada con éxito",
+                text: response['message'],
             });
         } else {
             swal.fire({
