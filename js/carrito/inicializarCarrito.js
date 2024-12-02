@@ -1,5 +1,5 @@
 import { generarItemsCarrito } from "./generarItemsCarrito.js";
-import { carritoKey } from "./constantes.js";
+import { carritoKey } from "../constantes.js";
 export function initilizeCart() {
     // Obtengo el valor del texto con id carrito-valor
     const carrito = document.getElementById("carrito-valor");

@@ -1,4 +1,4 @@
-import { carritoKey } from "./constantes.js";
+import { carritoKey } from "../constantes.js";
 import { initilizeCart } from "./inicializarCarrito.js";
 import { generarItemsCarrito } from "./generarItemsCarrito.js";
 

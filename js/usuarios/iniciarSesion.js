@@ -1,29 +1,3 @@
-async function iniciarSesion(email, contraseña) {
-
-    try {
-        const response = await fetch('./functions/iniciarSesion.php'
-            , {
-                method: 'POST',
-                body: JSON.stringify({
-                    email: email,
-                    contraseña: contraseña
-                }),
-            }
-        );
-
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-
-        const data = await response.json();
-
-        return data;
-    } catch (error) {
-        console.error('Error fetching data:', error);
-        throw error;
-    }
-}
-
 document.getElementById('login-form').addEventListener('submit', async (event) => {
     event.preventDefault();
 
@@ -36,7 +10,7 @@ document.getElementById('login-form').addEventListener('submit', async (event) =
         let response = await iniciarSesion(email, contraseña);
 
         if (response['success']) {
-            if (response['usuario']['rol']['roles_id'] == 1) {
+            if (response['body']['rol']['roles_id'] == 1) {
                 localStorage.setItem('admin', true);
             } else {
                 localStorage.setItem('admin', false);

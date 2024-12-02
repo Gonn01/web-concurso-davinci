@@ -1,24 +1,4 @@
-async function registrarUsuario(nombre, apellido, email, contraseña) {
-    try {
-        const response = await fetch('./functions/registrarUsuario.php', {
-            method: 'POST',
-            body: JSON.stringify({
-                nombre: nombre,
-                apellido: apellido,
-                email: email,
-                contraseña: contraseña
-            }),
-        });
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-
-        const data = await response.json();
-        return data;
-    } catch (error) {
-        console.error('Error fetching data:', error);
-    }
-}
+import { registrarUsuario } from '../usuarios/user_repository.js';
 document.getElementById('formulario-registro').addEventListener('submit', async (event) => {
     event.preventDefault();
 

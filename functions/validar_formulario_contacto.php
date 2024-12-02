@@ -6,14 +6,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $_SESSION['telefono'] = trim($_POST['telefono']);
     $_SESSION['email'] = trim($_POST['email']);
     $_SESSION['mensaje'] = trim($_POST['mensaje']);
-    // Assign values to variables for validation
     $nombre = $_SESSION['nombre'];
     $apellido = $_SESSION['apellido'];
     $telefono = $_SESSION['telefono'];
     $email = $_SESSION['email'];
     $mensaje = $_SESSION['mensaje'];
     $exito = false;
-    // Validaciones
     $errores = [];
 
     if (empty($nombre)) {
@@ -36,9 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (empty($mensaje)) {
         $errores[] = "El mensaje es obligatorio.";
     }
-    // Check for errors
     if (empty($errores)) {
-        // Validation successful, handle success case (e.g., send email)
         $exito = "Formulario enviado exitosamente!";
     }
 }

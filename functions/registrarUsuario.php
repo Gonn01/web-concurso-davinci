@@ -1,4 +1,8 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+header('Content-Type: application/json');
+
 require_once 'db_connection.php';
 function emailExists($email)
 {
@@ -11,59 +15,66 @@ function emailExists($email)
     $stmt->bind_result($count);
     $stmt->fetch();
     $stmt->close();
-    return ($count > 0); // Return true if email exists
-}
-// Configuración de errores (opcional, para desarrollo)
 
-header('Content-Type: application/json');
-
-// Obtener datos del formulario (enviados desde JavaScript en formato JSON)
-$data = json_decode(file_get_contents('php://input'), true);
-$nombre = $data['nombre'];
-$apellido = $data['apellido'];
-$email = $data['email'];
-$contraseña = password_hash($data['contraseña'], PASSWORD_DEFAULT); // Hashear la contraseña
-
-// Validar datos (agregar más validaciones según sea necesario)
-if (empty($nombre) || empty($apellido) || empty($email) || empty($contraseña)) {
-    echo json_encode(['success' => false, 'message' => 'Por favor, completa todos los campos']);
-    exit();
+    return $count > 0;
 }
 
-// Validar formato de correo electrónico
-if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    echo json_encode(['success' => false, 'message' => 'El correo electrónico no es válido']);
-    exit();
-}
+try {
+    // Obtengo los datos enviados
+    $data = json_decode(file_get_contents('php://input'), true);
+    $nombre = $data['nombre'];
+    $apellido = $data['apellido'];
+    $email = $data['email'];
+    // Encriptar la contraseña
+    $contraseña = password_hash($data['contraseña'], PASSWORD_DEFAULT);
 
-if (emailExists($email)) {
-    echo json_encode(['success' => false, 'message' => 'El correo electrónico ya está registrado']);
-    exit();
-}
-$rol_id = 0;
-// Obtener el último ID
-$sql = "SELECT MAX(id) AS max_id FROM usuarios";
-$result = $conn->query($sql);
-$row = $result->fetch_assoc();
-$ultimo_id = $row['max_id'];
+    // Validar que los campos no estén vacíos
+    if (empty($nombre) || empty($apellido) || empty($email) || empty($contraseña)) {
+        echo json_encode(['success' => false, 'message' => 'Por favor, completa todos los campos']);
+        exit();
+    }
 
-// Asignar el siguiente ID al nuevo usuario
-$nuevo_id = $ultimo_id + 1;
+    // Valido el formato de email
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        echo json_encode(['success' => false, 'message' => 'El correo electrónico no es válido']);
+        exit();
+    }
 
-// Insertar el nuevo usuario
-$sql = "INSERT INTO usuarios (id, nombre, apellido, email, contraseña) VALUES (?, ?, ?, ?, ?)";
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("issss", $nuevo_id, $nombre, $apellido, $email, $contraseña);
-$stmt->execute();
+    // Valido si el email ya está registrado
+    if (emailExists($email)) {
+        echo json_encode(['success' => false, 'message' => 'El correo electrónico ya está registrado']);
+        exit();
+    }
 
-$sql = "INSERT INTO usuarios_has_roles (usuarios_id, roles_id) VALUES (?, ?)";
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("ii", $nuevo_id, $rol_id);
-$stmt->execute();
+    // Id del rol invitado
+    $rol_id = 0;
 
-if ($conn->affected_rows > 0) {
-    echo json_encode(['success' => true, 'message' => 'Usuario registrado correctamente']);
-} else {
+    // Obtener el último ID
+    $sql = "SELECT MAX(id) AS max_id FROM usuarios";
+    $result = $conn->query($sql);
+    $row = $result->fetch_assoc();
+    $ultimo_id = $row['max_id'];
+    $nuevo_id = $ultimo_id + 1;
+
+    // Crear el nuevo usuario
+    $sql = "INSERT INTO usuarios (id, nombre, apellido, email, contraseña) VALUES (?, ?, ?, ?, ?)";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("issss", $nuevo_id, $nombre, $apellido, $email, $contraseña);
+    $stmt->execute();
+
+    // Asigno el rol invitado al nuevo usuario
+    $sql = "INSERT INTO usuarios_has_roles (usuarios_id, roles_id) VALUES (?, ?)";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ii", $nuevo_id, $rol_id);
+    $stmt->execute();
+
+    // Verifico si se registró el usuario
+    if ($conn->affected_rows > 0) {
+        echo json_encode(['success' => true, 'message' => 'Usuario registrado correctamente']);
+    } else {
+        echo json_encode(['success' => false, 'message' => 'Error al registrar el usuario']);
+    }
+    $stmt->close();
+} catch (\Throwable $th) {
     echo json_encode(['success' => false, 'message' => 'Error al registrar el usuario']);
 }
-$stmt->close();

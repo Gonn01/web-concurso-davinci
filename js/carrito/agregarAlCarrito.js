@@ -1,9 +1,10 @@
-import { carritoKey } from "./constantes.js";
+import { carritoKey } from "../constantes.js";
 
 
-export function sumarCarrito(itemStringifyed) {
+export function agregarAlCarrito(itemStringifyed) {
     // Parseo el item a json
     const item = JSON.parse(itemStringifyed);
+
     // Traigo los items del local storage
     let itemsCarrito = JSON.parse(localStorage.getItem(carritoKey)) || [];
 

@@ -1,8 +1,5 @@
 import { generarListaUsuarios } from './generarListaUsuarios.js';
-import { getUsuarios } from './getUsuarios.js';
-import { eliminarUsuario } from './eliminarUsuario.js';
-import { editarUsuario } from './editarUsuario.js';
-import { hacerAdmin } from './hacerAdmin.js';
+import { getUsuarios, eliminarUsuario, editarUsuario, hacerAdmin } from './user_repository.js';
 
 function asignarEventosEliminar() {
     const botonesEliminar = document.querySelectorAll(".boton-eliminar");
