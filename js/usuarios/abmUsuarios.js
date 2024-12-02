@@ -165,7 +165,6 @@ async function hacerAdm(id) {
     }
 }
 
-
 let usuarios = await getUsuarios();
 generarListaUsuarios(usuarios['body']);
 asignarEventosEliminar();

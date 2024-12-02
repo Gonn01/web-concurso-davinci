@@ -1,22 +1,21 @@
 export function generarListaUsuarios(usuarios) {
-    let todosLosTbody = document.querySelectorAll("table tbody");
-
-    todosLosTbody.forEach(tbody => {
-        tbody.remove();
-    });
-
-    // Limpiar la lista de usuarios antes de llenarla
-    let listaUsuarios = document.createElement("tbody");
 
     if (usuarios.length === 0) {
         listaUsuarios.innerHTML = "<tr><td colspan='5'>No hay usuarios registrados</td></tr>";
         return;
     }
 
-    usuarios.forEach(usuario => {
-        // Crear elementos de fila y columnas
-        const fila = document.createElement("tr");
+    // Limpiar la lista de usuarios antes de llenarla
+    let todosLosTbody = document.querySelectorAll("table tbody");
+    todosLosTbody.forEach(tbody => {
+        tbody.remove();
+    });
 
+    let listaUsuarios = document.createElement("tbody");
+
+
+    usuarios.forEach(usuario => {
+        const fila = document.createElement("tr");
         fila.innerHTML = `
             <td>${usuario.id}</td>
             <td>${usuario.nombre}</td>
