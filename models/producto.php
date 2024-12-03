@@ -6,7 +6,6 @@ class Producto implements JsonSerializable
     private $sku;
     private $urlImagen;
     private $cantidadDisponible;
-
     private $idCategoria;
 
     public function __construct($nombre, $precio, $sku, $url_imagen, $cantidad_disponible, $idCategoria)

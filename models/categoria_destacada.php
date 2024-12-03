@@ -6,8 +6,6 @@ class CategoriaDestacada implements JsonSerializable
     private $description;
     private $color;
     private $images;
-
-    // Constructor
     public function __construct($id, $title, $description, $color, $images)
     {
         $this->id = $id;
@@ -17,7 +15,6 @@ class CategoriaDestacada implements JsonSerializable
         $this->images = $images;
     }
 
-    // Métodos getter
     public function getId()
     {
         return $this->id;
@@ -43,7 +40,6 @@ class CategoriaDestacada implements JsonSerializable
         return $this->images;
     }
 
-    // Implementación de jsonSerialize
     public function jsonSerialize()
     {
         return [

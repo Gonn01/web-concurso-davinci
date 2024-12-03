@@ -6,7 +6,6 @@ class Usuario
     private $apellido;
     private $email;
     private $contraseña;
-
     private $rol;
     public function __construct($id, $nombre, $apellido, $email, $contraseña)
     {
