@@ -10,15 +10,6 @@ try {
     $data = json_decode(file_get_contents('php://input'), true);
     $idProducto = $data['idProducto'];
 
-    // Validar que se recibió el ID del producto
-    if (!$idProducto) {
-        echo json_encode([
-            'success' => false,
-            'message' => 'ID de producto no proporcionado'
-        ]);
-        exit();
-    }
-
     // Elimino el producto de la tabla principal
     $query = "DELETE FROM productos WHERE id = ?";
     $stmt = $conn->prepare($query);
