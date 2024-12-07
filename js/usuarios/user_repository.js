@@ -37,7 +37,7 @@ export async function getUsuarios() {
     }
 }
 
-export async function editarUsuario(id, nombre, apellido, email) {
+export async function editarUsuario(id, nombre, apellido, email, telefono, urlImagen) {
     try {
         const response = await fetch('./functions/editarUsuario.php', {
             method: 'POST',
@@ -46,6 +46,8 @@ export async function editarUsuario(id, nombre, apellido, email) {
                 nombre: nombre,
                 apellido: apellido,
                 email: email,
+                telefono: telefono,
+                urlImagen: urlImagen
             }),
             headers: {
                 'Content-Type': 'application/json'

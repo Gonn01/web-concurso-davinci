@@ -9,9 +9,8 @@ try {
 
     // Obtengo los datos enviados
     $data = json_decode(file_get_contents('php://input'), true);
-
     // Verifico que se hayan enviado los datos necesarios
-    if (!isset($data['idUsuario']) || !isset($data['nombre']) || !isset($data['apellido']) || !isset($data['email'])) {
+    if (!isset($data['idUsuario']) || !isset($data['nombre']) || !isset($data['apellido']) || !isset($data['email']) || !isset($data['telefono']) || !isset($data['urlImagen'])) {
         echo json_encode([
             'success' => false,
             'message' => 'Faltan datos'
@@ -24,28 +23,39 @@ try {
     $nombre = $data['nombre'];
     $apellido = $data['apellido'];
     $email = $data['email'];
+    $telefono = $data['telefono'];
+    $urlImagen = $data['urlImagen'];
 
     // Actualizo los datos del usuario
-    $query = "UPDATE usuarios SET nombre = ?, apellido = ?, email = ? WHERE id = ?";
+    $query = "UPDATE usuarios SET nombre = ?, apellido = ?, email = ?, telefono = ?, urlImagen = ? WHERE id = ?";
     $stmt = $conn->prepare($query);
     if (!$stmt) {
         die("Error preparando consulta: " . $conn->error);
     }
-    $stmt->bind_param('sssi', $nombre, $apellido, $email, $idUsuario);
+    $stmt->bind_param('sssssi', $nombre, $apellido, $email, $telefono, $urlImagen, $idUsuario);
     $stmt->execute();
-    $stmt->close();
     // Verifico si se actualizó el usuario
     if ($stmt->affected_rows === 0) {
         echo json_encode([
             'success' => false,
             'message' => 'No se encontró el usuario'
         ]);
+        exit();
     }
+    $stmt->close();
 
     // si todo salió bien, devuelvo un mensaje de éxito
     echo json_encode([
         'success' => true,
-        'message' => 'Usuario actualizado correctamente'
+        'message' => 'Usuario actualizado correctamente',
+        'body' => [
+            'idUsuario' => $idUsuario,
+            'nombre' => $nombre,
+            'apellido' => $apellido,
+            'email' => $email,
+            'telefono' => $telefono,
+            'urlImagen' => $urlImagen
+        ]
     ]);
 } catch (\Throwable $th) {
     // Si hubo un error, devuelvo un mensaje de error

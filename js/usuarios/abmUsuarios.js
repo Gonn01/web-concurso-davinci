@@ -66,7 +66,6 @@ function asignarEventosEditar() {
                         <div class="mb-3">
                             <label for="usuario-rol" class="form-label">Rol</label>
                             <input type="text" id="usuario-rol" class="form-control" value="${usuario.rol['nombre']}" required disabled>
-                            
                         </div>
              ${usuario.rol['id'] == 1 ? `
                 <div class="mt-3">
@@ -78,6 +77,14 @@ function asignarEventosEditar() {
                         <div class="mb-3">
                             <label for="usuario-email" class="form-label">Correo</label>
                             <input type="email" id="usuario-email" class="form-control" value="${usuario.email}" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="usuario-telefono" class="form-label">Correo</label>
+                            <input type="text" id="usuario-telefono" class="form-control" value="${usuario.telefono}" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="usuario-urlImagen" class="form-label">Correo</label>
+                            <input type="text" id="usuario-urlImagen" class="form-control" value="${usuario.urlImagen}" required>
                         </div>
                     </form>
                 `,
@@ -97,7 +104,9 @@ function asignarEventosEditar() {
                 let nombre = document.getElementById('usuario-nombre').value;
                 let apellido = document.getElementById('usuario-apellido').value;
                 let email = document.getElementById('usuario-email').value;
-                if (nombre === '' && apellido === '' && email === '') {
+                let telefono = document.getElementById('usuario-telefono').value;
+                let urlImagen = document.getElementById('usuario-urlImagen').value;
+                if (nombre === '' && apellido === '' && email === '' && telefono === '' && urlImagen === '') {
                     swal.fire({
                         icon: "error",
                         title: "Datos incompletos",
@@ -105,7 +114,7 @@ function asignarEventosEditar() {
                     });
                     return;
                 }
-                let data = await editarUsuario(usuario.id, nombre, apellido, email);
+                let data = await editarUsuario(usuario.id, nombre, apellido, email, telefono, urlImagen);
                 let users = await getUsuarios();
                 generarListaUsuarios(users['body']);
 

@@ -20,6 +20,7 @@
     rel="stylesheet">
 </head>
 <script type="module" src="./js/carrito/inicializarCarrito.js"></script>
+<script type="module" src="./js/perfil.js"></script>
 <script>
   if (localStorage.getItem('logeado') === 'false') {
     window.location.href = './index.php';
@@ -59,6 +60,10 @@
               <div style="display:flex">
                 <strong class="mx-1">Teléfono: </strong>
                 <p id="telefonoUsuario"> </p>
+              </div>
+              <div style="display:flex">
+                <div id="boton-editar-perfil" class="boton">Editar perfil</div>
+
               </div>
             </div>
           </div>
@@ -108,7 +113,6 @@
   <?php include 'components/footer.php'; ?>
   <script>
     let usuario = JSON.parse(localStorage.getItem('usuario'));
-    console.log(usuario);
     document.getElementById('nombreUsuario').textContent = usuario['nombre'];
     document.getElementById('mailUsuario').textContent = usuario['email'];
     document.getElementById('telefonoUsuario').textContent = usuario['telefono'];
@@ -118,6 +122,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>
