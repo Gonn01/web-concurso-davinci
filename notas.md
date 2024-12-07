@@ -1,7 +1,7 @@
 + formulario de registro
 + formulario de login
 + pagina a la que solo pueden acceder los usuarios logeados -> menu_admin
-x formulario para modificar datos personales solo pueden acceder usuarios logeados
++ formulario para modificar datos personales solo pueden acceder usuarios logeados
 + Lista de usuarios, boton para hacer admin
 + Agregar productos nuevos
 + Listar productos 
