@@ -14,13 +14,13 @@ try {
 
     // Verificar si los datos son válidos
     $sql = "SELECT * FROM usuarios WHERE email='$email' AND contraseña='$contraseña'";
-    $smtm = $conn->prepare($sql);
-    $smtm->execute();
-    $result = $smtm->get_result();
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+    $result = $stmt->get_result();
     $stmt->close();
 
     // Si no se encuentra el usuario, devolver un mensaje de error
-    if ($stmt->affected_rows > 0) {
+    if ($row = $result->fetch_assoc()) {
         $usuario = new Usuario(
             $row['id'],
             $row['nombre'],

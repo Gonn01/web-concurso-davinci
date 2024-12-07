@@ -31,7 +31,7 @@ function asignarEventosEliminar() {
                 } else {
                     swal.fire({
                         icon: "error",
-                        title: response['message'],
+                        title: data['message'],
                         text: "No se pudo eliminar el usuario",
                     });
                 }
@@ -97,7 +97,7 @@ function asignarEventosEditar() {
                 let nombre = document.getElementById('usuario-nombre').value;
                 let apellido = document.getElementById('usuario-apellido').value;
                 let email = document.getElementById('usuario-email').value;
-                if (nombre === '' && apellido === '' && email === '' && nombre != usuario.nombre && apellido != usuario.apellido && email != usuario.email) {
+                if (nombre === '' && apellido === '' && email === '') {
                     swal.fire({
                         icon: "error",
                         title: "Datos incompletos",

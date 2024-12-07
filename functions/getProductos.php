@@ -9,38 +9,66 @@ require_once '../models/producto.php';
 try {
     // Obtengo los datos enviados
     $data = json_decode(file_get_contents('php://input'), true);
-    $tipoDeProductoId = $data['tipoDeProductoId'];
+    $tipoDeProductoId = $data['tipoDeProductoId'] ?? null;
 
     // Obtengo los productos por tipo de producto
-    $query = "SELECT 
+    if ($tipoDeProductoId == null) {
+        $query = "SELECT 
+        p.nombre AS producto, 
+        p.id,
+        p.precio, 
+        p.sku, 
+        p.url_imagen, 
+        p.cantidad_disponible, 
+        c.id AS idCategoria, 
+        c.nombre AS nombreCategoria, 
+        p.tipo_de_producto_id
+      FROM productos p
+      INNER JOIN categoria c ON p.categoria_id = c.id
+      ORDER BY c.id;";
+
+        $stmt = $conn->prepare($query);
+        if (!$stmt) {
+            die("Error preparando consulta: " . $conn->error);
+        }
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $stmt->close();
+    } else {
+        $query = "SELECT 
             p.nombre AS producto, 
             p.precio, 
+            p.id,   
             p.sku, 
             p.url_imagen, 
             p.cantidad_disponible, 
             c.id AS idCategoria, 
             c.nombre AS nombreCategoria, 
             p.tipo_de_producto_id
-          FROM productos p
-          INNER JOIN categoria c ON p.categoria_id = c.id
-          WHERE p.tipo_de_producto_id = ?
-          ORDER BY c.id;";
+        FROM productos p
+        INNER JOIN categoria c ON p.categoria_id = c.id
+        WHERE p.tipo_de_producto_id = ?
+        ORDER BY c.id;";
 
-    $stmt = $conn->prepare($query);
-    if (!$stmt) {
-        die("Error preparando consulta: " . $conn->error);
+        $stmt = $conn->prepare($query);
+        if (!$stmt) {
+            die("Error preparando consulta: " . $conn->error);
+        }
+
+        $stmt->bind_param('i', $tipoDeProductoId, );
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $stmt->close();
     }
 
-    $stmt->bind_param('i', $tipoDeProductoId, );
-    $stmt->execute();
-    $result = $stmt->get_result();
-    $stmt->close();
+
     $categorias = [];
 
     // Por cada producto obtengo la categoría
     while ($productoData = $result->fetch_assoc()) {
         // Crear una instancia de la clase Producto
         $producto = new Producto(
+            $productoData['id'],
             $productoData['producto'],
             $productoData['precio'],
             $productoData['sku'],

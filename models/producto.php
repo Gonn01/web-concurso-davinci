@@ -1,6 +1,7 @@
 <?php
 class Producto implements JsonSerializable
 {
+    private $id;
     private $nombre;
     private $precio;
     private $sku;
@@ -8,14 +9,20 @@ class Producto implements JsonSerializable
     private $cantidadDisponible;
     private $idCategoria;
 
-    public function __construct($nombre, $precio, $sku, $url_imagen, $cantidad_disponible, $idCategoria)
+    public function __construct($id, $nombre, $precio, $sku, $url_imagen, $cantidad_disponible, $idCategoria)
     {
+        $this->id = $id;
         $this->nombre = $nombre;
         $this->precio = $precio;
         $this->sku = $sku;
         $this->urlImagen = $url_imagen;
         $this->cantidadDisponible = $cantidad_disponible;
         $this->idCategoria = $idCategoria;
+    }
+
+    public function getId()
+    {
+        return $this->id;
     }
 
     public function getNombre()
@@ -52,6 +59,7 @@ class Producto implements JsonSerializable
     public function jsonSerialize(): mixed
     {
         return [
+            'id' => $this->id,
             'nombre' => $this->nombre,
             'precio' => $this->precio,
             'sku' => $this->sku,

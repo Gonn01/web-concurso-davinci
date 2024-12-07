@@ -5,8 +5,8 @@ x formulario para modificar datos personales solo pueden acceder usuarios logead
 + Lista de usuarios, boton para hacer admin
 x Agregar productos nuevos
 + Listar productos 
-- modificar productos(solo la cantidad)
-x eliminar productos
++ modificar productos(solo la cantidad)
++ eliminar productos
 - cada registro debe tener imagenes (agregar imagenes robot)
 
 + validacion de registros

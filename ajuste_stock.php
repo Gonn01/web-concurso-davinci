@@ -39,7 +39,6 @@
         </div>
         <div class="m-5">
             <h2>PRODUCTOS</h2>
-            <div id="lista-productos-inventario"></div>
             <div class="producto">
                 <table class="table table-striped table-hover">
                     <thead>

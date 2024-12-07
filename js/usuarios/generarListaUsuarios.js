@@ -1,10 +1,5 @@
 export function generarListaUsuarios(usuarios) {
 
-    if (usuarios.length === 0) {
-        listaUsuarios.innerHTML = "<tr><td colspan='5'>No hay usuarios registrados</td></tr>";
-        return;
-    }
-
     // Limpiar la lista de usuarios antes de llenarla
     let todosLosTbody = document.querySelectorAll("table tbody");
     todosLosTbody.forEach(tbody => {
@@ -12,6 +7,12 @@ export function generarListaUsuarios(usuarios) {
     });
 
     let listaUsuarios = document.createElement("tbody");
+
+    if (usuarios.length === 0) {
+        listaUsuarios.innerHTML = "<tr><td colspan='5'>No hay usuarios registrados</td></tr>";
+        return;
+    }
+
 
 
     usuarios.forEach(usuario => {
