@@ -31,183 +31,93 @@
   <?php include 'components/header.php'; ?>
   <div style="height: 50px;"></div>
   <main>
-    <div id="sections-containers">
-      <div id="first-section">
-        <div id="domicilio-section">
-          <div class="perfil-title">Domicilio</div>
-          <div class="perfil-container">
-            <div class="domicilio-placeholders">
-              <div class="domicilio-campo">
-                <div class="domicilio-placeholder">Domicilio:</div>
-                <input type="text" disabled placeholder="calle 4 e/ 434 y 435">
-              </div>
-              <div class="domicilio-campo">
-                <div class="domicilio-placeholder">Código postal:</div>
-                <input type="text" disabled placeholder="1984">
-              </div>
-              <div class="domicilio-campo">
-                <div class="domicilio-placeholder">Recibe:</div>
-                <input type="text" disabled placeholder="Gonzalo Rigoni">
-              </div>
+    <div class="container mt-5">
+      <div class="row">
+        <!-- Columna izquierda -->
+        <div class="col-md-4">
+          <div class="card">
+            <img id="imagenUsuario" class="card-img-top rounded-circle mx-auto mt-4" alt="Foto de perfil"
+              style="width: 150px;">
+            <div class="card-body text-center">
+              <h3 id="nombreUsuario" class="card-title"></h3>
+              <div id="cerrarSesionButton" class="btn bg-danger text-light">Cerrar sesion</div>
             </div>
           </div>
         </div>
-        <div class="facturas-section">
-          <div class="perfil-title my-3">Facturas</div>
-          <div class="facturas-container">
-            <div class="facturas-data-container">
-              <div class="facturas-data">
-                Tipo: Factura b
+        <!-- Columna derecha -->
+        <div class="col-md-8">
+          <!-- Información del perfil -->
+          <div class="card mb-4">
+            <div class="card-header">
+              <h5>Información del Perfil</h5>
+            </div>
+            <div class="card-body">
+              <div style="display:flex">
+                <strong class="mx-1">Correo: </strong>
+                <p id="mailUsuario"> /p>
               </div>
-              <div class="facturas-data">
-                <div>
-                  <div>
-                    Comprobante: <span class="f-span"> 00003-0000492604</span>
-                  </div>
-                </div>
-              </div>
-              <div class="facturas-data">
-                <div style="display: flex">
-                  <div>Número de reserva:&nbsp;</div>
-                  <span class="f-span"> 853133</span>
-                </div>
-                <a href="./404.php" class="boton ms-5">Descargar comprobante</a>
+              <div style="display:flex">
+                <strong class="mx-1">Teléfono: </strong>
+                <p id="telefonoUsuario"> </p>
               </div>
             </div>
-            <div class="facturas-data-container">
-              <div class="facturas-data">
-                Tipo: Factura b
-              </div>
-              <div class="facturas-data">
-                <div>
-                  <div>
-                    Comprobante: <span class="f-span"> 00003-0000492604</span>
-                  </div>
-                </div>
-              </div>
-              <div class="facturas-data">
-                <div style="display: flex">
-                  <div>Número de reserva:&nbsp;</div>
-                  <span class="f-span"> 853133</span>
-                </div>
-                <a href="./404.php" class="boton ms-5">Descargar comprobante</a>
-              </div>
+          </div>
+
+          <!-- Facturas -->
+          <div class="card mb-4">
+            <div class="card-header">
+              <h5>Facturas</h5>
             </div>
-            <div class="facturas-data-container">
-              <div class="facturas-data">
-                Tipo: Factura b
-              </div>
-              <div class="facturas-data">
-                <div>
-                  <div>
-                    Comprobante: <span class="f-span"> 00003-0000492604</span>
-                  </div>
-                </div>
-              </div>
-              <div class="facturas-data">
-                <div style="display: flex">
-                  <div>Número de reserva:&nbsp;</div>
-                  <span class="f-span"> 853133</span>
-                </div>
-                <a href="./404.php" class="boton ms-5">Descargar comprobante</a>
-              </div>
+            <div class="card-body">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                  <strong>Factura #001:</strong> $120.00 - Pagada el 05/12/2024
+                </li>
+                <li class="list-group-item">
+                  <strong>Factura #002:</strong> $75.00 - Pendiente
+                </li>
+                <li class="list-group-item">
+                  <strong>Factura #003:</strong> $200.00 - Pagada el 20/11/2024
+                </li>
+              </ul>
+              <button class="btn btn-link mt-2">Ver todas las facturas</button>
+            </div>
+          </div>
+          <!-- Reservas -->
+          <div class="card mb-4">
+            <div class="card-header">
+              <h5>Reservas</h5>
+            </div>
+            <div class="card-body">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                  <strong>Reserva #101:</strong> Mesa para 2 - 10/12/2024 a las 8:00 PM
+                </li>
+                <li class="list-group-item">
+                  <strong>Reserva #102:</strong> Sala de reuniones - 15/12/2024 a las 3:00 PM
+                </li>
+              </ul>
+              <button class="btn btn-link mt-2">Ver todas las reservas</button>
             </div>
           </div>
         </div>
       </div>
-      <div class="facturas-section">
-        <div class="perfil-title">Reservas</div>
-        <div class="facturas-container">
-          <div class="facturas-data-container">
-            <div class="facturas-data">
-              <div>
-                Numero de reserva:&nbsp;<span class="f-span"> 118531</span>
-              </div>
-            </div>
-            <div class="facturas-data">
-              <div>
-                <div>Monto: <span class="f-span"> $11.979</span></div>
-              </div>
-            </div>
-            <div class="facturas-data">
-              <div style="display: flex">
-                <div>Fecha:&nbsp;</div>
-                <span class="f-span"> 07/05/2021</span>
-              </div>
-              <a href="./404.php" class="boton ms-5">Ver detalles</a>
-            </div>
-          </div>
-          <div class="facturas-data-container">
-            <div class="facturas-data">
-              <div>
-                Numero de reserva:&nbsp;<span class="f-span"> 118531</span>
-              </div>
-            </div>
-            <div class="facturas-data">
-              <div>
-                <div>Monto: <span class="f-span"> $11.979</span></div>
-              </div>
-            </div>
-            <div class="facturas-data">
-              <div style="display: flex">
-                <div>Fecha:&nbsp;</div>
-                <span class="f-span"> 07/05/2021</span>
-              </div>
-              <a href="./404.php" class="boton ms-5">Ver detalles</a>
-            </div>
-          </div>
-          <div class="facturas-data-container">
-            <div class="facturas-data">
-              <div>
-                Numero de reserva:&nbsp;<span class="f-span"> 118531</span>
-              </div>
-            </div>
-            <div class="facturas-data">
-              <div>
-                <div>Monto: <span class="f-span"> $11.979</span></div>
-              </div>
-            </div>
-            <div class="facturas-data">
-              <div style="display: flex">
-                <div>Fecha:&nbsp;</div>
-                <span class="f-span"> 07/05/2021</span>
-              </div>
-              <a href="./404.php" class="boton ms-5">Ver detalles</a>
-            </div>
-          </div>
-          <div class="facturas-data-container">
-            <div class="facturas-data">
-              <div>
-                Numero de reserva:&nbsp;<span class="f-span"> 118531</span>
-              </div>
-            </div>
-            <div class="facturas-data">
-              <div>
-                <div>Monto: <span class="f-span"> $11.979</span></div>
-              </div>
-            </div>
-            <div class="facturas-data">
-              <div style="display: flex">
-                <div>Fecha:&nbsp;</div>
-                <span class="f-span"> 07/05/2021</span>
-              </div>
-              <a href="./404.php" class="boton ms-5">Ver detalles</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="container-fluid me-auto">
-      <div id="cerrarSesionButton" class="btn bg-danger text-light">Cerrar sesion</div>
     </div>
   </main>
 
   <?php include 'components/footer.php'; ?>
+  <script>
+    let usuario = JSON.parse(localStorage.getItem('usuario'));
+    console.log(usuario);
+    document.getElementById('nombreUsuario').textContent = usuario['nombre'];
+    document.getElementById('mailUsuario').textContent = usuario['email'];
+    document.getElementById('telefonoUsuario').textContent = usuario['telefono'];
+    document.getElementById('imagenUsuario').src = usuario['urlImagen'];
+  </script>
   <script src="./js/header.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
-  <script src="https://kit.fontawesome.com/6912da1432.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

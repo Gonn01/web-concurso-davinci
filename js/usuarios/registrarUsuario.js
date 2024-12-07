@@ -6,11 +6,12 @@ document.getElementById('formulario-registro').addEventListener('submit', async 
     let apellido = document.getElementById('apellido-registro').value;
     let email = document.getElementById('email-registro').value;
     let contraseña = document.getElementById('contraseña-registro').value;
+    let telefono = document.getElementById('telefono-registro').value;
 
     let cargando = document.getElementById('cargando-registro');
     cargando.style.display = 'block';
 
-    let response = await registrarUsuario(nombre, apellido, email, contraseña);
+    let response = await registrarUsuario(nombre, apellido, email, contraseña, telefono);
 
     if (response['success']) {
         Swal.fire({

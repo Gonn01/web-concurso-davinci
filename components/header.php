@@ -47,6 +47,11 @@ $currentPage = basename($_SERVER['PHP_SELF']);
               <img id="perfil-img" src="imgs/user.png" alt="">
             </div>
           </li>
+          <li>
+            <div id="login-ref" onclick="window.location.href='login.html'" class="nav-link" style="display:none">
+              <a><span>Login</span></a>
+            </div>
+          </li>
         </ul>
       </div>
     </div>

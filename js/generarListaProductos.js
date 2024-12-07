@@ -1,5 +1,5 @@
 import { formatearPrecio } from "./formatearPrecio.js";
-import { sumarCarrito } from "./carrito/agregarAlCarrito.js";
+import { agregarAlCarrito } from "./carrito/agregarAlCarrito.js";
 export function generarListaProductos(categoriasLibros, element) {
     // Obtengo el contenedor donde se van a agregar los items del inventario
     const listContainer = document.querySelector(element);
@@ -66,7 +66,7 @@ export function generarListaProductos(categoriasLibros, element) {
             const buyButton = document.createElement("button");
             buyButton.classList.add("boton", "btn-tienda");
             buyButton.textContent = "Comprar";
-            buyButton.onclick = () => sumarCarrito(JSON.stringify(libro));
+            buyButton.onclick = () => agregarAlCarrito(JSON.stringify(libro));
             cardBody.appendChild(buyButton);
 
             // Agrego el cuerpo de la card a la card

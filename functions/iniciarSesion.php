@@ -7,58 +7,74 @@ require_once 'db_connection.php';
 require_once '../models/usuario.php';
 
 try {
-    // Obtengo los datos enviados
+    // Get JSON input
     $data = json_decode(file_get_contents('php://input'), true);
     $email = $data['email'];
     $contraseña = $data['contraseña'];
 
-    // Verificar si los datos son válidos
-    $sql = "SELECT * FROM usuarios WHERE email='$email' AND contraseña='$contraseña'";
+    // Prepare and execute the query
+    $sql = "SELECT * FROM usuarios WHERE email = ?";
     $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $email);
     $stmt->execute();
     $result = $stmt->get_result();
-    $stmt->close();
 
-    // Si no se encuentra el usuario, devolver un mensaje de error
-    if ($row = $result->fetch_assoc()) {
-        $usuario = new Usuario(
-            $row['id'],
-            $row['nombre'],
-            $row['apellido'],
-            $row['email'],
-            $row['contraseña']
-        );
+    if ($result->num_rows === 1) {
+        // User found
+        $user = $result->fetch_assoc();
+        $hashAlmacenado = $user['contraseña'];
 
+        // Verify password
+        if (password_verify($contraseña, $hashAlmacenado)) {
+            // Create Usuario object
+            $usuario = new Usuario(
+                $user['id'],
+                $user['nombre'],
+                $user['apellido'],
+                $user['email'],
+                $user['contraseña'],
+                $user['telefono'],
+                $user['urlImagen']
+            );
+
+            // Get user role
+            $sql = "SELECT * FROM usuarios_has_roles WHERE usuarios_id='{$usuario->getId()}'";
+
+            $stmt = $conn->prepare($sql);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $row = $result->fetch_assoc();
+
+            // Asignar el rol al usuario
+            $usuario->setRol($row);
+
+            // Return success response
+            echo json_encode([
+                'success' => true,
+                'message' => 'Usuario logeado correctamente',
+                'body' => [
+                    'id' => $usuario->getId(),
+                    'nombre' => $usuario->getNombre(),
+                    'apellido' => $usuario->getApellido(),
+                    'email' => $usuario->getEmail(),
+                    'rol' => $usuario->getRol(),
+                    'telefono' => $usuario->getTelefono(),
+                    'urlImagen' => $usuario->getUrlImagen()
+                ]
+            ]);
+            exit();
+        } else {
+            // Password incorrect
+            echo json_encode(['success' => false, 'message' => 'Contraseña incorrecta']);
+            exit();
+        }
     } else {
-        echo json_encode(['success' => false, 'message' => 'Usuario o contraseña incorrectos']);
-        $conn->close();
+        // User not found
+        echo json_encode(['success' => false, 'message' => 'Usuario no encontrado']);
         exit();
     }
-
-    // Obtener el rol del usuario
-    $sql = "SELECT * FROM usuarios_has_roles WHERE usuarios_id='{$usuario->getId()}'";
-
-    $stmt = $conn->prepare($sql);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    $row = $result->fetch_assoc();
-
-    // Asignar el rol al usuario
-    $usuario->setRol($row);
-
-    // Devolver un mensaje de éxito
-    echo json_encode([
-        'success' => true,
-        'message' => 'Usuario logeado correctamente',
-        'body' => [
-            'id' => $usuario->getId(),
-            'nombre' => $usuario->getNombre(),
-            'apellido' => $usuario->getApellido(),
-            'email' => $usuario->getEmail(),
-            'rol' => $usuario->getRol()
-        ]
-    ]);
-
-} catch (\Throwable $th) {
+} catch (Throwable $th) {
+    // Catch and display errors
     echo json_encode(['success' => false, 'message' => $th->getMessage()]);
+    exit();
 }

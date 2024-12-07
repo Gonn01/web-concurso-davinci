@@ -10,14 +10,17 @@ document.getElementById('login-form').addEventListener('submit', async (event) =
     try {
         let response = await iniciarSesion(email, contraseña);
 
+
         if (response['success']) {
-            if (response['body']['rol']['roles_id'] == 1) {
+            localStorage.setItem('usuario', JSON.stringify(response['body']));
+            localStorage.setItem('logeado', true);
+            if (response['body']['rol']['roles_id'] == 0) {
                 localStorage.setItem('admin', true);
+                window.location.href = './menu_admin.php';
             } else {
                 localStorage.setItem('admin', false);
+                window.location.href = './index.php';
             }
-            localStorage.setItem('logeado', true);
-            window.location.href = './menu_admin.php';
         } else {
             Swal.fire({
                 icon: "error",

@@ -27,9 +27,10 @@ try {
     $email = $data['email'];
     // Encriptar la contraseña
     $contraseña = password_hash($data['contraseña'], PASSWORD_DEFAULT);
+    $telefono = $data['telefono'];
 
     // Validar que los campos no estén vacíos
-    if (empty($nombre) || empty($apellido) || empty($email) || empty($contraseña)) {
+    if (empty($nombre) || empty($apellido) || empty($email) || empty($contraseña) || empty($telefono)) {
         echo json_encode(['success' => false, 'message' => 'Por favor, completa todos los campos']);
         exit();
     }
@@ -47,7 +48,7 @@ try {
     }
 
     // Id del rol invitado
-    $rol_id = 0;
+    $rol_id = 1;
 
     // Obtener el último ID
     $sql = "SELECT MAX(id) AS max_id FROM usuarios";
@@ -55,11 +56,11 @@ try {
     $row = $result->fetch_assoc();
     $ultimo_id = $row['max_id'];
     $nuevo_id = $ultimo_id + 1;
-
+    $urlImagen = "https://robohash.org/$email";
     // Crear el nuevo usuario
-    $sql = "INSERT INTO usuarios (id, nombre, apellido, email, contraseña) VALUES (?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO usuarios (id, nombre, apellido, email, contraseña,telefono, urlImagen) VALUES (?, ?, ?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("issss", $nuevo_id, $nombre, $apellido, $email, $contraseña);
+    $stmt->bind_param("issssss", $nuevo_id, $nombre, $apellido, $email, $contraseña, $telefono, $urlImagen);
     $stmt->execute();
 
     // Asigno el rol invitado al nuevo usuario

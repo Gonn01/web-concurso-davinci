@@ -7,13 +7,17 @@ class Usuario
     private $email;
     private $contraseña;
     private $rol;
-    public function __construct($id, $nombre, $apellido, $email, $contraseña)
+    private $telefono;
+    private $urlImagen;
+    public function __construct($id, $nombre, $apellido, $email, $contraseña, $telefono, $urlImagen)
     {
         $this->id = $id;
         $this->nombre = $nombre;
         $this->apellido = $apellido;
         $this->email = $email;
         $this->contraseña = $contraseña;
+        $this->telefono = $telefono;
+        $this->urlImagen = $urlImagen;
     }
 
     public function getId()
@@ -44,5 +48,15 @@ class Usuario
     public function setRol($rol)
     {
         $this->rol = $rol;
+    }
+
+    public function getTelefono()
+    {
+        return $this->telefono;
+    }
+
+    public function getUrlImagen()
+    {
+        return $this->urlImagen;
     }
 }

@@ -79,7 +79,7 @@
     <h2 class="section-title">ENCONTRANOS EN TODO BUENOS AIRES</h2>
 
     <div class="mapa"><iframe
-        src="https://www.google.com/maps/d/u/0/embed?mid=1lsyFGgazkGDyvTNj0G_M9R6St2GLDyI&ehbc=2E312F&noprof=1"
+        src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d209898.2743148667!2d-58.45770628806861!3d-34.71374112677094!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sLocales%20de%20Yenny!5e0!3m2!1ses-419!2sar!4v1733594766742!5m2!1ses-419!2sar"
         width="1250" height="480"></iframe></div>
 
     <h2 class="section-title">LAS CATEGORÍAS MAS DESTACADAS</h2>

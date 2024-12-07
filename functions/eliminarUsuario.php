@@ -28,7 +28,6 @@ try {
     }
     $stmt->bind_param('i', $idUsuario);
     $stmt->execute();
-    $stmt->close();
 
     // Verifico si se eliminó el usuario
     if ($stmt->affected_rows === 0) {
@@ -38,6 +37,7 @@ try {
         ]);
         return;
     }
+    $stmt->close();
 
     //  Si todo salió bien, devuelvo un mensaje de éxito
     echo json_encode([

@@ -1,4 +1,4 @@
-export async function registrarUsuario(nombre, apellido, email, contraseña) {
+export async function registrarUsuario(nombre, apellido, email, contraseña, telefono) {
     try {
         const response = await fetch('./functions/registrarUsuario.php', {
             method: 'POST',
@@ -6,7 +6,8 @@ export async function registrarUsuario(nombre, apellido, email, contraseña) {
                 nombre: nombre,
                 apellido: apellido,
                 email: email,
-                contraseña: contraseña
+                contraseña: contraseña,
+                telefono: telefono
             }),
         });
         if (!response.ok) {

@@ -15,6 +15,8 @@ try {
             u.apellido AS usuario_apellido,
             u.email AS usuario_email,
             u.contraseña AS usuario_contraseña,
+            u.telefono AS usuario_telefono,
+            u.urlImagen AS usuario_urlImagen,
             r.id AS rol_id,
             r.nombre AS rol_nombre
         FROM usuarios u
@@ -38,7 +40,9 @@ try {
             $row['usuario_nombre'],
             $row['usuario_apellido'],
             $row['usuario_email'],
-            $row['usuario_contraseña']
+            $row['usuario_contraseña'],
+            $row['usuario_telefono'],
+            $row['usuario_urlImagen']
         );
 
         $usuario->setRol($rol);
@@ -52,7 +56,9 @@ try {
             'rol' => [
                 'id' => $rol->getId(),
                 'nombre' => $rol->getNombre()
-            ]
+            ],
+            'telefono' => $usuario->getTelefono(),
+            'urlImagen' => $usuario->getUrlImagen()
         ];
     }
 
