@@ -40,7 +40,7 @@ class CategoriaDestacada implements JsonSerializable
         return $this->images;
     }
 
-    public function jsonSerialize()
+    public function jsonSerialize(): mixed
     {
         return [
             'id' => $this->getId(),

@@ -30,10 +30,7 @@
                     <h1>Ajuste de stock</h1>
                 </div>
                 <div class="col text-end">
-                    <button type="button" class="boton btn btn-primary" data-bs-toggle="modal"
-                        data-bs-target="#exampleModal">
-                        Modificar Stock
-                    </button>
+
                 </div>
             </div>
         </div>
@@ -63,6 +60,7 @@
 
                         foreach ($result as $producto) {
                             $producto = new Producto(
+                                $producto['id'],
                                 $producto['nombre'],
                                 $producto['precio'],
                                 $producto['sku'],
@@ -93,34 +91,7 @@
             </div>
         </div>
     </main>
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modificacion de stock</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form action="functions/modificar_stock.php" method="POST">
-                        <div class="row">
-                            <div class="col mb-3">
-                                <label for="sku" class="col-form-label">SKU:</label>
-                                <input type="text" class="form-control" id="sku">
-                            </div>
-                            <div class="col mb-3">
-                                <label for="cantidad" class="col-form-label">Cantidad:</label>
-                                <input type="number" class="form-control" id="cantidad">
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-success">Aplicar</button>
-                </div>
-            </div>
-        </div>
-    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
