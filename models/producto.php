@@ -54,8 +54,6 @@ class Producto implements JsonSerializable
     {
         return $this->idCategoria;
     }
-
-    // Implementación de jsonSerialize
     public function jsonSerialize(): mixed
     {
         return [

@@ -8,7 +8,6 @@ require_once '../models/usuario.php';
 require_once '../models/rol.php';
 
 try {
-    // Obtengo los usuarios con sus roles
     $sql = "SELECT 
             u.id AS usuario_id,
             u.nombre AS usuario_nombre,
@@ -31,10 +30,8 @@ try {
     $usuarios = [];
 
     while ($row = $result->fetch_assoc()) {
-        // Crear objeto Rol
         $rol = new Rol($row['rol_id'], $row['rol_nombre']);
 
-        // Crear objeto Usuario
         $usuario = new Usuario(
             $row['usuario_id'],
             $row['usuario_nombre'],
@@ -47,7 +44,6 @@ try {
 
         $usuario->setRol($rol);
 
-        // Agrego usuario a la lista
         $usuarios[] = [
             'id' => $usuario->getId(),
             'nombre' => $usuario->getNombre(),
@@ -62,7 +58,6 @@ try {
         ];
     }
 
-    // Si todo salió bien, devuelvo un mensaje de éxito
     echo json_encode([
         'success' => true,
         'message' => 'Usuarios obtenidos',
@@ -71,7 +66,6 @@ try {
 
 } catch (Exception $e) {
 
-    // Si hubo un error, devuelvo un mensaje de error
     echo json_encode([
         'success' => false,
         'message' => 'Error al conectar a la base de datos',

@@ -9,7 +9,6 @@ require_once '../models/imagen_categoria_destacada.php';
 
 try {
 
-    // Obtengo las categorías destacadas
     $sql = "SELECT * FROM categoria_destacada";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
@@ -18,7 +17,6 @@ try {
 
     $categorias = [];
 
-    // Por cada categoría destacada obtengo las imágenes
     while ($categoria_data = $result->fetch_assoc()) {
         $sqlImgs = "SELECT img_categoria_destacada.url
                     FROM img_categoria_destacada
@@ -32,11 +30,9 @@ try {
 
 
         $imagenes = [];
-        // Por cada imagen obtengo la URL
         while ($img_data = $resultImgs->fetch_assoc()) {
             $imagenes[] = $img_data['url'];
         }
-        // Crear una instancia de la clase CategoriaDestacada
         $producto = new CategoriaDestacada(
             $categoria_data['id'],
             $categoria_data['title'],
@@ -45,15 +41,11 @@ try {
             $imagenes
         );
 
-        // Agregar la categoría al array de categorías
         $categorias[] = $producto;
     }
 
-    // Si todo salió bien, devuelvo un mensaje de éxito
     echo json_encode(['success' => true, 'message' => 'Categorías destacadas obtenidas correctamente', 'body' => $categorias]);
 
 } catch (\Throwable $th) {
-
-    // Si hubo un error, devuelvo un mensaje de error
     echo json_encode(['success' => false, 'message' => $th->getMessage()]);
 }

@@ -1,6 +1,5 @@
 
 export function generarListaProductos(productos) {
-    // Limpiar la lista de usuarios antes de llenarla
     let todosLosTbody = document.querySelectorAll("table tbody");
     todosLosTbody.forEach(tbody => {
         tbody.remove();
@@ -29,8 +28,6 @@ export function generarListaProductos(productos) {
             </td>
         </tr>
         `;
-
-        // Añadir la fila a la tabla
         listaProductos.appendChild(fila);
     });
     let tabla = document.getElementById("tabla-productos");

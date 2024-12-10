@@ -6,14 +6,12 @@ header('Content-Type: application/json');
 require_once 'db_connection.php';
 
 try {
-    // Consulta para obtener los tipos de producto
     $query = "SELECT * FROM tipo_de_producto";
     $stmt = $conn->prepare($query);
     $stmt->execute();
     $result = $stmt->get_result();
     $stmt->close();
 
-    // Verificar si hay resultados
     if ($result->num_rows > 0) {
         $tiposDeProducto = [];
         while ($row = $result->fetch_assoc()) {
@@ -23,21 +21,18 @@ try {
             ];
         }
 
-        // Respuesta exitosa
         echo json_encode([
             'success' => true,
             'message' => 'Tipos de producto encontrados',
             'body' => $tiposDeProducto
         ]);
     } else {
-        // Si no hay resultados
         echo json_encode([
             'success' => false,
             'message' => 'No se encontraron tipos de producto'
         ]);
     }
 } catch (\Throwable $th) {
-    // Manejo de errores
     echo json_encode([
         'success' => false,
         'message' => "Error al obtener tipos de producto: $th"

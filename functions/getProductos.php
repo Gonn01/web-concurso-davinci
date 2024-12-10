@@ -7,11 +7,9 @@ require_once 'db_connection.php';
 require_once '../models/producto.php';
 
 try {
-    // Obtengo los datos enviados
     $data = json_decode(file_get_contents('php://input'), true);
     $tipoDeProductoId = $data['tipoDeProductoId'] ?? null;
 
-    // Obtengo los productos por tipo de producto
     if ($tipoDeProductoId == null) {
         $query = "SELECT 
         p.nombre AS producto, 
@@ -64,9 +62,7 @@ try {
 
     $categorias = [];
 
-    // Por cada producto obtengo la categoría
     while ($productoData = $result->fetch_assoc()) {
-        // Crear una instancia de la clase Producto
         $producto = new Producto(
             $productoData['id'],
             $productoData['producto'],
@@ -81,7 +77,6 @@ try {
         $idCategoria = $productoData['idCategoria'];
         $nombreCategoria = $productoData['nombreCategoria'];
 
-        // Agrupo productos por categoría
         if (!isset($categorias[$idCategoria])) {
             $categorias[$idCategoria] = [
                 'nombreCategoria' => $nombreCategoria,
@@ -91,7 +86,6 @@ try {
         $categorias[$idCategoria]['productos'][] = $producto;
     }
 
-    // Convertir el array asociativo en un array indexado
     $body = array_values($categorias);
 
     if (empty($body)) {

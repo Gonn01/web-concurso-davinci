@@ -1,6 +1,5 @@
 export function generarListaUsuarios(usuarios) {
 
-    // Limpiar la lista de usuarios antes de llenarla
     let todosLosTbody = document.querySelectorAll("table tbody");
     todosLosTbody.forEach(tbody => {
         tbody.remove();
@@ -31,7 +30,6 @@ export function generarListaUsuarios(usuarios) {
             </td>
         `;
 
-        // Añadir la fila a la tabla
         listaUsuarios.appendChild(fila);
     });
     let tabla = document.getElementById("tabla-usuarios");

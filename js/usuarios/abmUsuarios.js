@@ -7,7 +7,6 @@ function asignarEventosEliminar() {
         boton.addEventListener('click', async function () {
             let id = boton.getAttribute('data-id');
 
-            // Esperar la respuesta de Swal.fire
             let result = await Swal.fire({
                 title: "¿Quieres eliminar al usuario?",
                 showDenyButton: true,
@@ -19,8 +18,8 @@ function asignarEventosEliminar() {
                 let data = await eliminarUsuario(id);
                 let users = usuarios['body'];
                 let newUsers = users.filter(usuario => usuario.id !== parseInt(id));
-                usuarios['body'] = newUsers; // Actualizar la variable global de usuarios
-                generarListaUsuarios(newUsers); // Regenerar la lista
+                usuarios['body'] = newUsers;
+                generarListaUsuarios(newUsers);
 
                 if (data['success']) {
                     swal.fire({
@@ -50,7 +49,6 @@ function asignarEventosEditar() {
         boton.addEventListener('click', async function () {
             let id = boton.getAttribute('data-id');
             let usuario = usuarios['body'].find(usuario => usuario.id === parseInt(id));
-            // Esperar la respuesta de Swal.fire
             let result = await Swal.fire({
                 title: 'Editar Usuario',
                 html: `
