@@ -35,4 +35,10 @@ export function agregarAlCarrito(itemStringifyed) {
     // Tomo el valor del carrito y lo actualizo
     const carrito = document.getElementById("carrito-valor");
     carrito.textContent = cantidadTotal;
+
+    swal.fire({
+        icon: "success",
+        title: "Agregado al carrito",
+        text: "El producto fue agregado al carrito con éxito",
+    });
 }

@@ -1,5 +1,5 @@
 import { generarListaUsuarios } from './generarListaUsuarios.js';
-import { getUsuarios, eliminarUsuario, editarUsuario, hacerAdmin } from './user_repository.js';
+import { getUsuarios, eliminarUsuario, editarUsuario, hacerAdmin, hacerInvitado } from './user_repository.js';
 
 function asignarEventosEliminar() {
     const botonesEliminar = document.querySelectorAll(".boton-eliminar");
@@ -73,6 +73,12 @@ function asignarEventosEditar() {
                         Hacer administrador
                     </button>
                 </div>
+                ` : ''}   ${usuario.rol['id'] == 0 ? `
+               <div class="mt-3">
+                    <button type="button" id="btn-hacer-invitado" class="btn btn-primary w-100">
+                        Hacer invitado
+                    </button>
+                </div>
                 ` : ''}
                         <div class="mb-3">
                             <label for="usuario-email" class="form-label">Correo</label>
@@ -98,6 +104,11 @@ function asignarEventosEditar() {
                             await hacerAdm(usuario.id);
                         });
                     }
+                    if (usuario.rol['id'] == 0) {
+                        document.getElementById('btn-hacer-invitado').addEventListener('click', async () => {
+                            await hacerInv(usuario.id);
+                        });
+                    }
                 },
             });
             if (result.isConfirmed) {
@@ -117,6 +128,8 @@ function asignarEventosEditar() {
                 let data = await editarUsuario(usuario.id, nombre, apellido, email, telefono, urlImagen);
                 let users = await getUsuarios();
                 generarListaUsuarios(users['body']);
+                asignarEventosEliminar();
+                asignarEventosEditar();
 
                 if (data['success']) {
                     swal.fire({
@@ -132,8 +145,6 @@ function asignarEventosEditar() {
                     });
                 }
 
-                asignarEventosEliminar();
-                asignarEventosEditar();
             } else if (result.isDenied) {
                 Swal.fire("El usuario no fue editado");
             }
@@ -142,9 +153,9 @@ function asignarEventosEditar() {
 }
 async function hacerAdm(id) {
     let result = await Swal.fire({
-        title: '¿Qué deseas hacer?',
+        title: '¿Estas seguro de que queres hacer invtiado a este usuario?',
         showDenyButton: true,
-        confirmButtonText: 'Hacer Admin',
+        confirmButtonText: 'Confirmar',
         denyButtonText: 'Cancelar',
     });
 
@@ -152,6 +163,8 @@ async function hacerAdm(id) {
         let data = await hacerAdmin(id);
         let users = await getUsuarios();
         generarListaUsuarios(users['body']);
+        asignarEventosEliminar();
+        asignarEventosEditar();
 
         if (data['success']) {
             swal.fire({
@@ -167,8 +180,39 @@ async function hacerAdm(id) {
             });
         }
 
+    } else if (result.isDenied) {
+        Swal.fire("El usuario no fue editado");
+    }
+}
+async function hacerInv(id) {
+    let result = await Swal.fire({
+        title: '¿Estas seguro de que queres hacer admin a este usuario?',
+        showDenyButton: true,
+        confirmButtonText: 'Confirmar',
+        denyButtonText: 'Cancelar',
+    });
+
+    if (result.isConfirmed) {
+        let data = await hacerInvitado(id);
+        let users = await getUsuarios();
+        generarListaUsuarios(users['body']);
         asignarEventosEliminar();
         asignarEventosEditar();
+
+        if (data['success']) {
+            swal.fire({
+                icon: "success",
+                title: "Usuario editado",
+                text: "Usuario editado con éxito",
+            });
+        } else {
+            swal.fire({
+                icon: "error",
+                title: data['message'],
+                text: "No se pudo editar el usuario",
+            });
+        }
+
     } else if (result.isDenied) {
         Swal.fire("El usuario no fue editado");
     }
