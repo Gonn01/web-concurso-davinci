@@ -151,7 +151,7 @@ function asignarEventosEditar() {
 }
 async function hacerAdm(id) {
     let result = await Swal.fire({
-        title: '¿Estas seguro de que queres hacer invtiado a este usuario?',
+        title: '¿Estas seguro de que queres hacer admin a este usuario?',
         showDenyButton: true,
         confirmButtonText: 'Confirmar',
         denyButtonText: 'Cancelar',
@@ -184,7 +184,7 @@ async function hacerAdm(id) {
 }
 async function hacerInv(id) {
     let result = await Swal.fire({
-        title: '¿Estas seguro de que queres hacer admin a este usuario?',
+        title: '¿Estas seguro de que queres hacer invitado a este usuario?',
         showDenyButton: true,
         confirmButtonText: 'Confirmar',
         denyButtonText: 'Cancelar',
