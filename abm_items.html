@@ -20,6 +20,11 @@
     rel="stylesheet">
 </head>
 <script type="module" src="js/productos/abmProductos.js"></script>
+<script>
+  if (localStorage.getItem('admin') === 'false') {
+    window.location.href = './index.php';
+  }
+</script>
 
 <body>
   <div id="barrier">NO DISPONIBLE, POR FAVOR CAMBIE LA RESOLUCION O ENTRE DESDE OTRO DISPOSITIVO</div>

@@ -13,7 +13,8 @@ try {
     if (!isset($data['idUsuario']) || !isset($data['nombre']) || !isset($data['apellido']) || !isset($data['email']) || !isset($data['telefono']) || !isset($data['urlImagen'])) {
         echo json_encode([
             'success' => false,
-            'message' => 'Faltan datos'
+            'message' => 'Faltan datos',
+            'body' => $data
         ]);
         return;
     }

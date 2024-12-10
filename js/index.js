@@ -12,6 +12,11 @@ async function getCategoriasDestacadas() {
         return data;
     } catch (error) {
         console.error('Error fetching data:', error);
+        swal.fire({
+            icon: "error",
+            title: "Error de conexión",
+            text: "No se pudo conectar con el servidor, por favor intente más tarde.",
+        });
     }
 }
 function generarCategoriasDestacadas(categoriasDestacadas) {

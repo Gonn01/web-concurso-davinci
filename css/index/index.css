@@ -40,11 +40,6 @@
   display: none;
 }
 
-a {
-  color: #fff;
-  text-decoration: none !important;
-}
-
 .fade-mobile {
   display: none;
   z-index: 0;

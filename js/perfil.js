@@ -9,19 +9,19 @@ botonEditar.addEventListener('click', async function () {
         html: `
                     <form id="form-editar-usuario" class="text-start">
                         <div class="mb-3">
-                            <label for="usuario-nombre" class="form-label">SKU</label>
+                            <label for="usuario-nombre" class="form-label">Nombre</label>
                             <input type="text" id="usuario-nombre" class="form-control" value="${usuario['nombre']}" required>
                         </div>
                         <div class="mb-3">
-                            <label for="usuario-apellido" class="form-label">Nombre</label>
+                            <label for="usuario-apellido" class="form-label">Apellido</label>
                             <input type="text" id="usuario-apellido" class="form-control" value="${usuario['apellido']}" required>
                         </div>
                         <div class="mb-3">
-                            <label for="usuario-email" class="form-label">Nombre</label>
+                            <label for="usuario-email" class="form-label">Email</label>
                             <input type="text" id="usuario-email" class="form-control" value="${usuario['email']}" required>
                         </div>
                         <div class="mb-3">
-                            <label for="usuario-telefono" class="form-label">Precio</label>
+                            <label for="usuario-telefono" class="form-label">Telefono</label>
                             <input type="text" id="usuario-telefono" class="form-control" value="${usuario['telefono']}" required>
                             
                         </div>
@@ -53,12 +53,13 @@ botonEditar.addEventListener('click', async function () {
 
         if (data['success']) {
             localStorage.setItem('usuario', JSON.stringify(data['body']));
-            swal.fire({
+            let r = await swal.fire({
                 icon: "success",
                 title: "Usuario editado",
                 text: "Usuario editado con éxito",
             });
-            if (result.isConfirmed) {
+            console.log(r.isConfirmed);
+            if (r.isConfirmed) {
                 window.location.href = 'perfil.php';
             }
         } else {

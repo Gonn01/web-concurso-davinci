@@ -22,8 +22,8 @@ export function generarListaProductos(productos) {
             <td class="align-middle">${producto.nombre}</td>
             <td class="align-middle">${producto.precio}</td>
             <td class="align-middle">${producto.cantidadDisponible}</td>
-            <td> <img style="width: 50px;height: 75px" src=${producto.urlImagen}> </td>
-            <td>
+            <td class="align-middle"> <img style="width: 50px;height: 75px" src=${producto.urlImagen}> </td>
+            <td class="align-middle">
                 <button class="btn btn-primary boton-editar" data-id="${producto.id}">Editar</button>
                 <button class="btn btn-danger boton-eliminar" data-id="${producto.id}">Eliminar</button>
             </td>

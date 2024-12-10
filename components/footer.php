@@ -45,7 +45,7 @@
             <div class="col-md-4">
                 <div class="footer-item d-flex flex-column my-3">
                     <h4 class="mb-4 text-white">Empresa</h4>
-                    <a href="./404.php" class=" text-white"> Sobre Nosotros</a>
+                    <a href="./sobre_nosotros.php" class=" text-white"> Sobre Nosotros</a>
                 </div>
             </div>
             <div class="col-md-4">

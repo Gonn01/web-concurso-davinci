@@ -73,7 +73,7 @@
       <div class="entrevistas-text">
         <div class="entrevistas-title">#Entrevistaquid</div>
         <div class="entrevistas-description">Entrevista a Jorge Fernández Díaz</div>
-        <a class="boton">Contactanos</a>
+        <div class="boton">Contactanos</div>
       </div>
     </div>
     <h2 class="section-title">ENCONTRANOS EN TODO BUENOS AIRES</h2>
@@ -99,7 +99,7 @@
               Sumá los productos que quieras al carrito.<br>
               Te los llevamos hasta dónde estés.
             </div>
-            <a href="./404.php" class="boton-outlined my-2">Conocer más</a>
+            <div class="boton-outlined my-2" onclick="window.location.href = '404.php'">Conocer más</div>
           </div>
         </div>
         <div class="col mx-auto">
@@ -112,7 +112,7 @@
               Sumá los productos que quieras al carrito.<br>
               Te los llevamos hasta dónde estés.
             </div>
-            <a href="./404.php" class="boton-outlined my-2">Conocer más</a>
+            <div class="boton-outlined my-2" onclick="window.location.href = '404.php'">Conocer más</div>
           </div>
         </div>
         <div class="col mx-auto">
@@ -126,7 +126,7 @@
               Sumá los productos que quieras al carrito.<br>
               Te los llevamos hasta dónde estés.
             </div>
-            <a href="./404.php" class="boton-outlined my-2">Conocer más</a>
+            <div class="boton-outlined my-2" onclick="window.location.href = '404.php'">Conocer más</div>
           </div>
         </div>
       </div>
@@ -152,7 +152,7 @@
               Sumá los productos que quieras al carrito.<br>
               Te los llevamos hasta dónde estés.
             </div>
-            <a href="./404.php" class="boton-outlined my-2">Conocer más</a>
+            <div class="boton-outlined my-2" onclick="window.location.href = '404.php'">Conocer más</div>
           </div>
         </div>
         <div class="carousel-item">
@@ -166,7 +166,7 @@
               Sumá los productos que quieras al carrito.<br>
               Te los llevamos hasta dónde estés.
             </div>
-            <a href="./404.php" class="boton-outlined my-2">Conocer más</a>
+            <div class="boton-outlined my-2" onclick="window.location.href = '404.php'">Conocer más</div>
           </div>
         </div>
         <div class="carousel-item">
@@ -180,7 +180,7 @@
               Sumá los productos que quieras al carrito.<br>
               Te los llevamos hasta dónde estés.
             </div>
-            <a href="./404.php" class="boton-outlined my-2">Conocer más</a>
+            <div class="boton-outlined my-2" onclick="window.location.href = '404.php'">Conocer más</div>
           </div>
         </div>
       </div>
@@ -198,10 +198,11 @@
   </main>
 
   <?php include 'components/footer.php'; ?>
-  <script src="./js/header.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="./js/header.js"></script>
 </body>
 
 </html>

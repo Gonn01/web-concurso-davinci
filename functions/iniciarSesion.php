@@ -53,7 +53,7 @@ try {
                 'success' => true,
                 'message' => 'Usuario logeado correctamente',
                 'body' => [
-                    'id' => $usuario->getId(),
+                    'idUsuario' => $usuario->getId(),
                     'nombre' => $usuario->getNombre(),
                     'apellido' => $usuario->getApellido(),
                     'email' => $usuario->getEmail(),

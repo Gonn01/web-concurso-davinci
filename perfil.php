@@ -41,6 +41,9 @@
               style="width: 150px;">
             <div class="card-body text-center">
               <h3 id="nombreUsuario" class="card-title"></h3>
+              <div class="btn bg-primary text-light mx-auto mb-1" id="botonAdmin" style="width:150px;display: none;"
+                onclick="window.location.href = 'menu_admin.php'">Ir al panel admin
+              </div>
               <div id="cerrarSesionButton" class="btn bg-danger text-light">Cerrar sesion</div>
             </div>
           </div>
@@ -96,10 +99,10 @@
             <div class="card-body">
               <ul class="list-group list-group-flush">
                 <li class="list-group-item">
-                  <strong>Reserva #101:</strong> Mesa para 2 - 10/12/2024 a las 8:00 PM
+                  <strong>Reserva #101:</strong> Mouse - 10/12/2024
                 </li>
                 <li class="list-group-item">
-                  <strong>Reserva #102:</strong> Sala de reuniones - 15/12/2024 a las 3:00 PM
+                  <strong>Reserva #102:</strong>Teclado - 15/12/2024
                 </li>
               </ul>
               <button class="btn btn-link mt-2">Ver todas las reservas</button>
@@ -112,17 +115,24 @@
 
   <?php include 'components/footer.php'; ?>
   <script>
+    botonAdmin = document.getElementById('botonAdmin');
+    console.log(localStorage.getItem('admin'));
+    if (localStorage.getItem('admin') === 'true') {
+      botonAdmin.style.display = 'block';
+    }
+  </script>
+  <script>
     let usuario = JSON.parse(localStorage.getItem('usuario'));
     document.getElementById('nombreUsuario').textContent = usuario['nombre'];
     document.getElementById('mailUsuario').textContent = usuario['email'];
     document.getElementById('telefonoUsuario').textContent = usuario['telefono'];
     document.getElementById('imagenUsuario').src = usuario['urlImagen'];
   </script>
-  <script src="./js/header.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="./js/header.js"></script>
 </body>
 
 </html>

@@ -18,6 +18,11 @@
     href="https://fonts.googleapis.com/css2?family=Domine:wght@400..700&family=Nanum+Brush+Script&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
     rel="stylesheet">
 </head>
+<script>
+  if (localStorage.getItem('admin') === 'false') {
+    window.location.href = './index.php';
+  }
+</script>
 
 <body>
   <div id="barrier">NO DISPONIBLE, POR FAVOR CAMBIE LA RESOLUCION O ENTRE DESDE OTRO DISPOSITIVO</div>
@@ -29,19 +34,19 @@
       <div id="menu-options">
         <div class="menu-option">
           <img class="menu-option-img" src="./imgs/monitor.png" alt="">
-          <a href="./index.php" class="boton">Web</a>
+          <div onclick="window.location.href = 'index.php'" class="boton">Web</div>
         </div>
         <div class="menu-option">
           <img class="menu-option-img" src="./imgs/stock.png" alt="">
-          <a href="./ajuste_stock.php" class="boton">Stock</a>
+          <div onclick="window.location.href = 'ajuste_stock.php'" class="boton">Stock</div>
         </div>
         <div class="menu-option">
           <img class="menu-option-img" src="./imgs/items.png" alt="">
-          <a href="./abm_items.html" class="boton">Items</a>
+          <div onclick="window.location.href = 'abm_items.html'" class="boton">Items</div>
         </div>
         <div class="menu-option">
           <img class="menu-option-img" src="./imgs/usuarios.png" alt="">
-          <a href="./abm_usuarios.html" class="boton">Usuarios</a>
+          <div onclick="window.location.href = 'abm_usuarios.html'" class="boton">Usuarios</div>
         </div>
       </div>
     </div>

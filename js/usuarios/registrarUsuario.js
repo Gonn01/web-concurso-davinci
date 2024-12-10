@@ -15,8 +15,8 @@ document.getElementById('formulario-registro').addEventListener('submit', async 
 
     if (response['success']) {
         Swal.fire({
-            title: "Good job!",
-            text: "You clicked the button!",
+            title: "Exito!",
+            text: "Tu cuenta ha sido creada exitosamente",
             icon: "success",
 
         }).then((result) => {
